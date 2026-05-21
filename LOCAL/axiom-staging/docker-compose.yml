@@ -1,7 +1,7 @@
 version: '3.8'
 services:
   agent-zero-axiom:
-    image: frdel/agent-zero-run:latest
+    image: agent0ai/agent-zero:latest
     container_name: agent-zero-axiom
     ports:
       - "7073:80"
@@ -28,8 +28,8 @@ services:
       - ANYTHINGLLM_URL=http://192.168.1.107:3001
     restart: unless-stopped
     networks:
-      - librarian_default
+      - de-knowledge_librarian-net
 
 networks:
-  librarian_default:
+  de-knowledge_librarian-net:
     external: true
