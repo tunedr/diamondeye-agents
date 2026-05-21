@@ -1,0 +1,35 @@
+version: '3.8'
+services:
+  agent-zero-axiom:
+    image: frdel/agent-zero-run:latest
+    container_name: agent-zero-axiom
+    ports:
+      - "7073:80"
+    volumes:
+      - /home/tunedr/axiom-data:/a0
+      - /home/tunedr/axiom-reports:/reports
+    environment:
+      # Fleet standard — Scout persona (deepseek-r1 for reasoning, qwen2.5 for utility)
+      - CHAT_MODEL=deepseek-r1:latest
+      - CHAT_MODEL_BASE_URL=http://192.168.1.136:11434
+      - UTILITY_MODEL=qwen2.5:7b
+      - UTILITY_MODEL_BASE_URL=http://192.168.1.2:11434
+      - EMBED_MODEL=nomic-embed-text:latest
+      - EMBED_MODEL_BASE_URL=http://192.168.1.2:11434
+      # Codex OAuth — for Deep persona (Branden authenticates after deploy)
+      - OPENAI_API_TYPE=openai
+      - OPENAI_API_BASE=https://api.openai.com/v1
+      # API key placeholder — Codex OAuth fills this after browser auth
+      - OPENAI_API_KEY=USE_OAUTH
+      # Supporting services
+      - GOTENBERG_URL=http://192.168.1.107:3000
+      - PAPERLESS_URL=http://192.168.1.107:8010
+      - LIBRARIAN_URL=http://192.168.1.107:7071
+      - ANYTHINGLLM_URL=http://192.168.1.107:3001
+    restart: unless-stopped
+    networks:
+      - librarian_default
+
+networks:
+  librarian_default:
+    external: true
