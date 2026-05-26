@@ -3,7 +3,7 @@
 # Updated on schedule (target: every 2 hours when Librarian is running).
 # Any AI reading this: treat all fields as verified unless marked [UNVERIFIED].
 # Do not modify this file manually. Do not guess at field values.
-# Last updated: 2026-05-27 (initial skeleton — Claude Code session)
+# Last updated: 2026-05-26 (notion-bridge git fix — Claude Code session)
 
 ---
 
@@ -40,7 +40,7 @@
 | claude-server | VM101 | 9099 | UP (credits_paused=true) | 2026-05-27 |
 | agent-zero | VM101 | 7070 | HEALTHY | 2026-05-27 |
 | n8n Sentinel | VM101 | 5678 | UP (scanner inactive by design) | 2026-05-27 |
-| notion-bridge | VM104 | 9101 internal | HEALTHY | 2026-05-27 |
+| notion-bridge | VM104 | 9101 internal (ext 9102) | HEALTHY (git installed 2026-05-26) | 2026-05-26 |
 | n8n Atlas | VM104 | 5679 | HEALTHY | 2026-05-27 |
 | Atlas Task Scanner | VM104 | n8n workflow Iyts70flbCG4sKub | ACTIVE (re-enabled 2026-05-27) | 2026-05-27 |
 | Atlas Dead Man Monitor | VM104 | n8n workflow | ACTIVE | 2026-05-27 |
@@ -64,7 +64,7 @@
 6. pve-studio Tailscale path broken — Tailscale peer exists (100.99.40.111) but path non-functional. LAN only for now.
 7. VM101 QEMU guest agent — not responding. qm guest exec does not work. Use Tailscale SSH (tunedr@100.91.173.40) only.
 8. Atlas Dead Man Monitor n8n expressions broken — IF node uses {{ .body || }} (should be {{ $json.body }}), Telegram chatId uses {{ .TELEGRAM_CHAT_ID }} (should be {{ $env.TELEGRAM_CHAT_ID }}). Needs 2-field fix in n8n UI at http://192.168.1.19:5679.
-9. notion-bridge git blocker — git not installed in the notion-bridge container. Every dispatched Atlas task fails with FileNotFoundError on git call. Fix: add RUN apt-get install -y git to Dockerfile and rebuild.
+9. [RESOLVED 2026-05-26] notion-bridge git blocker — FIXED. git 2.47.3 installed via apt in docker-compose.yml command; container rebuilt. Atlas task dispatches should no longer fail with FileNotFoundError.
 10. VM106 de-truenas-01 — IPv4 status unknown. DHCP reservation set to .106 (2026-05-25) but VM has no ARP presence. Needs console investigation.
 
 ---
