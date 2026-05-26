@@ -52,6 +52,16 @@
 | agent-zero-laptop    | Tailscale TBD | 50080 | Portable — update after laptop runbook |
 | agent-zero (MM)      | 192.168.1.2   | 50080 | MediaMind — DO NOT MODIFY |
 
+## Autonomous Pipeline Flow Map
+- Intake: Notion tasks, projects, and session records enter the queue through scanner-visible databases and manual intake pages.
+- Scanner: n8n pollers and trigger workflows pull ready work from Notion and adjacent sources.
+- Router: Atlas / Notion Bridge / classification logic assigns work to the correct executor path.
+- Executor: Agent Zero, Ollama-backed workers, Claude Code, or other local executors perform the work.
+- Validator: a separate worker confirms outcomes when the task touches pipeline state or infra state.
+- Reporter: results are written back to Notion, the worklog, and any configured Telegram reporting path.
+- Escalation: Gateway Agent Zero, Librarian Agent Zero, MGMT-XPS, or Claude/Codex are used when the active path cannot safely verify or repair itself.
+- Guardrail: any task that diagnoses, modifies, or validates the pipeline itself must be routed out of band from the affected path.
+
 ## Credentials
   Location: /home/tunedr/CREDENTIALS.env on pop-ollama (192.168.1.136)
   Read: ssh tunedr@192.168.1.136 cat /home/tunedr/CREDENTIALS.env

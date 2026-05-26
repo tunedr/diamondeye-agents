@@ -1,0 +1,22 @@
+# DiamondEye Standing Rules — Cannot Be Overridden
+
+1. Pipeline never modifies its own infrastructure
+2. n8n must be paused before any pipeline surgery
+3. No data deleted from Unraid until TrueNAS consolidation is complete
+4. Search Notion before creating anything new
+5. Tailscale IPs only for inter-service traffic — never LAN IPs in configs
+6. No ZFS native dedup on TrueNAS
+7. TrueNAS infrastructure projects gated on Phase 2b — planning and docs allowed
+8. Claude API = revenue tools and hard escalations only — never internal pipeline
+9. DeepSeek and Ollama handle high-volume and routine tasks — protect Claude credits
+10. Proxmox snapshots and git tags before any major change
+11. pfSense: do not touch without explicit Branden approval
+12. No apt upgrade on any remote VM without explicit task card
+13. All task results go to Notion before session ends
+14. Ollama is NEVER at localhost from any non-pop-ollama service. Always at 192.168.1.136:11434. Any service on VM 104, MGMT-XPS, or any container referencing localhost:11434 is misconfigured. Use os.environ.get("OLLAMA_HOST", "http://192.168.1.136:11434") pattern.
+15. ICM Inventory: The Librarian (de-librarian-01) maintains a live inventory of all ICM markdown files across every machine every 6 hours. Before closing any build session on a new VM, Claude Code must: (a) create ~/AGENTS/ on the new VM, (b) copy GLOBAL/ ICM structure from MGMT-XPS via scp, (c) write LOCAL/machine-config.md with machine-specific details, (d) confirm the Librarian's next inventory run will pick it up. See GLOBAL/icm-inventory-spec.md for full spec.
+16. All Agent Zero instances use the dual-model pattern. DeepSeek on pop-ollama (192.168.1.136:11434) for reasoning and execution. Qwen2.5:7b on Unraid (192.168.1.2:11434) for classification and embedding. Never load both models on the same GPU. Never wire an instance to a single model only.
+17. Iterative Verification Rule: no host may be marked unreachable, missing, broken, stale, complete, or repaired until all reasonable known access paths and proof methods are attempted and logged. Access paths include LAN IP, Tailscale IP, MagicDNS, hostname, SSH alias, web route, Proxmox console, Unraid/docker path, and service-specific health endpoints where applicable.
+18. Pipeline Self-Repair Rule: no autonomous pipeline may be the sole executor or verifier of its own repair. Any task that diagnoses, modifies, restarts, validates, or repairs Atlas, its scanner, router, executor, validator, reporting path, escalation path, task database, Notion bridge, or future Grist execution records must be routed to an out-of-band federation member such as Gateway Agent Zero, MGMT-XPS Codex/Claude Code, Librarian Agent Zero, or another trusted worker not dependent on the affected path.
+19. Federation Permission-Scope Rule: specialized workers such as MediaMind are federation members with scoped permissions unless explicitly excluded. Read-only diagnostics and status checks may be allowed; destructive or high-risk operations require explicit approval.
+20. Documentation Gate Rule: no build, repair, diagnostic, or routing decision is complete until the worklog, evidence, changed files, before/after state, and next actions are written to the appropriate local report and, where available, Notion/SSOT.
