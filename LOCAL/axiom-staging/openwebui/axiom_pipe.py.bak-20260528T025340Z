@@ -1,0 +1,353 @@
+"""
+---
+name: axiom-diamondeye-investigator
+type: pipe
+display_name: AXIOM DiamondEye Investigator
+description: Four-layer AXIOM pipeline: Codex planner, Agent Zero executor, Codex validator, Codex compiler.
+---
+"""
+
+from __future__ import annotations
+
+import json
+import os
+import re
+from datetime import datetime, timezone
+from typing import Any, Dict, List
+
+import httpx
+from pydantic import BaseModel, Field
+
+
+class Pipe:
+    class Valves(BaseModel):
+        NAME: str = Field(
+            default="AXIOM DiamondEye Investigator",
+            description="Display name in OpenWebUI.",
+        )
+        OPENAI_API_BASE_URL: str = Field(
+            default="https://api.openai.com/v1",
+            description="OpenAI-compatible API base for Codex layers.",
+        )
+        OPENAI_API_KEY: str = Field(default="", description="OAuth-backed API key or service token.")
+        PLANNER_MODEL: str = Field(default="gpt-5.2")
+        VALIDATOR_MODEL: str = Field(default="gpt-5.2")
+        COMPILER_MODEL: str = Field(default="gpt-5.2")
+        EXECUTOR_URL: str = Field(default="http://agent-zero-axiom:80/api/message")
+        GOTENBERG_URL: str = Field(
+            default="http://librarian-gotenberg:3000/forms/chromium/convert/html"
+        )
+        PAPERLESS_URL: str = Field(
+            default="http://paperless-ngx:8000/api/documents/post_document/"
+        )
+        PAPERLESS_AXIOM_TOKEN: str = Field(default="")
+        DE_ATLAS_BOT_TOKEN: str = Field(default="")
+        DE_ATLAS_CHAT_ID: str = Field(default="")
+        MAX_TASKS: int = Field(default=12, ge=1, le=50)
+
+    def __init__(self):
+        self.valves = self.Valves()
+
+    def pipes(self):
+        return [{"id": "axiom-diamondeye-investigator", "name": self.valves.NAME}]
+
+    async def pipe(self, body: dict):
+        request_text = self._extract_user_message(body)
+        if not request_text:
+            return "AXIOM requires a user request."
+
+        async with httpx.AsyncClient(timeout=90.0) as client:
+            plan = await self._call_codex(
+                client,
+                model=self.valves.PLANNER_MODEL,
+                system_prompt=self._planner_prompt(),
+                user_prompt=request_text,
+            )
+            atomic_tasks = self._parse_atomic_tasks(plan, request_text)
+            executor_results = await self._run_executor(client, atomic_tasks)
+
+            validation_input = self._build_validation_payload(
+                request_text=request_text,
+                plan=plan,
+                executor_results=executor_results,
+            )
+            validated = await self._call_codex(
+                client,
+                model=self.valves.VALIDATOR_MODEL,
+                system_prompt=self._validator_prompt(),
+                user_prompt=validation_input,
+            )
+
+            if self._contains_ofac_match(validated, executor_results):
+                await self._send_telegram(
+                    client, self._format_ofac_message(validated, executor_results)
+                )
+
+            compiled_html = await self._call_codex(
+                client,
+                model=self.valves.COMPILER_MODEL,
+                system_prompt=self._compiler_prompt(),
+                user_prompt=self._build_compiler_payload(
+                    request_text=request_text,
+                    plan=plan,
+                    executor_results=executor_results,
+                    validated=validated,
+                ),
+            )
+            archive_status = await self._archive_report(client, compiled_html)
+
+        return self._render_response(plan, executor_results, validated, archive_status)
+
+    def _extract_user_message(self, body: dict) -> str:
+        messages = body.get("messages") or []
+        for message in reversed(messages):
+            if message.get("role") != "user":
+                continue
+            content = message.get("content", "")
+            if isinstance(content, list):
+                return " ".join(
+                    part.get("text", "")
+                    for part in content
+                    if isinstance(part, dict)
+                ).strip()
+            return str(content).strip()
+        return str(body.get("prompt") or body.get("input") or "").strip()
+
+    def _planner_prompt(self) -> str:
+        return (
+            "You are the Codex Planner for AXIOM.\n"
+            "Decompose the request into atomic search tasks only.\n"
+            "Return strict JSON with keys: case_reference, subject, atomic_tasks, notes.\n"
+            "Each atomic task must contain: source, search_term, expected_output, task.\n"
+            "Do not search. Do not write a report."
+        )
+
+    def _validator_prompt(self) -> str:
+        return (
+            "You are the Codex Validator for AXIOM.\n"
+            "Classify each finding as VERIFIED, PARTIAL, UNVERIFIED, or CONTRADICTED.\n"
+            "Flag OFAC or sanctions matches immediately.\n"
+            "Return a concise validation brief with the classifications and issues."
+        )
+
+    def _compiler_prompt(self) -> str:
+        return (
+            "You are the Codex Compiler for AXIOM.\n"
+            "Produce a professional HTML report from the validated findings.\n"
+            "Include an executive summary, claims analysis, contradictions, audit log, and disclaimer.\n"
+            "Return HTML only."
+        )
+
+    async def _call_codex(
+        self,
+        client: httpx.AsyncClient,
+        *,
+        model: str,
+        system_prompt: str,
+        user_prompt: str,
+    ) -> str:
+        payload = {
+            "model": model,
+            "messages": [
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": user_prompt},
+            ],
+            "temperature": 0.1,
+        }
+        headers = {}
+        if self.valves.OPENAI_API_KEY:
+            headers["Authorization"] = f"Bearer {self.valves.OPENAI_API_KEY}"
+
+        response = await client.post(
+            f"{self.valves.OPENAI_API_BASE_URL.rstrip('/')}/chat/completions",
+            json=payload,
+            headers=headers,
+        )
+        response.raise_for_status()
+        data = response.json()
+        try:
+            return data["choices"][0]["message"]["content"].strip()
+        except Exception:
+            return json.dumps(data, indent=2)
+
+    def _parse_atomic_tasks(self, plan_text: str, request_text: str) -> List[Dict[str, Any]]:
+        tasks: List[Dict[str, Any]] = []
+        parsed = self._maybe_parse_json(plan_text)
+        if isinstance(parsed, dict):
+            raw_tasks = parsed.get("atomic_tasks") or []
+            if isinstance(raw_tasks, list):
+                for entry in raw_tasks:
+                    if isinstance(entry, dict):
+                        tasks.append(
+                            {
+                                "source": str(entry.get("source", "")).strip(),
+                                "search_term": str(entry.get("search_term", "")).strip(),
+                                "expected_output": str(entry.get("expected_output", "")).strip(),
+                                "task": str(entry.get("task", "")).strip(),
+                            }
+                        )
+        if not tasks:
+            tasks.append(
+                {
+                    "source": "request",
+                    "search_term": request_text,
+                    "expected_output": "raw finding",
+                    "task": request_text,
+                }
+            )
+        return tasks[: self.valves.MAX_TASKS]
+
+    async def _run_executor(
+        self, client: httpx.AsyncClient, tasks: List[Dict[str, Any]]
+    ) -> List[Dict[str, Any]]:
+        results: List[Dict[str, Any]] = []
+        for task in tasks:
+            try:
+                response = await client.post(
+                    self.valves.EXECUTOR_URL,
+                    json={"message": task.get("task", ""), "source": task.get("source", "")},
+                )
+                results.append(
+                    {
+                        "task": task,
+                        "status": "ok" if response.status_code < 400 else "error",
+                        "http_status": response.status_code,
+                        "result": response.text.strip(),
+                    }
+                )
+            except Exception as exc:
+                results.append(
+                    {
+                        "task": task,
+                        "status": "error",
+                        "error": str(exc),
+                        "result": "",
+                    }
+                )
+        return results
+
+    def _build_validation_payload(
+        self,
+        *,
+        request_text: str,
+        plan: str,
+        executor_results: List[Dict[str, Any]],
+    ) -> str:
+        return json.dumps(
+            {
+                "request": request_text,
+                "planner_output": plan,
+                "executor_results": executor_results,
+            },
+            indent=2,
+        )
+
+    def _build_compiler_payload(
+        self,
+        *,
+        request_text: str,
+        plan: str,
+        executor_results: List[Dict[str, Any]],
+        validated: str,
+    ) -> str:
+        return json.dumps(
+            {
+                "request": request_text,
+                "planner_output": plan,
+                "executor_results": executor_results,
+                "validated_brief": validated,
+            },
+            indent=2,
+        )
+
+    def _maybe_parse_json(self, text: str) -> Any:
+        try:
+            return json.loads(text)
+        except Exception:
+            match = re.search(r"\{.*\}", text, re.DOTALL)
+            if not match:
+                return None
+            try:
+                return json.loads(match.group(0))
+            except Exception:
+                return None
+
+    def _contains_ofac_match(self, validated: str, executor_results: List[Dict[str, Any]]) -> bool:
+        haystack = [validated.lower()]
+        haystack.extend(str(item.get("result", "")).lower() for item in executor_results)
+        return any("ofac" in chunk or "sanctions" in chunk for chunk in haystack)
+
+    def _format_ofac_message(self, validated: str, executor_results: List[Dict[str, Any]]) -> str:
+        lines = [
+            "AXIOM OFAC alert",
+            f"Time: {datetime.now(timezone.utc).isoformat()}",
+            "Validated text:",
+            validated[:1200],
+            "Executor results:",
+        ]
+        for item in executor_results[:5]:
+            task = item.get("task", {})
+            lines.append(f"- {task.get('task', 'task')}: {str(item.get('result', ''))[:300]}")
+        return "\n".join(lines)
+
+    async def _send_telegram(self, client: httpx.AsyncClient, message: str) -> None:
+        if not self.valves.DE_ATLAS_BOT_TOKEN or not self.valves.DE_ATLAS_CHAT_ID:
+            return
+        await client.post(
+            f"https://api.telegram.org/bot{self.valves.DE_ATLAS_BOT_TOKEN}/sendMessage",
+            json={"chat_id": self.valves.DE_ATLAS_CHAT_ID, "text": message[:3900]},
+        )
+
+    async def _archive_report(self, client: httpx.AsyncClient, html: str) -> Dict[str, Any]:
+        archive: Dict[str, Any] = {"html": "generated"}
+        try:
+            response = await client.post(
+                self.valves.GOTENBERG_URL,
+                files={"index.html": ("index.html", html.encode("utf-8"), "text/html")},
+            )
+            archive["gotenberg_status"] = response.status_code
+            if response.status_code < 400:
+                pdf_bytes = response.content
+                token = self.valves.PAPERLESS_AXIOM_TOKEN or os.getenv("PAPERLESS_AXIOM_TOKEN", "")
+                if token:
+                    paperless = await client.post(
+                        self.valves.PAPERLESS_URL,
+                        headers={"Authorization": f"Token {token}"},
+                        files={"document": ("axiom-report.pdf", pdf_bytes, "application/pdf")},
+                        data={"title": "AXIOM report", "tags": "axiom,research"},
+                    )
+                    archive["paperless_status"] = paperless.status_code
+        except Exception as exc:
+            archive["error"] = str(exc)
+        return archive
+
+    def _render_response(
+        self,
+        plan: str,
+        executor_results: List[Dict[str, Any]],
+        validated: str,
+        archive_status: Dict[str, Any],
+    ) -> str:
+        summary = [
+            "AXIOM pipeline complete.",
+            "",
+            "Planner output:",
+            plan[:1500],
+            "",
+            "Executor results:",
+        ]
+        for item in executor_results:
+            task = item.get("task", {})
+            summary.append(
+                f"- {task.get('source', 'source')} | {task.get('task', 'task')} | {item.get('status', 'unknown')}"
+            )
+        summary.extend(
+            [
+                "",
+                "Validator output:",
+                validated[:1500],
+                "",
+                f"Archive status: {json.dumps(archive_status, indent=2)}",
+            ]
+        )
+        return "\n".join(summary)
