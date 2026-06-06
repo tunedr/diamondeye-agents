@@ -27,13 +27,26 @@
 ## Ollama Instances
 | Host       | IP                  | Purpose |
 |------------|---------------------|---------|
-| pop-ollama | 192.168.1.136:11434 | CHAT model (deepseek-r1) for all fleet agents |
-| Unraid     | 192.168.1.2:11434   | UTILITY (qwen2.5) + EMBED (nomic-embed) for all fleet agents; ALL tiers for MediaMind |
+| pop-ollama | 192.168.1.136:11434 | CODING model (qwen2.5-coder:7b) for fleet agents |
+| Unraid     | 192.168.1.2:11434   | CHAT (llama3.2) + EMBED (nomic-embed) for fleet agents; ALL tiers for MediaMind |
 
-## Fleet Model Routing — ALL Agent Zero instances except MediaMind
-  CHAT:    deepseek-r1:latest      @ http://192.168.1.136:11434
-  UTILITY: qwen2.5:7b              @ http://192.168.1.2:11434
+## Fleet Model Routing — ALL Agent Zero and Hermes instances except MediaMind
+  CHAT:    llama3.2:latest         @ http://192.168.1.2:11434
+  UTILITY: qwen2.5-coder:7b       @ http://192.168.1.136:11434
   EMBED:   nomic-embed-text:latest @ http://192.168.1.2:11434
+
+## Hermes Profile Routing — VM 107
+  librarian:  llama3.2:latest   @ http://192.168.1.2:11434/v1    (port 8642)
+  apollo:     llama3.2:latest   @ http://192.168.1.2:11434/v1    (port 8643)
+  truth-lens: llama3.2:latest   @ http://192.168.1.2:11434/v1    (port 8644)
+  coder:      qwen2.5-coder:7b  @ http://192.168.1.136:11434/v1  (port 8645, context_length override: 32768)
+
+## Model Change Log
+  2026-06-05: Changed from deepseek-r1/qwen2.5 to llama3.2/qwen2.5-coder.
+  Reason: deepseek-r1 does not support tools API (required by Hermes Agent).
+  qwen2.5:7b context window (32K) below Hermes minimum (64K).
+  llama3.2:latest (131K ctx, tools supported) and qwen2.5-coder:7b (32K ctx, tools supported)
+  are the new fleet standard. Authorized by Branden on 2026-06-05.
 
 ## OpenClaw Model Routing — ALL OpenClaw instances
   Chat:     Codex OAuth (ChatGPT Plus, gpt-4o)
