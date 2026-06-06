@@ -39,7 +39,7 @@
   librarian:  llama3.2:latest   @ http://192.168.1.2:11434/v1    (port 8642)
   apollo:     llama3.2:latest   @ http://192.168.1.2:11434/v1    (port 8643)
   truth-lens: llama3.2:latest   @ http://192.168.1.2:11434/v1    (port 8644)
-  coder:      qwen2.5-coder:7b  @ http://192.168.1.136:11434/v1  (port 8645, context_length override: 32768)
+  coder:      qwen2.5-coder:7b  @ http://192.168.1.136:11434/v1  (port 8645, context_length override: 65536)
 
 ## Model Change Log
   2026-06-05: Changed from deepseek-r1/qwen2.5 to llama3.2/qwen2.5-coder.
