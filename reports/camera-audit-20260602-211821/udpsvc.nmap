@@ -1,0 +1,242 @@
+# Nmap 7.94SVN scan initiated Tue Jun  2 21:23:08 2026 as: nmap -Pn -sU -n -T4 --max-retries 1 --host-timeout 45s --script upnp-info -p 1900,3702,5353 -iL /home/tunedr/AGENTS/reports/camera-audit-20260602-211821/arp-hosts.txt -oA /home/tunedr/AGENTS/reports/camera-audit-20260602-211821/udpsvc
+Nmap scan report for 192.168.1.1
+Host is up.
+
+PORT     STATE         SERVICE
+1900/udp open|filtered upnp
+3702/udp open|filtered ws-discovery
+5353/udp open|filtered zeroconf
+
+Nmap scan report for 192.168.1.100
+Host is up.
+
+PORT     STATE         SERVICE
+1900/udp open|filtered upnp
+3702/udp open|filtered ws-discovery
+5353/udp open|filtered zeroconf
+
+Nmap scan report for 192.168.1.103
+Host is up.
+
+PORT     STATE         SERVICE
+1900/udp open|filtered upnp
+3702/udp open|filtered ws-discovery
+5353/udp open|filtered zeroconf
+
+Nmap scan report for 192.168.1.106
+Host is up (0.0015s latency).
+
+PORT     STATE         SERVICE
+1900/udp open|filtered upnp
+3702/udp open|filtered ws-discovery
+5353/udp open          zeroconf
+
+Nmap scan report for 192.168.1.107
+Host is up.
+
+PORT     STATE         SERVICE
+1900/udp open|filtered upnp
+3702/udp open|filtered ws-discovery
+5353/udp open|filtered zeroconf
+
+Nmap scan report for 192.168.1.108
+Host is up.
+
+PORT     STATE         SERVICE
+1900/udp open|filtered upnp
+3702/udp open|filtered ws-discovery
+5353/udp open|filtered zeroconf
+
+Nmap scan report for 192.168.1.136
+Host is up.
+
+PORT     STATE         SERVICE
+1900/udp open|filtered upnp
+3702/udp open|filtered ws-discovery
+5353/udp open|filtered zeroconf
+
+Nmap scan report for 192.168.1.150
+Host is up (0.014s latency).
+
+PORT     STATE         SERVICE
+1900/udp open|filtered upnp
+3702/udp open|filtered ws-discovery
+5353/udp open          zeroconf
+
+Nmap scan report for 192.168.1.152
+Host is up (0.0016s latency).
+
+PORT     STATE         SERVICE
+1900/udp open|filtered upnp
+3702/udp open|filtered ws-discovery
+5353/udp open          zeroconf
+
+Nmap scan report for 192.168.1.154
+Host is up (0.0027s latency).
+
+PORT     STATE         SERVICE
+1900/udp open          upnp
+| upnp-info: 
+| 192.168.1.154
+|     Server: Linux/2.6.33-rc4 UPnP/1.0 MediabolicUPnP/1.8.225
+|_    Location: http://192.168.1.154:8888/upnp_descriptor_0
+3702/udp open|filtered ws-discovery
+5353/udp open          zeroconf
+
+Nmap scan report for 192.168.1.157
+Host is up.
+
+PORT     STATE         SERVICE
+1900/udp open|filtered upnp
+3702/udp open|filtered ws-discovery
+5353/udp open|filtered zeroconf
+
+Nmap scan report for 192.168.1.158
+Host is up.
+
+PORT     STATE         SERVICE
+1900/udp open|filtered upnp
+3702/udp open|filtered ws-discovery
+5353/udp open|filtered zeroconf
+
+Nmap scan report for 192.168.1.16
+Host is up.
+
+PORT     STATE         SERVICE
+1900/udp open|filtered upnp
+3702/udp open|filtered ws-discovery
+5353/udp open|filtered zeroconf
+
+Nmap scan report for 192.168.1.162
+Host is up.
+
+PORT     STATE         SERVICE
+1900/udp open|filtered upnp
+3702/udp open|filtered ws-discovery
+5353/udp open|filtered zeroconf
+
+Nmap scan report for 192.168.1.178
+Host is up.
+
+PORT     STATE         SERVICE
+1900/udp open|filtered upnp
+3702/udp open|filtered ws-discovery
+5353/udp open|filtered zeroconf
+
+Nmap scan report for 192.168.1.186
+Host is up.
+
+PORT     STATE         SERVICE
+1900/udp open|filtered upnp
+3702/udp open|filtered ws-discovery
+5353/udp open|filtered zeroconf
+
+Nmap scan report for 192.168.1.19
+Host is up.
+
+PORT     STATE         SERVICE
+1900/udp open|filtered upnp
+3702/udp open|filtered ws-discovery
+5353/udp open|filtered zeroconf
+
+Nmap scan report for 192.168.1.196
+Host is up (0.0047s latency).
+
+PORT     STATE         SERVICE
+1900/udp open|filtered upnp
+3702/udp open|filtered ws-discovery
+5353/udp open          zeroconf
+
+Nmap scan report for 192.168.1.2
+Host is up (0.029s latency).
+
+PORT     STATE         SERVICE
+1900/udp open|filtered upnp
+3702/udp open|filtered ws-discovery
+5353/udp open          zeroconf
+
+Nmap scan report for 192.168.1.230
+Host is up.
+
+PORT     STATE         SERVICE
+1900/udp open          upnp
+| upnp-info: 
+| 192.168.1.230
+|     Server: Linux/3.0.82-grsec, UPnP/1.0, Portable SDK for UPnP devices/1.6.13
+|_    Location: http://192.168.1.230:9080
+3702/udp open|filtered ws-discovery
+5353/udp open|filtered zeroconf
+
+Nmap scan report for 192.168.1.32
+Host is up.
+
+PORT     STATE         SERVICE
+1900/udp open|filtered upnp
+3702/udp open|filtered ws-discovery
+5353/udp open|filtered zeroconf
+
+Nmap scan report for 192.168.1.36
+Host is up.
+
+PORT     STATE         SERVICE
+1900/udp open|filtered upnp
+3702/udp open|filtered ws-discovery
+5353/udp open|filtered zeroconf
+
+Nmap scan report for 192.168.1.4
+Host is up.
+
+PORT     STATE         SERVICE
+1900/udp open|filtered upnp
+3702/udp open|filtered ws-discovery
+5353/udp open|filtered zeroconf
+
+Nmap scan report for 192.168.1.48
+Host is up.
+
+PORT     STATE         SERVICE
+1900/udp open|filtered upnp
+3702/udp open|filtered ws-discovery
+5353/udp open|filtered zeroconf
+
+Nmap scan report for 192.168.1.55
+Host is up.
+
+PORT     STATE         SERVICE
+1900/udp open|filtered upnp
+3702/udp open|filtered ws-discovery
+5353/udp open|filtered zeroconf
+
+Nmap scan report for 192.168.1.58
+Host is up.
+
+PORT     STATE         SERVICE
+1900/udp open|filtered upnp
+3702/udp open|filtered ws-discovery
+5353/udp open|filtered zeroconf
+
+Nmap scan report for 192.168.1.71
+Host is up.
+
+PORT     STATE         SERVICE
+1900/udp open|filtered upnp
+3702/udp open|filtered ws-discovery
+5353/udp open|filtered zeroconf
+
+Nmap scan report for 192.168.1.73
+Host is up.
+
+PORT     STATE         SERVICE
+1900/udp open|filtered upnp
+3702/udp open|filtered ws-discovery
+5353/udp open|filtered zeroconf
+
+Nmap scan report for 192.168.1.97
+Host is up.
+
+PORT     STATE         SERVICE
+1900/udp open|filtered upnp
+3702/udp open|filtered ws-discovery
+5353/udp open|filtered zeroconf
+
+# Nmap done at Tue Jun  2 21:23:20 2026 -- 29 IP addresses (29 hosts up) scanned in 12.08 seconds

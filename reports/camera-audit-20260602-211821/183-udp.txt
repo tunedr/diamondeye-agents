@@ -1,0 +1,12 @@
+# Nmap 7.94SVN scan initiated Tue Jun  2 21:39:40 2026 as: nmap -Pn -n -sU -sV --version-light --script upnp-info -p 8001,1900,5353,3702 -oN /home/tunedr/AGENTS/reports/camera-audit-20260602-211821/183-udp.txt 192.168.1.183
+Nmap scan report for 192.168.1.183
+Host is up.
+
+PORT     STATE         SERVICE      VERSION
+1900/udp open|filtered upnp
+3702/udp open|filtered ws-discovery
+5353/udp open|filtered zeroconf
+8001/udp open|filtered vcom-tunnel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Tue Jun  2 21:40:18 2026 -- 1 IP address (1 host up) scanned in 38.31 seconds

@@ -1,0 +1,60 @@
+# Nmap 7.94SVN scan initiated Tue Jun  2 21:23:08 2026 as: nmap -Pn -sU -n -T4 --max-retries 1 --host-timeout 45s --script upnp-info -p 1900,3702,5353 -iL /home/tunedr/AGENTS/reports/camera-audit-20260602-211821/arp-hosts.txt -oA /home/tunedr/AGENTS/reports/camera-audit-20260602-211821/udpsvc
+Host: 192.168.1.1 ()	Status: Up
+Host: 192.168.1.1 ()	Ports: 1900/open|filtered/udp//upnp///, 3702/open|filtered/udp//ws-discovery///, 5353/open|filtered/udp//zeroconf///
+Host: 192.168.1.100 ()	Status: Up
+Host: 192.168.1.100 ()	Ports: 1900/open|filtered/udp//upnp///, 3702/open|filtered/udp//ws-discovery///, 5353/open|filtered/udp//zeroconf///
+Host: 192.168.1.103 ()	Status: Up
+Host: 192.168.1.103 ()	Ports: 1900/open|filtered/udp//upnp///, 3702/open|filtered/udp//ws-discovery///, 5353/open|filtered/udp//zeroconf///
+Host: 192.168.1.106 ()	Status: Up
+Host: 192.168.1.106 ()	Ports: 1900/open|filtered/udp//upnp///, 3702/open|filtered/udp//ws-discovery///, 5353/open/udp//zeroconf///
+Host: 192.168.1.107 ()	Status: Up
+Host: 192.168.1.107 ()	Ports: 1900/open|filtered/udp//upnp///, 3702/open|filtered/udp//ws-discovery///, 5353/open|filtered/udp//zeroconf///
+Host: 192.168.1.108 ()	Status: Up
+Host: 192.168.1.108 ()	Ports: 1900/open|filtered/udp//upnp///, 3702/open|filtered/udp//ws-discovery///, 5353/open|filtered/udp//zeroconf///
+Host: 192.168.1.136 ()	Status: Up
+Host: 192.168.1.136 ()	Ports: 1900/open|filtered/udp//upnp///, 3702/open|filtered/udp//ws-discovery///, 5353/open|filtered/udp//zeroconf///
+Host: 192.168.1.150 ()	Status: Up
+Host: 192.168.1.150 ()	Ports: 1900/open|filtered/udp//upnp///, 3702/open|filtered/udp//ws-discovery///, 5353/open/udp//zeroconf///
+Host: 192.168.1.152 ()	Status: Up
+Host: 192.168.1.152 ()	Ports: 1900/open|filtered/udp//upnp///, 3702/open|filtered/udp//ws-discovery///, 5353/open/udp//zeroconf///
+Host: 192.168.1.154 ()	Status: Up
+Host: 192.168.1.154 ()	Ports: 1900/open/udp//upnp///, 3702/open|filtered/udp//ws-discovery///, 5353/open/udp//zeroconf///
+Host: 192.168.1.157 ()	Status: Up
+Host: 192.168.1.157 ()	Ports: 1900/open|filtered/udp//upnp///, 3702/open|filtered/udp//ws-discovery///, 5353/open|filtered/udp//zeroconf///
+Host: 192.168.1.158 ()	Status: Up
+Host: 192.168.1.158 ()	Ports: 1900/open|filtered/udp//upnp///, 3702/open|filtered/udp//ws-discovery///, 5353/open|filtered/udp//zeroconf///
+Host: 192.168.1.16 ()	Status: Up
+Host: 192.168.1.16 ()	Ports: 1900/open|filtered/udp//upnp///, 3702/open|filtered/udp//ws-discovery///, 5353/open|filtered/udp//zeroconf///
+Host: 192.168.1.162 ()	Status: Up
+Host: 192.168.1.162 ()	Ports: 1900/open|filtered/udp//upnp///, 3702/open|filtered/udp//ws-discovery///, 5353/open|filtered/udp//zeroconf///
+Host: 192.168.1.178 ()	Status: Up
+Host: 192.168.1.178 ()	Ports: 1900/open|filtered/udp//upnp///, 3702/open|filtered/udp//ws-discovery///, 5353/open|filtered/udp//zeroconf///
+Host: 192.168.1.186 ()	Status: Up
+Host: 192.168.1.186 ()	Ports: 1900/open|filtered/udp//upnp///, 3702/open|filtered/udp//ws-discovery///, 5353/open|filtered/udp//zeroconf///
+Host: 192.168.1.19 ()	Status: Up
+Host: 192.168.1.19 ()	Ports: 1900/open|filtered/udp//upnp///, 3702/open|filtered/udp//ws-discovery///, 5353/open|filtered/udp//zeroconf///
+Host: 192.168.1.196 ()	Status: Up
+Host: 192.168.1.196 ()	Ports: 1900/open|filtered/udp//upnp///, 3702/open|filtered/udp//ws-discovery///, 5353/open/udp//zeroconf///
+Host: 192.168.1.2 ()	Status: Up
+Host: 192.168.1.2 ()	Ports: 1900/open|filtered/udp//upnp///, 3702/open|filtered/udp//ws-discovery///, 5353/open/udp//zeroconf///
+Host: 192.168.1.230 ()	Status: Up
+Host: 192.168.1.230 ()	Ports: 1900/open/udp//upnp///, 3702/open|filtered/udp//ws-discovery///, 5353/open|filtered/udp//zeroconf///
+Host: 192.168.1.32 ()	Status: Up
+Host: 192.168.1.32 ()	Ports: 1900/open|filtered/udp//upnp///, 3702/open|filtered/udp//ws-discovery///, 5353/open|filtered/udp//zeroconf///
+Host: 192.168.1.36 ()	Status: Up
+Host: 192.168.1.36 ()	Ports: 1900/open|filtered/udp//upnp///, 3702/open|filtered/udp//ws-discovery///, 5353/open|filtered/udp//zeroconf///
+Host: 192.168.1.4 ()	Status: Up
+Host: 192.168.1.4 ()	Ports: 1900/open|filtered/udp//upnp///, 3702/open|filtered/udp//ws-discovery///, 5353/open|filtered/udp//zeroconf///
+Host: 192.168.1.48 ()	Status: Up
+Host: 192.168.1.48 ()	Ports: 1900/open|filtered/udp//upnp///, 3702/open|filtered/udp//ws-discovery///, 5353/open|filtered/udp//zeroconf///
+Host: 192.168.1.55 ()	Status: Up
+Host: 192.168.1.55 ()	Ports: 1900/open|filtered/udp//upnp///, 3702/open|filtered/udp//ws-discovery///, 5353/open|filtered/udp//zeroconf///
+Host: 192.168.1.58 ()	Status: Up
+Host: 192.168.1.58 ()	Ports: 1900/open|filtered/udp//upnp///, 3702/open|filtered/udp//ws-discovery///, 5353/open|filtered/udp//zeroconf///
+Host: 192.168.1.71 ()	Status: Up
+Host: 192.168.1.71 ()	Ports: 1900/open|filtered/udp//upnp///, 3702/open|filtered/udp//ws-discovery///, 5353/open|filtered/udp//zeroconf///
+Host: 192.168.1.73 ()	Status: Up
+Host: 192.168.1.73 ()	Ports: 1900/open|filtered/udp//upnp///, 3702/open|filtered/udp//ws-discovery///, 5353/open|filtered/udp//zeroconf///
+Host: 192.168.1.97 ()	Status: Up
+Host: 192.168.1.97 ()	Ports: 1900/open|filtered/udp//upnp///, 3702/open|filtered/udp//ws-discovery///, 5353/open|filtered/udp//zeroconf///
+# Nmap done at Tue Jun  2 21:23:20 2026 -- 29 IP addresses (29 hosts up) scanned in 12.08 seconds

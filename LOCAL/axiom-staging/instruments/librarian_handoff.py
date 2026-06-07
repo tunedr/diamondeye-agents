@@ -4,10 +4,11 @@ Archives completed investigation reports to Paperless-ngx
 and notifies Librarian Agent Zero for knowledge base integration.
 """
 
-import requests
-import subprocess
 import os
+import subprocess
 from datetime import datetime
+
+import requests
 
 def handoff_to_librarian(
     case_id: str,
@@ -44,7 +45,7 @@ def handoff_to_librarian(
     try:
         with open(html_path, 'rb') as html_file:
             r = requests.post(
-                "http://192.168.1.107:3000/forms/chromium/convert/html",
+                "http://librarian-gotenberg:3000/forms/chromium/convert/html",
                 files={"index.html": html_file},
                 timeout=60
             )
@@ -58,13 +59,13 @@ def handoff_to_librarian(
         results['pdf_error'] = str(e)
 
     # Step 3: Archive to Paperless-ngx
-    paperless_token = _get_credential('PAPERLESS_TOKEN')
+    paperless_token = _get_credential('PAPERLESS_AXIOM_TOKEN')
     if paperless_token and os.path.exists(pdf_path):
         try:
             subject_tag = subject_name.split()[-1].lower()
             with open(pdf_path, 'rb') as pdf_file:
                 r = requests.post(
-                    "http://192.168.1.107:8010/api/documents/post_document/",
+                    "http://paperless-ngx:8000/api/documents/post_document/",
                     headers={"Authorization": f"Token {paperless_token}"},
                     files={"document": (f"{case_id}.pdf", pdf_file, "application/pdf")},
                     data={
@@ -81,7 +82,7 @@ def handoff_to_librarian(
     try:
         contradictions_text = "\n".join(contradictions[:3]) if contradictions else "None"
         r = requests.post(
-            "http://192.168.1.107:7071/api/message",
+            "http://agent-zero-librarian:80/api/message",
             json={
                 "message": f"Archive AXIOM case {case_id} — Subject: {subject_name} — "
                           f"Report at /reports/{case_id}.pdf — "
@@ -95,8 +96,8 @@ def handoff_to_librarian(
         results['librarian_error'] = str(e)
 
     # Step 5: Telegram notification
-    bot_token = _get_credential('TELEGRAM_BOT_TOKEN')
-    chat_id = _get_credential('TELEGRAM_CHAT_ID')
+    bot_token = _get_credential('DE_ATLAS_BOT_TOKEN')
+    chat_id = _get_credential('DE_ATLAS_CHAT_ID')
     if bot_token and chat_id:
         verified = claim_counts.get('verified', 0)
         contradicted = claim_counts.get('contradicted', 0)

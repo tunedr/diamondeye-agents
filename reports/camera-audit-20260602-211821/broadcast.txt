@@ -1,0 +1,171 @@
+# Nmap 7.94SVN scan initiated Tue Jun  2 21:38:14 2026 as: nmap -sn -n --script broadcast-upnp-info,broadcast-dns-service-discovery,broadcast-wsdd-discover -e enp3s0 -oN /home/tunedr/AGENTS/reports/camera-audit-20260602-211821/broadcast.txt
+Pre-scan script results:
+| broadcast-upnp-info: 
+|   239.255.255.250
+|       Server: Linux/2.6.33-rc4 UPnP/1.0 MediabolicUPnP/1.8.225
+|       Location: http://192.168.1.154:8888/upnp_descriptor_0
+|         Webserver: MediabolicMWEB/1.8.225
+|         Name: TX-NR636
+|         Manufacturer: ONKYO
+|         Model Descr: AV Receiver
+|         Model Name: TX-NR636
+|_        Model Version: TX-NR636
+| broadcast-dns-service-discovery: 
+|   224.0.0.251
+|     22/tcp sftp-ssh
+|       Address=192.168.1.2
+|     22/tcp ssh
+|       Address=192.168.1.2
+|     80/tcp http
+|       Address=192.168.1.106 2600:6c67:8940:ebe:be24:11ff:fe2f:a0c0
+|     445/tcp smb
+|       Address=192.168.1.2
+|     7000/tcp raop
+|       cn=0,1,2,3
+|       da=true
+|       et=0,3,5
+|       ft=0x4A7FDFD5,0x3C177FDE
+|       sf=0x100644
+|       md=0,1,2
+|       am=AppleTV6,2
+|       pk=b77c2c24fdefb27a1e2a52a318fa65efb9c4cf73f8cabc7947d96e8d8a3e3f44
+|       tp=UDP
+|       vn=65537
+|       vs=950.7.1
+|       ov=26.5
+|       vv=1
+|       Address=192.168.1.169 fe80::8a8:8e23:2cc6:9c60
+|     7000/tcp airplay
+|       acl=0
+|       btaddr=7A:03:B5:26:F4:B0
+|       deviceid=AA:9C:94:AE:B8:15
+|       fex=1d9/St5/Fzw4oY58
+|       features=0x4A7FDFD5,0x3C177FDE
+|       flags=0x100644
+|       gid=65B8FE3A-C5E2-4A5D-97C6-DA1C1F144ECB
+|       igl=1
+|       gcgl=1
+|       model=AppleTV6,2
+|       protovers=1.1
+|       pi=9547649d-9d9d-420e-b246-35b97541a636
+|       psi=AB9C94AE-B815-49B1-9372-1228A1670890
+|       pk=b77c2c24fdefb27a1e2a52a318fa65efb9c4cf73f8cabc7947d96e8d8a3e3f44
+|       srcvers=950.7.1
+|       osvers=26.5
+|       vv=1
+|       model=J105aAP
+|       Address=192.168.1.169 fe80::8a8:8e23:2cc6:9c60
+|     8009/tcp googlecast
+|       id=e99dcfa77342c715c0b656c0985d6eec
+|       cd=792D83640E2E9FFE095CA0DCD8618099
+|       rm=
+|       ve=05
+|       md=Google Home Mini
+|       ic=/setup/icon.png
+|       fn=My Bathroom speaker
+|       ca=199172
+|       st=0
+|       bs=FA8FCA8F5CF5
+|       nf=1
+|       rs=
+|       Address=192.168.1.188
+|     8080/tcp spotify-connect
+|       CPath=/SpotifyConnect
+|       Address=192.168.1.154
+|     8095/tcp mass
+|       server_id=151b49a84cab4afb9a48231b8eb23c5e
+|       server_version=2.8.6
+|       schema_version=29
+|       min_supported_schema_version=28
+|       base_url=http://192.168.1.152:8095
+|       homeassistant_addon=True
+|       onboard_done=False
+|       name
+|       status=starting
+|       Address=192.168.1.152
+|     8123/tcp home-assistant
+|       location_name=Home
+|       uuid=16f16212186d4d46917b516753ea77ce
+|       version=2026.4.4
+|       external_url=
+|       internal_url=http://192.168.1.152:8123
+|       base_url=http://192.168.1.152:8123
+|       requires_api_password=True
+|       Address=192.168.1.152 2600:6c67:8940:ebe:8d10:4a7a:340d:6855
+|     8927/tcp sendspin-server
+|       name=Music Assistant
+|       path=/sendspin
+|       Address=192.168.1.152
+|     10001/tcp googlezone
+|       id=792D83640E2E9FFE095CA0DCD8618099
+|       UDS
+|       CGS
+|       Address=192.168.1.188
+|     10101/tcp googcrossdevice
+|       rp=50
+|       ts=3
+|       id=792D83640E2E9FFE095CA0DCD8618099
+|       Address=192.168.1.188
+|     39831/tcp dacp
+|       txtvers=1
+|       Ver=63B5E5C0C201542E
+|       DbId=63B5E5C0C201542E
+|       OSsi=0x1F5
+|       Address=192.168.1.152
+|     40605/tcp frameo
+|       Address=192.168.1.156 fe80::1f40:4349:14cc:22a9
+|     41800/tcp spotify-connect
+|       CPath=/spConn
+|       Address=192.168.1.196
+|     47618/tcp spotify-connect
+|       CPath=/zc
+|       Address=192.168.1.230
+|     49153/tcp companion-link
+|       rpMac=2
+|       rpHN=c5e58b101b4a
+|       rpFl=0x36782
+|       rpHA=7cd256c2689c
+|       rpMd=AppleTV6,2
+|       rpVr=715.2
+|       rpAD=0a3196d0d25b
+|       rpHI=2c3ec3eaf521
+|       rpBA=DE:4A:06:9C:AD:31
+|       rpMRtID=AB9C94AE-B815-49B1-9372-1228A1670890
+|       model=J105aAP
+|       Address=192.168.1.169 fe80::8a8:8e23:2cc6:9c60
+|     57152/udp sleep-proxy
+|       Address=192.168.1.169 fe80::8a8:8e23:2cc6:9c60
+|     Device Information
+|       model=Xserve
+|       Address=192.168.1.2
+|     Device Information
+|       model=MacPro7,1@ECOLOR=226,226,224
+|_      Address=192.168.1.106 2600:6c67:8940:ebe:be24:11ff:fe2f:a0c0
+| broadcast-wsdd-discover: 
+|   Devices
+|     239.255.255.250
+|         Message id: b5d1652f-57f7-aac7-6a70-ac8024abddd1
+|         Address: http://192.168.1.2:3702/13b678a3-dc78-c0d0-5ae5-799369924fe8
+|         Type: Device pub:Computer
+|     239.255.255.250
+|         Message id: e242fee3-346c-aab3-163f-e7b3bdf0701b
+|         Address: http://192.168.1.2:3702/13b678a3-dc78-c0d0-5ae5-799369924fe8
+|         Type: Device pub:Computer
+|     239.255.255.250
+|         Message id: c2bd8304-857e-14fb-2260-19aa8086b631
+|         Address: http://192.168.1.2:3702/13b678a3-dc78-c0d0-5ae5-799369924fe8
+|         Type: Device pub:Computer
+|     239.255.255.250
+|         Message id: e65f5932-1db7-7860-d355-4f2649ba8261
+|         Address: http://192.168.1.2:3702/13b678a3-dc78-c0d0-5ae5-799369924fe8
+|         Type: Device pub:Computer
+|     239.255.255.250
+|         Message id: 0815f7f3-b381-64a6-253e-b8f6b1a382f4
+|         Address: http://192.168.1.2:3702/13b678a3-dc78-c0d0-5ae5-799369924fe8
+|         Type: Device pub:Computer
+|     239.255.255.250
+|         Message id: 6631ee24-6126-8a18-9119-9496eb704f59
+|         Address: http://192.168.1.2:3702/13b678a3-dc78-c0d0-5ae5-799369924fe8
+|_        Type: Device pub:Computer
+WARNING: No targets were specified, so 0 hosts scanned.
+# Nmap done at Tue Jun  2 21:38:22 2026 -- 0 IP addresses (0 hosts up) scanned in 8.40 seconds

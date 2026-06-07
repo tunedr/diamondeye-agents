@@ -1,0 +1,60 @@
+# Nmap 7.94SVN scan initiated Tue Jun  2 21:19:38 2026 as: nmap -Pn -sT -sV -O --osscan-guess --version-light -T4 -n -p 21,22,23,53,80,81,82,88,443,554,8000,8080,8443,8554,37777,5000-9000 -iL /home/tunedr/AGENTS/reports/camera-audit-20260602-211821/arp-hosts.txt -oA /home/tunedr/AGENTS/reports/camera-audit-20260602-211821/camports
+Host: 192.168.1.1 ()	Status: Up
+Host: 192.168.1.1 ()	Ports: 22/open/tcp//ssh//OpenSSH 9.4 (protocol 2.0)/, 53/open/tcp//domain//Unbound/, 8443/open/tcp//ssl|http//nginx/	Ignored State: closed (4009)	Seq Index: 252	IP ID Seq: Incrementing by 2
+Host: 192.168.1.100 ()	Status: Up
+Host: 192.168.1.100 ()	Ports: 
+Host: 192.168.1.103 ()	Status: Up
+Host: 192.168.1.103 ()	Ports: 	Ignored State: closed (4012)
+Host: 192.168.1.106 ()	Status: Up
+Host: 192.168.1.106 ()	Ports: 80/open/tcp//http//nginx/, 443/open/tcp//ssl|http//nginx/, 5357/open/tcp//http//BaseHTTPServer 0.6 (Python 3.11.9)/	Ignored State: closed (4009)	Seq Index: 257	IP ID Seq: Incrementing by 2
+Host: 192.168.1.107 ()	Status: Up
+Host: 192.168.1.107 ()	Ports: 22/open/tcp//ssh//OpenSSH 9.6p1 Ubuntu 3ubuntu13.16 (Ubuntu Linux; protocol 2.0)/, 5680/open/tcp//canna?///, 7071/open/tcp//iwg1?///, 7073/open/tcp//martalk?///, 7074/open/tcp//unknown///, 8010/open/tcp//xmpp?///, 8020/open/tcp//intu-ec-svcdisc?///, 8030/open/tcp//http//nginx 1.27.5/, 8080/open/tcp//http//Apache httpd 2.4.67 ((Debian))/	Ignored State: closed (4003)	Seq Index: 264	IP ID Seq: Incrementing by 2
+Host: 192.168.1.108 ()	Status: Up
+Host: 192.168.1.108 ()	Ports: 22/open/tcp//ssh//OpenSSH 9.6p1 Ubuntu 3ubuntu13.16 (Ubuntu Linux; protocol 2.0)/	Ignored State: filtered (4011)	Seq Index: 262	IP ID Seq: Incrementing by 2
+Host: 192.168.1.136 ()	Status: Up
+Host: 192.168.1.136 ()	Ports: 7070/open/tcp//realserver?///, 8080/open/tcp//http//Node.js Express framework/	Ignored State: filtered (4010)	Seq Index: 261	IP ID Seq: Incrementing by 2
+Host: 192.168.1.150 ()	Status: Up
+Host: 192.168.1.150 ()	Ports: 
+Host: 192.168.1.152 ()	Status: Up
+Host: 192.168.1.152 ()	Ports: 5355/open/tcp//llmnr?///, 8095/open/tcp//http//aiohttp 3.13.5 (Python 3.13)/, 8097/open/tcp//http//aiohttp 3.13.5 (Python 3.13)/, 8123/open/tcp//http//aiohttp 3.13.5 (Python 3.14)/, 8927/open/tcp//http//aiohttp 3.13.5 (Python 3.13)/	Seq Index: 258	IP ID Seq: Incrementing by 2
+Host: 192.168.1.154 ()	Status: Up
+Host: 192.168.1.154 ()	Ports: 80/open/tcp//http//thttpd 2.25b 29dec2003/, 8080/open/tcp//http-proxy?///, 8888/open/tcp//http//Mediabolic http config 1.8.225/	Seq Index: 261	IP ID Seq: Incrementing by 2
+Host: 192.168.1.157 ()	Status: Up
+Host: 192.168.1.157 ()	Ports: 
+Host: 192.168.1.158 ()	Status: Up
+Host: 192.168.1.158 ()	Ports: 
+Host: 192.168.1.16 ()	Status: Up
+Host: 192.168.1.16 ()	Ports: 	Ignored State: filtered (4012)
+Host: 192.168.1.162 ()	Status: Up
+Host: 192.168.1.162 ()	Ports: 
+Host: 192.168.1.178 ()	Status: Up
+Host: 192.168.1.178 ()	Ports: 
+Host: 192.168.1.186 ()	Status: Up
+Host: 192.168.1.186 ()	Ports: 8009/open/tcp//tcpwrapped///	Seq Index: 258	IP ID Seq: Incrementing by 2
+Host: 192.168.1.19 ()	Status: Up
+Host: 192.168.1.19 ()	Ports: 22/open/tcp//ssh//OpenSSH 9.6p1 Ubuntu 3ubuntu13.16 (Ubuntu Linux; protocol 2.0)/, 80/open/tcp//http//nginx 1.24.0 (Ubuntu)/, 5679/open/tcp//activesync?///	Seq Index: 261	IP ID Seq: Incrementing by 2
+Host: 192.168.1.196 ()	Status: Up
+Host: 192.168.1.196 ()	Ports: 
+Host: 192.168.1.2 ()	Status: Up
+Host: 192.168.1.2 ()	Ports: 22/open/tcp//ssh//OpenSSH 10.2 (protocol 2.0)/, 80/open/tcp//http//nginx/, 5000/open/tcp//upnp?///, 5355/open/tcp//tcpwrapped///, 5678/open/tcp//rrac?///, 5700/open/tcp//websocket//(WebSocket version: 13)/, 5900/open/tcp//vnc//VNC (protocol 3.8)/, 5901/open/tcp//vnc//VNC (protocol 3.8)/, 6080/open/tcp//gue?///, 6767/open/tcp//bmc-perf-agent?///, 7878/open/tcp//owms?///, 8080/open/tcp//http//CherryPy httpd 18.10.0/, 8081/open/tcp//blackice-icecap?///, 8112/open/tcp//unknown///, 8118/open/tcp//privoxy?///, 8191/open/tcp//limnerpressure?///, 8265/open/tcp//unknown///, 8266/open/tcp//espeasy-p2p?///, 8989/open/tcp//sunwebadmins?///	Seq Index: 259	IP ID Seq: Incrementing by 2
+Host: 192.168.1.230 ()	Status: Up
+Host: 192.168.1.230 ()	Ports: 7000/open/tcp//afs3-fileserver?///, 8060/open/tcp//upnp///	Seq Index: 248	IP ID Seq: Incrementing by 2
+Host: 192.168.1.32 ()	Status: Up
+Host: 192.168.1.32 ()	Ports: 
+Host: 192.168.1.36 ()	Status: Up
+Host: 192.168.1.36 ()	Ports: 22/open/tcp//ssh//OpenSSH 9.6p1 Ubuntu 3ubuntu13.16 (Ubuntu Linux; protocol 2.0)/, 80/open/tcp//http//OpenResty web app server/, 81/open/tcp//http//OpenResty web app server/, 8080/open/tcp//http//nginx 1.24.0 (Ubuntu)/, 8888/open/tcp//http//nginx 1.31.0/	Seq Index: 261	IP ID Seq: Incrementing by 2
+Host: 192.168.1.4 ()	Status: Up
+Host: 192.168.1.4 ()	Ports: 22/open/tcp//ssh//OpenSSH 10.0p2 Debian 7+deb13u2 (protocol 2.0)/, 8006/open/tcp//wpl-analytics?///	Seq Index: 258	IP ID Seq: Incrementing by 2
+Host: 192.168.1.48 ()	Status: Up
+Host: 192.168.1.48 ()	Ports: 22/open/tcp//ssh//OpenSSH 9.6p1 Ubuntu 3ubuntu13.16 (Ubuntu Linux; protocol 2.0)/, 7071/open/tcp//iwg1?///, 8080/open/tcp//http-proxy?///	Seq Index: 260	IP ID Seq: Incrementing by 2
+Host: 192.168.1.55 ()	Status: Up
+Host: 192.168.1.55 ()	Ports: 22/open/tcp//ssh//OpenSSH 9.6p1 Ubuntu 3ubuntu13.16 (Ubuntu Linux; protocol 2.0)/, 5679/open/tcp//activesync?///, 7072/open/tcp//iba-cfg?///	Seq Index: 253	IP ID Seq: Incrementing by 2
+Host: 192.168.1.58 ()	Status: Up
+Host: 192.168.1.58 ()	Ports: 
+Host: 192.168.1.71 ()	Status: Up
+Host: 192.168.1.71 ()	Ports: 
+Host: 192.168.1.73 ()	Status: Up
+Host: 192.168.1.73 ()	Ports: 5269/filtered/tcp//xmpp-server///, 5334/filtered/tcp/////, 5444/filtered/tcp/////, 5456/filtered/tcp//apc-5456///, 5849/filtered/tcp/////, 5899/filtered/tcp/////, 5986/filtered/tcp//wsmans///, 6186/filtered/tcp/////, 6399/filtered/tcp/////, 6629/filtered/tcp//nexgen-aux///, 6669/filtered/tcp//irc///, 6732/filtered/tcp/////, 6797/filtered/tcp/////, 7115/filtered/tcp/////, 7166/filtered/tcp//aruba-server///, 7407/filtered/tcp/////, 7632/filtered/tcp/////, 8152/filtered/tcp/////, 8234/filtered/tcp/////, 8763/filtered/tcp//mc-appserver///, 8811/filtered/tcp/////, 8814/filtered/tcp/////, 8889/filtered/tcp//ddi-tcp-2///, 8903/filtered/tcp/////	Ignored State: closed (3988)
+Host: 192.168.1.97 ()	Status: Up
+Host: 192.168.1.97 ()	Ports: 5111/filtered/tcp//taep-as-svc///, 5418/filtered/tcp//mcntp///, 5492/filtered/tcp/////, 5951/filtered/tcp/////, 6082/filtered/tcp//p25cai///, 6095/filtered/tcp/////, 6198/filtered/tcp/////, 6292/filtered/tcp/////, 6293/filtered/tcp/////, 6344/filtered/tcp//streletz///, 6394/filtered/tcp/////, 6419/filtered/tcp//svdrp///, 6526/filtered/tcp/////, 6629/filtered/tcp//nexgen-aux///, 7021/filtered/tcp//dpserveadmin///, 7389/filtered/tcp/////, 7506/filtered/tcp/////, 7514/filtered/tcp/////, 7875/filtered/tcp/////, 8173/filtered/tcp/////, 8626/filtered/tcp/////, 8814/filtered/tcp/////, 8939/filtered/tcp/////	Ignored State: closed (3989)
+# Nmap done at Tue Jun  2 21:43:55 2026 -- 29 IP addresses (29 hosts up) scanned in 1456.79 seconds

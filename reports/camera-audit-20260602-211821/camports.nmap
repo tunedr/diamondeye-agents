@@ -1,0 +1,899 @@
+WARNING: Duplicate port number(s) specified.  Are you alert enough to be using Nmap?  Have some coffee or Jolt(tm).
+# Nmap 7.94SVN scan initiated Tue Jun  2 21:19:38 2026 as: nmap -Pn -sT -sV -O --osscan-guess --version-light -T4 -n -p 21,22,23,53,80,81,82,88,443,554,8000,8080,8443,8554,37777,5000-9000 -iL /home/tunedr/AGENTS/reports/camera-audit-20260602-211821/arp-hosts.txt -oA /home/tunedr/AGENTS/reports/camera-audit-20260602-211821/camports
+Warning: 192.168.1.100 giving up on port because retransmission cap hit (6).
+Warning: 192.168.1.150 giving up on port because retransmission cap hit (6).
+Nmap scan report for 192.168.1.1
+Host is up (0.0027s latency).
+Not shown: 4009 closed tcp ports (conn-refused)
+PORT     STATE SERVICE  VERSION
+22/tcp   open  ssh      OpenSSH 9.4 (protocol 2.0)
+53/tcp   open  domain   Unbound
+8443/tcp open  ssl/http nginx
+OS fingerprint not ideal because: Didn't receive UDP response. Please try again with -sSU
+No OS matches for host
+
+Nmap scan report for 192.168.1.100
+Host is up (0.00066s latency).
+All 4012 scanned ports on 192.168.1.100 are in ignored states.
+Not shown: 3711 closed tcp ports (conn-refused), 301 filtered tcp ports (no-response)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Aggressive OS guesses: Sanyo PLC-XU88 digital video projector (95%), Buffalo BS-GS switch (94%), AXIS 70U Network Document Server (94%), Brother HL-2700CN printer (94%), Brother MFC-7820N printer (94%), Intel Express 510T, 520T, or 550T switch (94%), Microsoft Xbox game console (modified, running XboxMediaCenter) (94%), Nintendo Wii game console (94%), Priva building management system (94%), Linux 2.6.18 (93%)
+No exact OS matches for host (test conditions non-ideal).
+
+Nmap scan report for 192.168.1.103
+Host is up (0.0011s latency).
+All 4012 scanned ports on 192.168.1.103 are in ignored states.
+Not shown: 4012 closed tcp ports (conn-refused)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+OS fingerprint not ideal because: Missing an open TCP port so results incomplete
+No OS matches for host
+
+Nmap scan report for 192.168.1.106
+Host is up (0.0023s latency).
+Not shown: 4009 closed tcp ports (conn-refused)
+PORT     STATE SERVICE  VERSION
+80/tcp   open  http     nginx
+443/tcp  open  ssl/http nginx
+5357/tcp open  http     BaseHTTPServer 0.6 (Python 3.11.9)
+OS fingerprint not ideal because: Didn't receive UDP response. Please try again with -sSU
+No OS matches for host
+
+Nmap scan report for 192.168.1.107
+Host is up (0.0022s latency).
+Not shown: 4003 closed tcp ports (conn-refused)
+PORT     STATE SERVICE          VERSION
+22/tcp   open  ssh              OpenSSH 9.6p1 Ubuntu 3ubuntu13.16 (Ubuntu Linux; protocol 2.0)
+5680/tcp open  canna?
+7071/tcp open  iwg1?
+7073/tcp open  martalk?
+7074/tcp open  unknown
+8010/tcp open  xmpp?
+8020/tcp open  intu-ec-svcdisc?
+8030/tcp open  http             nginx 1.27.5
+8080/tcp open  http             Apache httpd 2.4.67 ((Debian))
+6 services unrecognized despite returning data. If you know the service/version, please submit the following fingerprints at https://nmap.org/cgi-bin/submit.cgi?new-service :
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port5680-TCP:V=7.94SVN%I=2%D=6/2%Time=6A1FA053%P=x86_64-pc-linux-gnu%r(
+SF:GetRequest,4894,"HTTP/1\.1\x20200\x20OK\r\nAccept-Ranges:\x20bytes\r\nC
+SF:ache-Control:\x20public,\x20max-age=86400\r\nLast-Modified:\x20Tue,\x20
+SF:26\x20May\x202026\x2003:44:24\x20GMT\r\nETag:\x20W/\"476d-19e626236d4\"
+SF:\r\nContent-Type:\x20text/html;\x20charset=utf-8\r\nContent-Length:\x20
+SF:18285\r\nVary:\x20Accept-Encoding\r\nDate:\x20Wed,\x2003\x20Jun\x202026
+SF:\x2003:32:35\x20GMT\r\nConnection:\x20close\r\n\r\n<!DOCTYPE\x20html>\n
+SF:<html\x20lang=\"en\">\n\t<head>\n\t\t<meta\x20charset=\"utf-8\"\x20/>\n
+SF:\t\t<meta\x20http-equiv=\"X-UA-Compatible\"\x20content=\"IE=edge\"\x20/
+SF:>\n\t\t<meta\x20name=\"viewport\"\x20content=\"width=device-width,initi
+SF:al-scale=1\.0\"\x20/>\n\t\t<link\x20rel=\"icon\"\x20href=\"/favicon\.ic
+SF:o\"\x20/>\n\t\t<meta\x20name=\"n8n:config:rest-endpoint\"\x20content=\"
+SF:cmVzdA==\"><meta\x20name=\"n8n:config:sentry\"\x20content=\"eyJkc24iOiI
+SF:iLCJlbnZpcm9ubWVudCI6ImRldmVsb3BtZW50IiwicmVsZWFzZSI6Im44bkAyLjIwLjkifQ
+SF:==\">\n\t\t<link\x20rel=\"stylesheet\"\x20href=\"/static/prefers-color-
+SF:scheme\.css\">\n\t\t<script\x20src=\"/static/base-path\.js\"\x20type=\"
+SF:text/javascript\"></script>\n\t\t<script\x20src=\"/static/posthog\.init
+SF:\.js\"\x20t")%r(SSLSessionReq,2F,"HTTP/1\.1\x20400\x20Bad\x20Request\r\
+SF:nConnection:\x20close\r\n\r\n")%r(TLSSessionReq,2F,"HTTP/1\.1\x20400\x2
+SF:0Bad\x20Request\r\nConnection:\x20close\r\n\r\n");
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port7071-TCP:V=7.94SVN%I=2%D=6/2%Time=6A1FA050%P=x86_64-pc-linux-gnu%r(
+SF:GetRequest,141A0,"HTTP/1\.1\x20200\x20OK\r\nServer:\x20Werkzeug/3\.1\.3
+SF:\x20Python/3\.12\.10\r\nDate:\x20Wed,\x2003\x20Jun\x202026\x2003:32:31\
+SF:x20GMT\r\nContent-Type:\x20text/html;\x20charset=utf-8\r\nContent-Lengt
+SF:h:\x20129149\r\nConnection:\x20close\r\n\r\n<!DOCTYPE\x20html>\n<html\x
+SF:20lang=\"en\">\n\n<head>\n\x20\x20\x20\x20<meta\x20charset=\"UTF-8\">\n
+SF:\x20\x20\x20\x20<meta\x20name=\"viewport\"\x20content=\"width=device-wi
+SF:dth,\x20initial-scale=1,\x20maximum-scale=1\">\n\x20\x20\x20\x20<title>
+SF:Agent\x20Zero</title>\n\x20\x20\x20\x20<link\x20rel=\"icon\"\x20type=\"
+SF:image/svg\+xml\"\x20href=\"public/favicon\.svg\">\n\x20\x20\x20\x20<lin
+SF:k\x20rel=\"stylesheet\"\x20href=\"index\.css\">\n\x20\x20\x20\x20<link\
+SF:x20rel=\"stylesheet\"\x20href=\"css/messages\.css\">\n\x20\x20\x20\x20<
+SF:link\x20rel=\"stylesheet\"\x20href=\"css/toast\.css\">\n\x20\x20\x20\x2
+SF:0<link\x20rel=\"stylesheet\"\x20href=\"css/settings\.css\">\n\x20\x20\x
+SF:20\x20<link\x20rel=\"stylesheet\"\x20href=\"css/file_browser\.css\">\n\
+SF:x20\x20\x20\x20<link\x20rel=\"stylesheet\"\x20href=\"css/modals\.css\">
+SF:\n\x20\x20\x20\x20<link\x20rel=\"stylesheet\"\x20href=\"css/modals2\.cs
+SF:s\">\n\x20\x20\x20\x20<link\x20rel=\"stylesheet\"\x20href=\"css/speech\
+SF:.css\">\n\x20\x20\x20\x20<link\x20rel=\"stylesheet\"\x20href=\"css/hist
+SF:ory\.css\">\n\x20\x20\x20\x20<link")%r(SSLSessionReq,1E8,"<!DOCTYPE\x20
+SF:HTML>\n<html\x20lang=\"en\">\n\x20\x20\x20\x20<head>\n\x20\x20\x20\x20\
+SF:x20\x20\x20\x20<meta\x20charset=\"utf-8\">\n\x20\x20\x20\x20\x20\x20\x2
+SF:0\x20<title>Error\x20response</title>\n\x20\x20\x20\x20</head>\n\x20\x2
+SF:0\x20\x20<body>\n\x20\x20\x20\x20\x20\x20\x20\x20<h1>Error\x20response<
+SF:/h1>\n\x20\x20\x20\x20\x20\x20\x20\x20<p>Error\x20code:\x20400</p>\n\x2
+SF:0\x20\x20\x20\x20\x20\x20\x20<p>Message:\x20Bad\x20request\x20syntax\x2
+SF:0\('\\x16\\x03\\x00\\x00S\\x01\\x00\\x00O\\x03\\x00\?G\xc3\x97\xc3\xb7\
+SF:xc2\xba,\xc3\xae\xc3\xaa\xc2\xb2`~\xc3\xb3\\x00\xc3\xbd\\x82{\xc2\xb9\x
+SF:c3\x95\\x96\xc3\x88w\\x9b\xc3\xa6\xc3\x84\xc3\x9b&lt;=\xc3\x9bo\xc3\xaf
+SF:\\x10n\\x00\\x00\(\\x00\\x16\\x00\\x13\\x00'\)\.</p>\n\x20\x20\x20\x20\
+SF:x20\x20\x20\x20<p>Error\x20code\x20explanation:\x20400\x20-\x20Bad\x20r
+SF:equest\x20syntax\x20or\x20unsupported\x20method\.</p>\n\x20\x20\x20\x20
+SF:</body>\n</html>\n");
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port7073-TCP:V=7.94SVN%I=2%D=6/2%Time=6A1FA04F%P=x86_64-pc-linux-gnu%r(
+SF:GenericLines,76,"HTTP/1\.1\x20400\x20Bad\x20Request\r\ncontent-type:\x2
+SF:0text/plain;\x20charset=utf-8\r\nConnection:\x20close\r\n\r\nInvalid\x2
+SF:0HTTP\x20request\x20received\.")%r(GetRequest,1DB3,"HTTP/1\.1\x20200\x2
+SF:0OK\r\ndate:\x20Wed,\x2003\x20Jun\x202026\x2003:32:31\x20GMT\r\nserver:
+SF:\x20uvicorn\r\ncontent-type:\x20text/html;\x20charset=utf-8\r\ncontent-
+SF:length:\x207449\r\nConnection:\x20close\r\n\r\n<!DOCTYPE\x20html>\n<htm
+SF:l\x20lang=\"en\">\n\n<head>\n\x20\x20\x20\x20<meta\x20charset=\"UTF-8\"
+SF:>\n\x20\x20\x20\x20<meta\x20name=\"viewport\"\x20content=\"width=device
+SF:-width,\x20initial-scale=1,\x20maximum-scale=1\">\n\x20\x20\x20\x20<tit
+SF:le>Agent\x20Zero</title>\n\x20\x20\x20\x20<link\x20rel=\"icon\"\x20type
+SF:=\"image/svg\+xml\"\x20href=\"public/favicon\.svg\">\n\x20\x20\x20\x20<
+SF:link\x20rel=\"stylesheet\"\x20href=\"index\.css\">\n\x20\x20\x20\x20<li
+SF:nk\x20rel=\"stylesheet\"\x20href=\"css/messages\.css\">\n\x20\x20\x20\x
+SF:20<link\x20rel=\"stylesheet\"\x20href=\"components/messages/action-butt
+SF:ons/simple-action-buttons\.css\">\n\x20\x20\x20\x20<link\x20rel=\"style
+SF:sheet\"\x20href=\"components/messages/process-group/process-group\.css\
+SF:">\n\x20\x20\x20\x20<link\x20rel=\"stylesheet\"\x20href=\"css/toast\.cs
+SF:s\">\n\x20\x20\x20\x20<link\x20rel=\"stylesheet\"\x20href=\"css/setting
+SF:s\.css\">\n\x20\x20\x20\x20<link\x20rel=\"stylesheet\"\x20href=\"css/mo
+SF:dals\.css\">\n\x20\x20\x20\x20<link\x20rel=\"stylesheet\"\x20href=\"css
+SF:/surfaces\.css\">\n\x20\x20\x20\x20<l")%r(SSLSessionReq,76,"HTTP/1\.1\x
+SF:20400\x20Bad\x20Request\r\ncontent-type:\x20text/plain;\x20charset=utf-
+SF:8\r\nConnection:\x20close\r\n\r\nInvalid\x20HTTP\x20request\x20received
+SF:\.")%r(TLSSessionReq,76,"HTTP/1\.1\x20400\x20Bad\x20Request\r\ncontent-
+SF:type:\x20text/plain;\x20charset=utf-8\r\nConnection:\x20close\r\n\r\nIn
+SF:valid\x20HTTP\x20request\x20received\.");
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port7074-TCP:V=7.94SVN%I=2%D=6/2%Time=6A1FA054%P=x86_64-pc-linux-gnu%r(
+SF:GetRequest,2956,"HTTP/1\.1\x20200\x20OK\r\nX-Content-Type-Options:\x20n
+SF:osniff\r\nReferrer-Policy:\x20no-referrer\r\nPermissions-Policy:\x20cam
+SF:era=\(\),\x20microphone=\(self\),\x20geolocation=\(\)\r\nX-Frame-Option
+SF:s:\x20DENY\r\nContent-Security-Policy:\x20default-src\x20'self';\x20bas
+SF:e-uri\x20'none';\x20object-src\x20'none';\x20frame-ancestors\x20'none';
+SF:\x20script-src\x20'self'\x20'sha256-RxCZFmTWY/yQmhYxMDn\+blaCuwLzOsV/Xs
+SF:Vb0n5EkRU='\x20'sha256-adgab4UIWTKx2g8TyCZdZsqfSGvLRcCJwl2GtfP0aKw=';\x
+SF:20style-src\x20'self'\x20'unsafe-inline'\x20https://fonts\.googleapis\.
+SF:com;\x20img-src\x20'self'\x20data:\x20blob:;\x20media-src\x20'self'\x20
+SF:data:\x20blob:;\x20font-src\x20'self'\x20https://fonts\.gstatic\.com;\x
+SF:20worker-src\x20'self';\x20connect-src\x20'self'\x20ws:\x20wss:\x20http
+SF:s://api\.openai\.com\x20https://tweakcn\.com\r\nContent-Type:\x20text/h
+SF:tml;\x20charset=utf-8\r\nCache-Control:\x20no-cache\r\nDate:\x20Wed,\x2
+SF:003\x20Jun\x202026\x2003:32:36\x20GMT\r\nConnection:\x20close\r\n\r\n<!
+SF:doctype\x20html>\n<html\x20lang=\"en\">\n\x20\x20<head>\n\x20\x20\x20\x
+SF:20<meta\x20charset=\"UTF-8\"\x20/>\n\x20\x20\x20\x20<meta\x20name=\"vie
+SF:wport\"\x20content=\"width=device-wi")%r(SSLSessionReq,2F,"HTTP/1\.1\x2
+SF:0400\x20Bad\x20Request\r\nConnection:\x20close\r\n\r\n")%r(TLSSessionRe
+SF:q,2F,"HTTP/1\.1\x20400\x20Bad\x20Request\r\nConnection:\x20close\r\n\r\
+SF:n");
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port8010-TCP:V=7.94SVN%I=2%D=6/2%Time=6A1FA050%P=x86_64-pc-linux-gnu%r(
+SF:GetRequest,1BE,"HTTP/1\.0\x20400\x20Bad\x20Request\r\ncontent-type:\x20
+SF:text/html;\x20charset=utf-8\r\nvary:\x20Accept-Language,\x20origin\r\nc
+SF:ontent-language:\x20en-us\r\nx-content-type-options:\x20nosniff\r\nrefe
+SF:rrer-policy:\x20same-origin\r\ncross-origin-opener-policy:\x20same-orig
+SF:in\r\nserver:\x20granian\r\ncontent-length:\x20143\r\ndate:\x20Wed,\x20
+SF:03\x20Jun\x202026\x2003:32:31\x20GMT\r\n\r\n\n<!doctype\x20html>\n<html
+SF:\x20lang=\"en\">\n<head>\n\x20\x20<title>Bad\x20Request\x20\(400\)</tit
+SF:le>\n</head>\n<body>\n\x20\x20<h1>Bad\x20Request\x20\(400\)</h1><p></p>
+SF:\n</body>\n</html>\n")%r(FourOhFourRequest,1BE,"HTTP/1\.0\x20400\x20Bad
+SF:\x20Request\r\ncontent-type:\x20text/html;\x20charset=utf-8\r\nvary:\x2
+SF:0Accept-Language,\x20origin\r\ncontent-language:\x20en-us\r\nx-content-
+SF:type-options:\x20nosniff\r\nreferrer-policy:\x20same-origin\r\ncross-or
+SF:igin-opener-policy:\x20same-origin\r\nserver:\x20granian\r\ncontent-len
+SF:gth:\x20143\r\ndate:\x20Wed,\x2003\x20Jun\x202026\x2003:32:32\x20GMT\r\
+SF:n\r\n\n<!doctype\x20html>\n<html\x20lang=\"en\">\n<head>\n\x20\x20<titl
+SF:e>Bad\x20Request\x20\(400\)</title>\n</head>\n<body>\n\x20\x20<h1>Bad\x
+SF:20Request\x20\(400\)</h1><p></p>\n</body>\n</html>\n")%r(Socks5,67,"HTT
+SF:P/1\.1\x20400\x20Bad\x20Request\r\nconnection:\x20close\r\ncontent-leng
+SF:th:\x200\r\ndate:\x20Wed,\x2003\x20Jun\x202026\x2003:32:32\x20GMT\r\n\r
+SF:\n")%r(SSLSessionReq,67,"HTTP/1\.1\x20400\x20Bad\x20Request\r\nconnecti
+SF:on:\x20close\r\ncontent-length:\x200\r\ndate:\x20Wed,\x2003\x20Jun\x202
+SF:026\x2003:32:37\x20GMT\r\n\r\n")%r(TLSSessionReq,67,"HTTP/1\.1\x20400\x
+SF:20Bad\x20Request\r\nconnection:\x20close\r\ncontent-length:\x200\r\ndat
+SF:e:\x20Wed,\x2003\x20Jun\x202026\x2003:32:37\x20GMT\r\n\r\n");
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port8020-TCP:V=7.94SVN%I=2%D=6/2%Time=6A1FA055%P=x86_64-pc-linux-gnu%r(
+SF:GetRequest,1E7,"HTTP/1\.1\x20401\x20Unauthorized\r\nDate:\x20Wed,\x2003
+SF:\x20Jun\x202026\x2003:32:36\x20GMT\r\nX-Content-Type-Options:\x20nosnif
+SF:f\r\nX-XSS-Protection:\x200\r\nPragma:\x20no-cache\r\nX-Frame-Options:\
+SF:x20DENY\r\nCache-Control:\x20must-revalidate,no-cache,no-store\r\nVary:
+SF:\x20Origin\r\nVary:\x20Access-Control-Request-Method\r\nVary:\x20Access
+SF:-Control-Request-Headers\r\nContent-Type:\x20application/json\r\n\r\n{\
+SF:"timestamp\":\"2026-06-03T03:32:37\.048Z\",\"status\":401,\"error\":\"U
+SF:nauthorized\",\"message\":\"Full\x20authentication\x20is\x20required\x2
+SF:0to\x20access\x20this\x20resource\",\"path\":\"/\"}")%r(SSLSessionReq,2
+SF:35,"HTTP/1\.1\x20400\x20Bad\x20Request\r\nDate:\x20Wed,\x2003\x20Jun\x2
+SF:02026\x2003:32:37\x20GMT\r\nCache-Control:\x20must-revalidate,no-cache,
+SF:no-store\r\nContent-Type:\x20text/html;charset=iso-8859-1\r\nContent-Le
+SF:ngth:\x20385\r\n\r\n<html>\n<head>\n<meta\x20http-equiv=\"Content-Type\
+SF:"\x20content=\"text/html;charset=ISO-8859-1\"/>\n<title>Error\x20400\x2
+SF:0Illegal\x20character\x20CNTL=0x16</title>\n</head>\n<body>\n<h2>HTTP\x
+SF:20ERROR\x20400\x20Illegal\x20character\x20CNTL=0x16</h2>\n<table>\n<tr>
+SF:<th>URI:</th><td>/badMessage</td></tr>\n<tr><th>STATUS:</th><td>400</td
+SF:></tr>\n<tr><th>MESSAGE:</th><td>Illegal\x20character\x20CNTL=0x16</td>
+SF:</tr>\n</table>\n\n</body>\n</html>\n")%r(TLSSessionReq,235,"HTTP/1\.1\
+SF:x20400\x20Bad\x20Request\r\nDate:\x20Wed,\x2003\x20Jun\x202026\x2003:32
+SF::37\x20GMT\r\nCache-Control:\x20must-revalidate,no-cache,no-store\r\nCo
+SF:ntent-Type:\x20text/html;charset=iso-8859-1\r\nContent-Length:\x20385\r
+SF:\n\r\n<html>\n<head>\n<meta\x20http-equiv=\"Content-Type\"\x20content=\
+SF:"text/html;charset=ISO-8859-1\"/>\n<title>Error\x20400\x20Illegal\x20ch
+SF:aracter\x20CNTL=0x16</title>\n</head>\n<body>\n<h2>HTTP\x20ERROR\x20400
+SF:\x20Illegal\x20character\x20CNTL=0x16</h2>\n<table>\n<tr><th>URI:</th><
+SF:td>/badMessage</td></tr>\n<tr><th>STATUS:</th><td>400</td></tr>\n<tr><t
+SF:h>MESSAGE:</th><td>Illegal\x20character\x20CNTL=0x16</td></tr>\n</table
+SF:>\n\n</body>\n</html>\n");
+OS fingerprint not ideal because: Didn't receive UDP response. Please try again with -sSU
+No OS matches for host
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Nmap scan report for 192.168.1.108
+Host is up (0.0028s latency).
+Not shown: 4011 filtered tcp ports (no-response)
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 9.6p1 Ubuntu 3ubuntu13.16 (Ubuntu Linux; protocol 2.0)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+OS fingerprint not ideal because: Missing a closed TCP port so results incomplete
+No OS matches for host
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Nmap scan report for 192.168.1.136
+Host is up (0.0018s latency).
+Not shown: 4010 filtered tcp ports (no-response)
+PORT     STATE SERVICE     VERSION
+7070/tcp open  realserver?
+8080/tcp open  http        Node.js Express framework
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+SF-Port7070-TCP:V=7.94SVN%I=2%D=6/2%Time=6A1FA051%P=x86_64-pc-linux-gnu%r(
+SF:GetRequest,1D7F,"HTTP/1\.1\x20200\x20OK\r\ndate:\x20Wed,\x2003\x20Jun\x
+SF:202026\x2003:32:31\x20GMT\r\nserver:\x20uvicorn\r\ncontent-type:\x20tex
+SF:t/html;\x20charset=utf-8\r\ncontent-length:\x207397\r\nConnection:\x20c
+SF:lose\r\n\r\n<!DOCTYPE\x20html>\n<html\x20lang=\"en\">\n\n<head>\n\x20\x
+SF:20\x20\x20<meta\x20charset=\"UTF-8\">\n\x20\x20\x20\x20<meta\x20name=\"
+SF:viewport\"\x20content=\"width=device-width,\x20initial-scale=1,\x20maxi
+SF:mum-scale=1\">\n\x20\x20\x20\x20<title>Agent\x20Zero</title>\n\x20\x20\
+SF:x20\x20<link\x20rel=\"icon\"\x20type=\"image/svg\+xml\"\x20href=\"publi
+SF:c/favicon\.svg\">\n\x20\x20\x20\x20<link\x20rel=\"stylesheet\"\x20href=
+SF:\"index\.css\">\n\x20\x20\x20\x20<link\x20rel=\"stylesheet\"\x20href=\"
+SF:css/messages\.css\">\n\x20\x20\x20\x20<link\x20rel=\"stylesheet\"\x20hr
+SF:ef=\"components/messages/action-buttons/simple-action-buttons\.css\">\n
+SF:\x20\x20\x20\x20<link\x20rel=\"stylesheet\"\x20href=\"components/messag
+SF:es/process-group/process-group\.css\">\n\x20\x20\x20\x20<link\x20rel=\"
+SF:stylesheet\"\x20href=\"css/toast\.css\">\n\x20\x20\x20\x20<link\x20rel=
+SF:\"stylesheet\"\x20href=\"css/settings\.css\">\n\x20\x20\x20\x20<link\x2
+SF:0rel=\"stylesheet\"\x20href=\"css/modals\.css\">\n\x20\x20\x20\x20<link
+SF:\x20rel=\"stylesheet\"\x20href=\"css/speech\.css\">\n\x20\x20\x20\x20<l
+SF:in")%r(RTSPRequest,76,"HTTP/1\.1\x20400\x20Bad\x20Request\r\ncontent-ty
+SF:pe:\x20text/plain;\x20charset=utf-8\r\nConnection:\x20close\r\n\r\nInva
+SF:lid\x20HTTP\x20request\x20received\.")%r(GenericLines,76,"HTTP/1\.1\x20
+SF:400\x20Bad\x20Request\r\ncontent-type:\x20text/plain;\x20charset=utf-8\
+SF:r\nConnection:\x20close\r\n\r\nInvalid\x20HTTP\x20request\x20received\.
+SF:")%r(SSLSessionReq,76,"HTTP/1\.1\x20400\x20Bad\x20Request\r\ncontent-ty
+SF:pe:\x20text/plain;\x20charset=utf-8\r\nConnection:\x20close\r\n\r\nInva
+SF:lid\x20HTTP\x20request\x20received\.")%r(TLSSessionReq,76,"HTTP/1\.1\x2
+SF:0400\x20Bad\x20Request\r\ncontent-type:\x20text/plain;\x20charset=utf-8
+SF:\r\nConnection:\x20close\r\n\r\nInvalid\x20HTTP\x20request\x20received\
+SF:.");
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+OS fingerprint not ideal because: Missing a closed TCP port so results incomplete
+No OS matches for host
+
+Nmap scan report for 192.168.1.150
+Host is up (0.0072s latency).
+All 4012 scanned ports on 192.168.1.150 are in ignored states.
+Not shown: 3877 closed tcp ports (conn-refused), 135 filtered tcp ports (no-response)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Aggressive OS guesses: XigmaNAS (FreeBSD 11.2-RELEASE) (95%), AVM FRITZ!Box FON WLAN 7170 WAP (Linux 2.6.13) (95%), XigmaNAS (FreeBSD 12.2-RELEASE) (95%), Cisco SG 300-10, Dell PowerConnect 2748, Linksys SLM2024, SLM2048, or SLM224P, or Netgear FS728TP or GS724TP switch (95%), Dell PowerConnect 5316M switch (95%), Linksys SRW2000-series or Allied Telesyn AT-8000S switch (95%), Linksys SRW2024 switch (95%), Netgear FS700TS Smart Switch (95%), Blue Coat SGOS 4.2.2.2 (95%), Nintendo 3DS (95%)
+No exact OS matches for host (test conditions non-ideal).
+
+Warning: 192.168.1.4 giving up on port because retransmission cap hit (6).
+Warning: 192.168.1.55 giving up on port because retransmission cap hit (6).
+Warning: 192.168.1.152 giving up on port because retransmission cap hit (6).
+Warning: 192.168.1.32 giving up on port because retransmission cap hit (6).
+Warning: 192.168.1.71 giving up on port because retransmission cap hit (6).
+Warning: 192.168.1.58 giving up on port because retransmission cap hit (6).
+Warning: 192.168.1.178 giving up on port because retransmission cap hit (6).
+Warning: 192.168.1.2 giving up on port because retransmission cap hit (6).
+Warning: 192.168.1.154 giving up on port because retransmission cap hit (6).
+Warning: 192.168.1.157 giving up on port because retransmission cap hit (6).
+Warning: 192.168.1.162 giving up on port because retransmission cap hit (6).
+Warning: 192.168.1.196 giving up on port because retransmission cap hit (6).
+Warning: 192.168.1.230 giving up on port because retransmission cap hit (6).
+Warning: 192.168.1.19 giving up on port because retransmission cap hit (6).
+Warning: 192.168.1.73 giving up on port because retransmission cap hit (6).
+Warning: 192.168.1.158 giving up on port because retransmission cap hit (6).
+Warning: 192.168.1.48 giving up on port because retransmission cap hit (6).
+Warning: 192.168.1.186 giving up on port because retransmission cap hit (6).
+Warning: 192.168.1.36 giving up on port because retransmission cap hit (6).
+Warning: 192.168.1.97 giving up on port because retransmission cap hit (6).
+Nmap scan report for 192.168.1.152
+Host is up (0.0013s latency).
+Not shown: 3972 closed tcp ports (conn-refused), 35 filtered tcp ports (no-response)
+PORT     STATE SERVICE VERSION
+5355/tcp open  llmnr?
+8095/tcp open  http    aiohttp 3.13.5 (Python 3.13)
+8097/tcp open  http    aiohttp 3.13.5 (Python 3.13)
+8123/tcp open  http    aiohttp 3.13.5 (Python 3.14)
+8927/tcp open  http    aiohttp 3.13.5 (Python 3.13)
+Device type: general purpose
+Running (JUST GUESSING): IBM z/OS 1.11.X|2.1.X (85%)
+OS CPE: cpe:/o:ibm:zos:1.11 cpe:/o:ibm:zos:2.1
+Aggressive OS guesses: IBM z/OS 1.11 (85%), IBM z/OS 2.1 (85%)
+No exact OS matches for host (test conditions non-ideal).
+
+Nmap scan report for 192.168.1.154
+Host is up (0.0016s latency).
+Not shown: 3979 closed tcp ports (conn-refused), 30 filtered tcp ports (no-response)
+PORT     STATE SERVICE     VERSION
+80/tcp   open  http        thttpd 2.25b 29dec2003
+8080/tcp open  http-proxy?
+8888/tcp open  http        Mediabolic http config 1.8.225
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+SF-Port8080-TCP:V=7.94SVN%I=2%D=6/2%Time=6A1FA2DE%P=x86_64-pc-linux-gnu%r(
+SF:GetRequest,2D,"HTTP/1\.0\x20404\x20Not\x20Found\r\nConnection:\x20close
+SF:\r\n\r\n")%r(HTTPOptions,2D,"HTTP/1\.0\x20404\x20Not\x20Found\r\nConnec
+SF:tion:\x20close\r\n\r\n")%r(RTSPRequest,2D,"HTTP/1\.0\x20404\x20Not\x20F
+SF:ound\r\nConnection:\x20close\r\n\r\n")%r(FourOhFourRequest,2D,"HTTP/1\.
+SF:0\x20404\x20Not\x20Found\r\nConnection:\x20close\r\n\r\n")%r(GenericLin
+SF:es,2D,"HTTP/1\.0\x20404\x20Not\x20Found\r\nConnection:\x20close\r\n\r\n
+SF:");
+Device type: general purpose
+Running (JUST GUESSING): IBM z/OS 1.11.X (85%)
+OS CPE: cpe:/o:ibm:zos:1.11
+Aggressive OS guesses: IBM z/OS 1.11 (85%)
+No exact OS matches for host (test conditions non-ideal).
+Service Info: Device: storage-misc
+
+Nmap scan report for 192.168.1.157
+Host is up (0.018s latency).
+All 4012 scanned ports on 192.168.1.157 are in ignored states.
+Not shown: 3972 closed tcp ports (conn-refused), 40 filtered tcp ports (no-response)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Aggressive OS guesses: XigmaNAS (FreeBSD 11.2-RELEASE) (95%), AVM FRITZ!Box FON WLAN 7170 WAP (Linux 2.6.13) (95%), XigmaNAS (FreeBSD 12.2-RELEASE) (95%), Cisco SG 300-10, Dell PowerConnect 2748, Linksys SLM2024, SLM2048, or SLM224P, or Netgear FS728TP or GS724TP switch (95%), Dell PowerConnect 5316M switch (95%), Linksys SRW2000-series or Allied Telesyn AT-8000S switch (95%), Linksys SRW2024 switch (95%), Netgear FS700TS Smart Switch (95%), Blue Coat SGOS 4.2.2.2 (95%), Nintendo 3DS (95%)
+No exact OS matches for host (test conditions non-ideal).
+
+Nmap scan report for 192.168.1.158
+Host is up (0.0022s latency).
+All 4012 scanned ports on 192.168.1.158 are in ignored states.
+Not shown: 3485 closed tcp ports (conn-refused), 527 filtered tcp ports (no-response)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+OS fingerprint not ideal because: Missing an open TCP port so results incomplete
+No OS matches for host
+
+Nmap scan report for 192.168.1.16
+Host is up (0.00069s latency).
+All 4012 scanned ports on 192.168.1.16 are in ignored states.
+Not shown: 4012 filtered tcp ports (no-response)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Aggressive OS guesses: Sanyo PLC-XU88 digital video projector (95%), Linux 2.6.18 (93%), Buffalo BS-GS switch (92%), Printronix T5304 label printer (92%), Asus WL-500gP wireless broadband router (92%), AXIS 70U Network Document Server (92%), Brother HL-2700CN printer (92%), Brother MFC-7820N printer (92%), IBM 6400 printer (software version 7.0.9.6) (92%), Intel Express 510T, 520T, or 550T switch (92%)
+No exact OS matches for host (test conditions non-ideal).
+
+Nmap scan report for 192.168.1.162
+Host is up (0.00075s latency).
+All 4012 scanned ports on 192.168.1.162 are in ignored states.
+Not shown: 3963 closed tcp ports (conn-refused), 49 filtered tcp ports (no-response)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+OS fingerprint not ideal because: Missing an open TCP port so results incomplete
+No OS matches for host
+
+Nmap scan report for 192.168.1.178
+Host is up (0.00073s latency).
+All 4012 scanned ports on 192.168.1.178 are in ignored states.
+Not shown: 3965 closed tcp ports (conn-refused), 47 filtered tcp ports (no-response)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+OS fingerprint not ideal because: Missing an open TCP port so results incomplete
+No OS matches for host
+
+Nmap scan report for 192.168.1.186
+Host is up (0.0040s latency).
+Not shown: 3982 closed tcp ports (conn-refused), 29 filtered tcp ports (no-response)
+PORT     STATE SERVICE    VERSION
+8009/tcp open  tcpwrapped
+Device type: general purpose
+Running (JUST GUESSING): IBM z/OS 1.11.X (85%)
+OS CPE: cpe:/o:ibm:zos:1.11
+Aggressive OS guesses: IBM z/OS 1.11 (85%)
+No exact OS matches for host (test conditions non-ideal).
+
+Nmap scan report for 192.168.1.19
+Host is up (0.0015s latency).
+Not shown: 3964 closed tcp ports (conn-refused), 45 filtered tcp ports (no-response)
+PORT     STATE SERVICE     VERSION
+22/tcp   open  ssh         OpenSSH 9.6p1 Ubuntu 3ubuntu13.16 (Ubuntu Linux; protocol 2.0)
+80/tcp   open  http        nginx 1.24.0 (Ubuntu)
+5679/tcp open  activesync?
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+SF-Port5679-TCP:V=7.94SVN%I=2%D=6/2%Time=6A1FA2E3%P=x86_64-pc-linux-gnu%r(
+SF:GetRequest,30CE,"HTTP/1\.1\x20200\x20OK\r\nAccept-Ranges:\x20bytes\r\nC
+SF:ache-Control:\x20public,\x20max-age=86400\r\nLast-Modified:\x20Tue,\x20
+SF:26\x20May\x202026\x2003:44:38\x20GMT\r\nETag:\x20W/\"2fa7-19e62626e2a\"
+SF:\r\nContent-Type:\x20text/html;\x20charset=utf-8\r\nContent-Length:\x20
+SF:12199\r\nVary:\x20Accept-Encoding\r\nDate:\x20Wed,\x2003\x20Jun\x202026
+SF:\x2003:43:31\x20GMT\r\nConnection:\x20close\r\n\r\n<!DOCTYPE\x20html>\n
+SF:<html\x20lang=\"en\">\n\t<head>\n\t\t<meta\x20charset=\"utf-8\"\x20/>\n
+SF:\t\t<meta\x20http-equiv=\"X-UA-Compatible\"\x20content=\"IE=edge\"\x20/
+SF:>\n\t\t<meta\x20name=\"viewport\"\x20content=\"width=device-width,initi
+SF:al-scale=1\.0\"\x20/>\n\t\t<link\x20rel=\"icon\"\x20href=\"/favicon\.ic
+SF:o\"\x20/>\n\t\t<meta\x20name=\"n8n:config:rest-endpoint\"\x20content=\"
+SF:cmVzdA==\"><meta\x20name=\"n8n:config:sentry\"\x20content=\"eyJkc24iOiI
+SF:iLCJlbnZpcm9ubWVudCI6ImRldmVsb3BtZW50IiwicmVsZWFzZSI6Im44bkAyLjMuMyJ9\"
+SF:>\n\t\t<link\x20rel=\"stylesheet\"\x20href=\"/static/prefers-color-sche
+SF:me\.css\">\n\t\t<script\x20src=\"/static/base-path\.js\"\x20type=\"text
+SF:/javascript\"></script>\n\t\t<script\x20src=\"/static/posthog\.init\.js
+SF:\"\x20type=")%r(SSLSessionReq,2F,"HTTP/1\.1\x20400\x20Bad\x20Request\r\
+SF:nConnection:\x20close\r\n\r\n")%r(TLSSessionReq,2F,"HTTP/1\.1\x20400\x2
+SF:0Bad\x20Request\r\nConnection:\x20close\r\n\r\n");
+Device type: general purpose
+Running (JUST GUESSING): IBM z/OS 1.11.X (85%)
+OS CPE: cpe:/o:ibm:zos:1.11
+Aggressive OS guesses: IBM z/OS 1.11 (85%)
+No exact OS matches for host (test conditions non-ideal).
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Nmap scan report for 192.168.1.196
+Host is up (0.0073s latency).
+All 4012 scanned ports on 192.168.1.196 are in ignored states.
+Not shown: 3983 closed tcp ports (conn-refused), 29 filtered tcp ports (no-response)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Aggressive OS guesses: XigmaNAS (FreeBSD 11.2-RELEASE) (95%), AVM FRITZ!Box FON WLAN 7170 WAP (Linux 2.6.13) (95%), XigmaNAS (FreeBSD 12.2-RELEASE) (95%), Cisco SG 300-10, Dell PowerConnect 2748, Linksys SLM2024, SLM2048, or SLM224P, or Netgear FS728TP or GS724TP switch (95%), Dell PowerConnect 5316M switch (95%), Linksys SRW2000-series or Allied Telesyn AT-8000S switch (95%), Linksys SRW2024 switch (95%), Netgear FS700TS Smart Switch (95%), Blue Coat SGOS 4.2.2.2 (95%), Nintendo 3DS (95%)
+No exact OS matches for host (test conditions non-ideal).
+
+Nmap scan report for 192.168.1.2
+Host is up (0.0016s latency).
+Not shown: 3953 closed tcp ports (conn-refused), 40 filtered tcp ports (no-response)
+PORT     STATE SERVICE          VERSION
+22/tcp   open  ssh              OpenSSH 10.2 (protocol 2.0)
+80/tcp   open  http             nginx
+5000/tcp open  upnp?
+5355/tcp open  tcpwrapped
+5678/tcp open  rrac?
+5700/tcp open  websocket        (WebSocket version: 13)
+5900/tcp open  vnc              VNC (protocol 3.8)
+5901/tcp open  vnc              VNC (protocol 3.8)
+6080/tcp open  gue?
+6767/tcp open  bmc-perf-agent?
+7878/tcp open  owms?
+8080/tcp open  http             CherryPy httpd 18.10.0
+8081/tcp open  blackice-icecap?
+8112/tcp open  unknown
+8118/tcp open  privoxy?
+8191/tcp open  limnerpressure?
+8265/tcp open  unknown
+8266/tcp open  espeasy-p2p?
+8989/tcp open  sunwebadmins?
+9 services unrecognized despite returning data. If you know the service/version, please submit the following fingerprints at https://nmap.org/cgi-bin/submit.cgi?new-service :
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port5000-TCP:V=7.94SVN%I=2%D=6/2%Time=6A1FA2E3%P=x86_64-pc-linux-gnu%r(
+SF:GetRequest,9FC7,"HTTP/1\.1\x20200\x20OK\r\nContent-Length:\x2040670\r\n
+SF:Connection:\x20close\r\nContent-Type:\x20text/html\r\nDate:\x20Wed,\x20
+SF:03\x20Jun\x202026\x2003:43:30\x20GMT\r\nServer:\x20Kestrel\r\nAccept-Ra
+SF:nges:\x20bytes\r\nETag:\x20\"1dce40d5968e3de\"\r\nLast-Modified:\x20Fri
+SF:,\x2015\x20May\x202026\x2001:51:30\x20GMT\r\n\r\n<!DOCTYPE\x20html>\n<h
+SF:tml\x20lang=\"en\"\x20data-beasties-container>\n\n<head><link\x20rel=\"
+SF:preconnect\"\x20href=\"https://fonts\.gstatic\.com\"\x20crossorigin>\x2
+SF:0\x20\n\x20\x20\x20\x20<script\x20type='text/javascript'>window\[\"base
+SF:Href\"\]\x20=\x20'';</script>\n\x20\x20\x20\x20<base\x20href=\"/\">\n\x
+SF:20\x20\x20\x20<style>@font-face{font-family:'Material\x20Icons';font-st
+SF:yle:normal;font-weight:400;src:url\(https://fonts\.gstatic\.com/s/mater
+SF:ialicons/v145/flUhRq6tzZclQEJ-Vdg-IuiaDsNc\.woff2\)\x20format\('woff2'\
+SF:);}\.material-icons{font-family:'Material\x20Icons';font-weight:normal;
+SF:font-style:normal;font-size:24px;line-height:1;letter-spacing:normal;te
+SF:xt-transform:none;display:inline-block;white-space:nowrap;word-wrap:nor
+SF:mal;direction:ltr;-webkit-font-feature-setti")%r(RTSPRequest,87,"HTTP/1
+SF:\.1\x20505\x20HTTP\x20Version\x20Not\x20Supported\r\nContent-Length:\x2
+SF:00\r\nConnection:\x20close\r\nDate:\x20Wed,\x2003\x20Jun\x202026\x2003:
+SF:43:31\x20GMT\r\nServer:\x20Kestrel\r\n\r\n")%r(SSLSessionReq,78,"HTTP/1
+SF:\.1\x20400\x20Bad\x20Request\r\nContent-Length:\x200\r\nConnection:\x20
+SF:close\r\nDate:\x20Wed,\x2003\x20Jun\x202026\x2003:43:46\x20GMT\r\nServe
+SF:r:\x20Kestrel\r\n\r\n")%r(TLSSessionReq,78,"HTTP/1\.1\x20400\x20Bad\x20
+SF:Request\r\nContent-Length:\x200\r\nConnection:\x20close\r\nDate:\x20Wed
+SF:,\x2003\x20Jun\x202026\x2003:43:46\x20GMT\r\nServer:\x20Kestrel\r\n\r\n
+SF:");
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port5678-TCP:V=7.94SVN%I=2%D=6/2%Time=6A1FA2E3%P=x86_64-pc-linux-gnu%r(
+SF:GetRequest,4846,"HTTP/1\.1\x20200\x20OK\r\nAccept-Ranges:\x20bytes\r\nC
+SF:ache-Control:\x20public,\x20max-age=86400\r\nLast-Modified:\x20Sun,\x20
+SF:17\x20May\x202026\x2017:53:43\x20GMT\r\nETag:\x20W/\"471f-19e37128f78\"
+SF:\r\nContent-Type:\x20text/html;\x20charset=utf-8\r\nContent-Length:\x20
+SF:18207\r\nVary:\x20Accept-Encoding\r\nDate:\x20Wed,\x2003\x20Jun\x202026
+SF:\x2003:43:31\x20GMT\r\nConnection:\x20close\r\n\r\n<!DOCTYPE\x20html>\n
+SF:<html\x20lang=\"en\">\n\t<head>\n\t\t<meta\x20charset=\"utf-8\"\x20/>\n
+SF:\t\t<meta\x20http-equiv=\"X-UA-Compatible\"\x20content=\"IE=edge\"\x20/
+SF:>\n\t\t<meta\x20name=\"viewport\"\x20content=\"width=device-width,initi
+SF:al-scale=1\.0\"\x20/>\n\t\t<link\x20rel=\"icon\"\x20href=\"/favicon\.ic
+SF:o\"\x20/>\n\t\t<meta\x20name=\"n8n:config:rest-endpoint\"\x20content=\"
+SF:cmVzdA==\"><meta\x20name=\"n8n:config:sentry\"\x20content=\"eyJkc24iOiI
+SF:iLCJlbnZpcm9ubWVudCI6ImRldmVsb3BtZW50IiwicmVsZWFzZSI6Im44bkAyLjE5LjIifQ
+SF:==\">\n\t\t<link\x20rel=\"stylesheet\"\x20href=\"/static/prefers-color-
+SF:scheme\.css\">\n\t\t<script\x20src=\"/static/base-path\.js\"\x20type=\"
+SF:text/javascript\"></script>\n\t\t<script\x20src=\"/static/posthog\.init
+SF:\.js\"\x20t")%r(SSLSessionReq,2F,"HTTP/1\.1\x20400\x20Bad\x20Request\r\
+SF:nConnection:\x20close\r\n\r\n")%r(TLSSessionReq,2F,"HTTP/1\.1\x20400\x2
+SF:0Bad\x20Request\r\nConnection:\x20close\r\n\r\n");
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port6080-TCP:V=7.94SVN%I=2%D=6/2%Time=6A1FA2DB%P=x86_64-pc-linux-gnu%r(
+SF:GetRequest,29C,"HTTP/1\.1\x20200\x20OK\r\nServer:\x20WebSockify\x20Pyth
+SF:on/3\.12\.8\r\nDate:\x20Wed,\x2003\x20Jun\x202026\x2003:43:23\x20GMT\r\
+SF:nContent-type:\x20text/html;\x20charset=utf-8\r\nContent-Length:\x20517
+SF:\r\n\r\n<!DOCTYPE\x20HTML>\n<html\x20lang=\"en\">\n<head>\n<meta\x20cha
+SF:rset=\"utf-8\">\n<title>Directory\x20listing\x20for\x20/</title>\n</hea
+SF:d>\n<body>\n<h1>Directory\x20listing\x20for\x20/</h1>\n<hr>\n<ul>\n<li>
+SF:<a\x20href=\"app/\">app/</a></li>\n<li><a\x20href=\"core/\">core/</a></
+SF:li>\n<li><a\x20href=\"karma\.conf\.js\">karma\.conf\.js</a></li>\n<li><
+SF:a\x20href=\"package\.json\">package\.json</a></li>\n<li><a\x20href=\"po
+SF:/\">po/</a></li>\n<li><a\x20href=\"vendor/\">vendor/</a></li>\n<li><a\x
+SF:20href=\"vnc\.html\">vnc\.html</a></li>\n<li><a\x20href=\"vnc_lite\.htm
+SF:l\">vnc_lite\.html</a></li>\n</ul>\n<hr>\n</body>\n</html>\n");
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port6767-TCP:V=7.94SVN%I=2%D=6/2%Time=6A1FA2E3%P=x86_64-pc-linux-gnu%r(
+SF:GetRequest,83B,"HTTP/1\.0\x20200\x20OK\r\nAccess-Control-Allow-Origin:\
+SF:x20\*\r\nConnection:\x20close\r\nContent-Length:\x201897\r\nContent-Typ
+SF:e:\x20text/html;\x20charset=utf-8\r\nDate:\x20Wed,\x2003\x20Jun\x202026
+SF:\x2003:43:31\x20GMT\r\nServer:\x20waitress\r\nVary:\x20Accept-Encoding\
+SF:r\n\r\n<!doctype\x20html>\n<html\x20lang=\"en\">\n\x20\x20<head>\n\x20\
+SF:x20\x20\x20<title>Bazarr</title>\n\x20\x20\x20\x20<base\x20href=\"/\"\x
+SF:20/>\n\x20\x20\x20\x20<meta\x20charset=\"utf-8\"\x20/>\n\x20\x20\x20\x2
+SF:0<link\x20rel=\"icon\"\x20type=\"image/x-icon\"\x20href=\"\./images/fav
+SF:icon\.ico\"\x20/>\n\x20\x20\x20\x20<link\n\x20\x20\x20\x20\x20\x20rel=\
+SF:"apple-touch-icon\"\n\x20\x20\x20\x20\x20\x20href=\"\./images/apple-tou
+SF:ch-icon-180x180\.png\"\n\x20\x20\x20\x20\x20\x20sizes=\"180x180\"\n\x20
+SF:\x20\x20\x20/>\n\x20\x20\x20\x20<link\n\x20\x20\x20\x20\x20\x20rel=\"ma
+SF:sk-icon\"\n\x20\x20\x20\x20\x20\x20href=\"\./images/maskable-icon-512x5
+SF:12\.png\"\n\x20\x20\x20\x20\x20\x20color=\"#FFFFFF\"\n\x20\x20\x20\x20/
+SF:>\n\x20\x20\x20\x20<meta\x20name=\"theme-color\"\x20content=\"#be4bdb\"
+SF:\x20/>\n\x20\x20\x20\x20<meta\n\x20\x20\x20\x20\x20\x20name=\"viewport\
+SF:"\n\x20\x20\x20\x20\x20\x20content=\"width=device-width,\x20initial-sca
+SF:le=1,\x20minimum-scale=1,\x20maximum-scale=1\"\n\x20\x20\x20\x20/>\n\x2
+SF:0\x20\x20\x20<meta\n\x20\x20\x20\x20\x20\x20name=\"description\"\n\x20\
+SF:x20\x20\x20\x20\x20content=\"Bazarr\x20is\x20a\x20companion\x20applicat
+SF:ion\x20to\x20Sonarr\x20an");
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port7878-TCP:V=7.94SVN%I=2%D=6/2%Time=6A1FA2E8%P=x86_64-pc-linux-gnu%r(
+SF:GetRequest,99,"HTTP/1\.1\x20302\x20Found\r\nContent-Length:\x200\r\nCon
+SF:nection:\x20close\r\nDate:\x20Wed,\x2003\x20Jun\x202026\x2003:43:36\x20
+SF:GMT\r\nServer:\x20Kestrel\r\nLocation:\x20http:///login\?returnUrl=%2F\
+SF:r\n\r\n")%r(SSLSessionReq,78,"HTTP/1\.1\x20400\x20Bad\x20Request\r\nCon
+SF:tent-Length:\x200\r\nConnection:\x20close\r\nDate:\x20Wed,\x2003\x20Jun
+SF:\x202026\x2003:43:36\x20GMT\r\nServer:\x20Kestrel\r\n\r\n")%r(TLSSessio
+SF:nReq,78,"HTTP/1\.1\x20400\x20Bad\x20Request\r\nContent-Length:\x200\r\n
+SF:Connection:\x20close\r\nDate:\x20Wed,\x2003\x20Jun\x202026\x2003:43:36\
+SF:x20GMT\r\nServer:\x20Kestrel\r\n\r\n");
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port8081-TCP:V=7.94SVN%I=2%D=6/2%Time=6A1FA2DE%P=x86_64-pc-linux-gnu%r(
+SF:GetRequest,19CB,"HTTP/1\.0\x20200\x20OK\r\ncontent-type:\x20text/html;\
+SF:x20charset=utf-8\r\ncontent-length:\x206294\r\nserver-timing:\x20total;
+SF:dur=3\.863,\x20render;dur=1\.636\r\nx-content-type-options:\x20nosniff\
+SF:r\nx-download-options:\x20noopen\r\nx-robots-tag:\x20noindex,\x20nofoll
+SF:ow\r\nreferrer-policy:\x20no-referrer\r\nserver:\x20granian\r\ndate:\x2
+SF:0Wed,\x2003\x20Jun\x202026\x2003:43:26\x20GMT\r\n\r\n<!DOCTYPE\x20html>
+SF:\n<html\x20class=\"no-js\x20theme-auto\x20center-alignment-no\"\x20lang
+SF:=\"en-EN\"\x20>\n<head>\n\x20\x20<meta\x20charset=\"UTF-8\">\n\x20\x20<
+SF:meta\x20name=\"endpoint\"\x20content=\"index\">\n\x20\x20<meta\x20name=
+SF:\"description\"\x20content=\"SearXNG\x20\xe2\x80\x94\x20a\x20privacy-re
+SF:specting,\x20open\x20metasearch\x20engine\">\n\x20\x20<meta\x20name=\"k
+SF:eywords\"\x20content=\"SearXNG,\x20search,\x20search\x20engine,\x20meta
+SF:search,\x20meta\x20search\">\n\x20\x20<meta\x20name=\"generator\"\x20co
+SF:ntent=\"searxng/2026\.5\.26\+0037d43d8\">\n\x20\x20<meta\x20name=\"refe
+SF:rrer\"\x20content=\"no-referrer\">\n\x20\x20<meta\x20name=\"robots\"\x2
+SF:0content=\"noarchive\">\n\x20\x20<meta\x20name=\"viewport\"\x20content=
+SF:\"width=device-width,\x20initial-scale=1\">\n\x20\x20<title>SearXNG</ti
+SF:tle>\n")%r(FourOhFourRequest,13A5,"HTTP/1\.0\x20404\x20Not\x20Found\r\n
+SF:content-type:\x20text/html;\x20charset=utf-8\r\ncontent-length:\x204713
+SF:\r\nserver-timing:\x20total;dur=3\.592,\x20render;dur=1\.357\r\nx-conte
+SF:nt-type-options:\x20nosniff\r\nx-download-options:\x20noopen\r\nx-robot
+SF:s-tag:\x20noindex,\x20nofollow\r\nreferrer-policy:\x20no-referrer\r\nse
+SF:rver:\x20granian\r\ndate:\x20Wed,\x2003\x20Jun\x202026\x2003:43:26\x20G
+SF:MT\r\n\r\n<!DOCTYPE\x20html>\n<html\x20class=\"no-js\x20theme-auto\x20c
+SF:enter-alignment-no\"\x20lang=\"en-EN\"\x20>\n<head>\n\x20\x20<meta\x20c
+SF:harset=\"UTF-8\">\n\x20\x20<meta\x20name=\"endpoint\"\x20content=\"None
+SF:\">\n\x20\x20<meta\x20name=\"description\"\x20content=\"SearXNG\x20\xe2
+SF:\x80\x94\x20a\x20privacy-respecting,\x20open\x20metasearch\x20engine\">
+SF:\n\x20\x20<meta\x20name=\"keywords\"\x20content=\"SearXNG,\x20search,\x
+SF:20search\x20engine,\x20metasearch,\x20meta\x20search\">\n\x20\x20<meta\
+SF:x20name=\"generator\"\x20content=\"searxng/2026\.5\.26\+0037d43d8\">\n\
+SF:x20\x20<meta\x20name=\"referrer\"\x20content=\"no-referrer\">\n\x20\x20
+SF:<meta\x20name=\"robots\"\x20content=\"noarchive\">\n\x20\x20<meta\x20na
+SF:me=\"viewport\"\x20content=\"width=device-width,\x20initial-scale=1\">\
+SF:n\x20\x20<title>SearXNG</t");
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port8112-TCP:V=7.94SVN%I=2%D=6/2%Time=6A1FA2DE%P=x86_64-pc-linux-gnu%r(
+SF:GenericLines,1C,"HTTP/1\.1\x20400\x20Bad\x20Request\r\n\r\n")%r(GetRequ
+SF:est,A12,"HTTP/1\.0\x20200\x20OK\r\nServer:\x20TwistedWeb\r\nDate:\x20We
+SF:d,\x2003\x20Jun\x202026\x2003:43:26\x20GMT\r\nContent-Type:\x20text/htm
+SF:l;\x20charset=utf-8\r\nContent-Length:\x202440\r\n\r\n<!DOCTYPE\x20html
+SF:\x20PUBLIC\x20\"-//W3C//DTD\x20XHTML\x201\.0\x20Strict//EN\"\x20\"http:
+SF://www\.w3\.org/TR/xhtml1/DTD/xhtml1-strict\.dtd\">\n<html\x20xmlns=\"ht
+SF:tp://www\.w3\.org/1999/xhtml\">\n\x20\x20\x20\x20<head>\n\x20\x20\x20\x
+SF:20\x20\x20\x20\x20<title>Deluge\x20WebUI\x202\.2\.0</title>\n\n\x20\x20
+SF:\x20\x20\x20\x20\x20\x20<link\x20rel=\"icon\"\x20sizes=\"16x16\"\x20typ
+SF:e=\"image/png\"\n\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20href=\
+SF:"/icons/deluge\.png\"/>\n\x20\x20\x20\x20\x20\x20\x20\x20<link\x20rel=\
+SF:"icon\"\x20sizes=\"32x32\"\x20type=\"image/png\"\n\x20\x20\x20\x20\x20\
+SF:x20\x20\x20\x20\x20\x20\x20href=\"/icons/deluge-32\.png\"/>\n\x20\x20\x
+SF:20\x20\x20\x20\x20\x20<!--\x20For\x20Chrome,\x20Android,\x20iOS\x20and\
+SF:x20Windows\x20touch\x20shortcuts:\x20-->\n\x20\x20\x20\x20\x20\x20\x20\
+SF:x20<link\x20rel=\"icon\"\x20sizes=\"192x192\"\x20type=\"image/png\"\n\x
+SF:20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20href=\"/icons/deluge-192\
+SF:.png\"/>\n\x20\x20\x20\x20\x20\x20\x20\x20<link\x20rel=\"icon\"\x20size
+SF:s=\"512x512\"\x20type=\"image/png\"\n\x20\x20\x20\x20\x20\x20\x20\x20\x
+SF:20\x20\x20\x20href=\"/icons/deluge-512\.png\"/>\n\x20\x20\x20\x20\x20\x
+SF:20\x20\x20<link\x20rel=\"apple-touch-icon-precomposed\"\n\x20\x20\x20\x
+SF:20\x20\x20\x20\x20\x20\x20\x20\x20href=\"/icons/deluge-apple-1");
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port8118-TCP:V=7.94SVN%I=2%D=6/2%Time=6A1FA2DE%P=x86_64-pc-linux-gnu%r(
+SF:GetRequest,86,"HTTP/1\.1\x20400\x20Invalid\x20header\x20received\x20fro
+SF:m\x20client\r\nContent-Type:\x20text/plain\r\nConnection:\x20close\r\n\
+SF:r\nInvalid\x20header\x20received\x20from\x20client\.\n");
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port8191-TCP:V=7.94SVN%I=2%D=6/2%Time=6A1FA2E3%P=x86_64-pc-linux-gnu%r(
+SF:GetRequest,13D,"HTTP/1\.0\x20200\x20OK\r\nConnection:\x20close\r\nConte
+SF:nt-Length:\x20171\r\nContent-Type:\x20application/json\r\nDate:\x20Wed,
+SF:\x2003\x20Jun\x202026\x2003:43:31\x20GMT\r\nServer:\x20waitress\r\n\r\n
+SF:{\"msg\":\x20\"FlareSolverr\x20is\x20ready!\",\x20\"version\":\x20\"3\.
+SF:4\.6\",\x20\"userAgent\":\x20\"Mozilla/5\.0\x20\(X11;\x20Linux\x20x86_6
+SF:4\)\x20AppleWebKit/537\.36\x20\(KHTML,\x20like\x20Gecko\)\x20Chrome/143
+SF:\.0\.0\.0\x20Safari/537\.36\"}");
+Device type: general purpose
+Running (JUST GUESSING): IBM z/OS 1.11.X (85%)
+OS CPE: cpe:/o:ibm:zos:1.11
+Aggressive OS guesses: IBM z/OS 1.11 (85%)
+No exact OS matches for host (test conditions non-ideal).
+
+Nmap scan report for 192.168.1.230
+Host is up (0.0041s latency).
+Not shown: 3959 closed tcp ports (conn-refused), 51 filtered tcp ports (no-response)
+PORT     STATE SERVICE          VERSION
+7000/tcp open  afs3-fileserver?
+8060/tcp open  upnp
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+SF-Port7000-TCP:V=7.94SVN%I=2%D=6/2%Time=6A1FA2F2%P=x86_64-pc-linux-gnu%r(
+SF:GetRequest,49,"HTTP/1\.1\x20403\x20Forbidden\r\nContent-Length:\x200\r\
+SF:nServer:\x20AirTunes/377\.40\.00\r\n\r\n");
+OS fingerprint not ideal because: Didn't receive UDP response. Please try again with -sSU
+No OS matches for host
+
+Nmap scan report for 192.168.1.32
+Host is up (0.00093s latency).
+All 4012 scanned ports on 192.168.1.32 are in ignored states.
+Not shown: 3970 closed tcp ports (conn-refused), 42 filtered tcp ports (no-response)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+OS fingerprint not ideal because: Missing an open TCP port so results incomplete
+No OS matches for host
+
+Nmap scan report for 192.168.1.36
+Host is up (0.0016s latency).
+Not shown: 3966 closed tcp ports (conn-refused), 41 filtered tcp ports (no-response)
+PORT     STATE SERVICE VERSION
+22/tcp   open  ssh     OpenSSH 9.6p1 Ubuntu 3ubuntu13.16 (Ubuntu Linux; protocol 2.0)
+80/tcp   open  http    OpenResty web app server
+81/tcp   open  http    OpenResty web app server
+8080/tcp open  http    nginx 1.24.0 (Ubuntu)
+8888/tcp open  http    nginx 1.31.0
+Device type: general purpose
+Running (JUST GUESSING): IBM z/OS 1.11.X|2.1.X (85%)
+OS CPE: cpe:/o:ibm:zos:1.11 cpe:/o:ibm:zos:2.1
+Aggressive OS guesses: IBM z/OS 1.11 (85%), IBM z/OS 2.1 (85%)
+No exact OS matches for host (test conditions non-ideal).
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Nmap scan report for 192.168.1.4
+Host is up (0.0015s latency).
+Not shown: 3969 closed tcp ports (conn-refused), 41 filtered tcp ports (no-response)
+PORT     STATE SERVICE        VERSION
+22/tcp   open  ssh            OpenSSH 10.0p2 Debian 7+deb13u2 (protocol 2.0)
+8006/tcp open  wpl-analytics?
+Device type: general purpose
+Running (JUST GUESSING): IBM z/OS 1.11.X (85%)
+OS CPE: cpe:/o:ibm:zos:1.11
+Aggressive OS guesses: IBM z/OS 1.11 (85%)
+No exact OS matches for host (test conditions non-ideal).
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Nmap scan report for 192.168.1.48
+Host is up (0.0017s latency).
+Not shown: 3969 closed tcp ports (conn-refused), 40 filtered tcp ports (no-response)
+PORT     STATE SERVICE     VERSION
+22/tcp   open  ssh         OpenSSH 9.6p1 Ubuntu 3ubuntu13.16 (Ubuntu Linux; protocol 2.0)
+7071/tcp open  iwg1?
+8080/tcp open  http-proxy?
+2 services unrecognized despite returning data. If you know the service/version, please submit the following fingerprints at https://nmap.org/cgi-bin/submit.cgi?new-service :
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port7071-TCP:V=7.94SVN%I=2%D=6/2%Time=6A1FA2E5%P=x86_64-pc-linux-gnu%r(
+SF:GetRequest,14222,"HTTP/1\.1\x20200\x20OK\r\nServer:\x20Werkzeug/3\.1\.3
+SF:\x20Python/3\.12\.10\r\nDate:\x20Wed,\x2003\x20Jun\x202026\x2003:43:33\
+SF:x20GMT\r\nContent-Type:\x20text/html;\x20charset=utf-8\r\nContent-Lengt
+SF:h:\x20129149\r\nConnection:\x20close\r\n\r\n<!DOCTYPE\x20html>\n<html\x
+SF:20lang=\"en\">\n\n<head>\n\x20\x20\x20\x20<meta\x20charset=\"UTF-8\">\n
+SF:\x20\x20\x20\x20<meta\x20name=\"viewport\"\x20content=\"width=device-wi
+SF:dth,\x20initial-scale=1,\x20maximum-scale=1\">\n\x20\x20\x20\x20<title>
+SF:Agent\x20Zero</title>\n\x20\x20\x20\x20<link\x20rel=\"icon\"\x20type=\"
+SF:image/svg\+xml\"\x20href=\"public/favicon\.svg\">\n\x20\x20\x20\x20<lin
+SF:k\x20rel=\"stylesheet\"\x20href=\"index\.css\">\n\x20\x20\x20\x20<link\
+SF:x20rel=\"stylesheet\"\x20href=\"css/messages\.css\">\n\x20\x20\x20\x20<
+SF:link\x20rel=\"stylesheet\"\x20href=\"css/toast\.css\">\n\x20\x20\x20\x2
+SF:0<link\x20rel=\"stylesheet\"\x20href=\"css/settings\.css\">\n\x20\x20\x
+SF:20\x20<link\x20rel=\"stylesheet\"\x20href=\"css/file_browser\.css\">\n\
+SF:x20\x20\x20\x20<link\x20rel=\"stylesheet\"\x20href=\"css/modals\.css\">
+SF:\n\x20\x20\x20\x20<link\x20rel=\"stylesheet\"\x20href=\"css/modals2\.cs
+SF:s\">\n\x20\x20\x20\x20<link\x20rel=\"stylesheet\"\x20href=\"css/speech\
+SF:.css\">\n\x20\x20\x20\x20<link\x20rel=\"stylesheet\"\x20href=\"css/hist
+SF:ory\.css\">\n\x20\x20\x20\x20<link")%r(SSLSessionReq,1E8,"<!DOCTYPE\x20
+SF:HTML>\n<html\x20lang=\"en\">\n\x20\x20\x20\x20<head>\n\x20\x20\x20\x20\
+SF:x20\x20\x20\x20<meta\x20charset=\"utf-8\">\n\x20\x20\x20\x20\x20\x20\x2
+SF:0\x20<title>Error\x20response</title>\n\x20\x20\x20\x20</head>\n\x20\x2
+SF:0\x20\x20<body>\n\x20\x20\x20\x20\x20\x20\x20\x20<h1>Error\x20response<
+SF:/h1>\n\x20\x20\x20\x20\x20\x20\x20\x20<p>Error\x20code:\x20400</p>\n\x2
+SF:0\x20\x20\x20\x20\x20\x20\x20<p>Message:\x20Bad\x20request\x20syntax\x2
+SF:0\('\\x16\\x03\\x00\\x00S\\x01\\x00\\x00O\\x03\\x00\?G\xc3\x97\xc3\xb7\
+SF:xc2\xba,\xc3\xae\xc3\xaa\xc2\xb2`~\xc3\xb3\\x00\xc3\xbd\\x82{\xc2\xb9\x
+SF:c3\x95\\x96\xc3\x88w\\x9b\xc3\xa6\xc3\x84\xc3\x9b&lt;=\xc3\x9bo\xc3\xaf
+SF:\\x10n\\x00\\x00\(\\x00\\x16\\x00\\x13\\x00'\)\.</p>\n\x20\x20\x20\x20\
+SF:x20\x20\x20\x20<p>Error\x20code\x20explanation:\x20400\x20-\x20Bad\x20r
+SF:equest\x20syntax\x20or\x20unsupported\x20method\.</p>\n\x20\x20\x20\x20
+SF:</body>\n</html>\n");
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port8080-TCP:V=7.94SVN%I=2%D=6/2%Time=6A1FA2E5%P=x86_64-pc-linux-gnu%r(
+SF:GetRequest,5E,"HTTP/1\.0\x20500\x20Internal\x20Server\x20Error\r\nDate:
+SF:\x20Wed,\x2003\x20Jun\x202026\x2003:43:33\x20GMT\r\nContent-Length:\x20
+SF:0\r\n\r\n")%r(HTTPOptions,5E,"HTTP/1\.0\x20500\x20Internal\x20Server\x2
+SF:0Error\r\nDate:\x20Wed,\x2003\x20Jun\x202026\x2003:43:33\x20GMT\r\nCont
+SF:ent-Length:\x200\r\n\r\n")%r(RTSPRequest,67,"HTTP/1\.1\x20400\x20Bad\x2
+SF:0Request\r\nContent-Type:\x20text/plain;\x20charset=utf-8\r\nConnection
+SF::\x20close\r\n\r\n400\x20Bad\x20Request")%r(FourOhFourRequest,5E,"HTTP/
+SF:1\.0\x20500\x20Internal\x20Server\x20Error\r\nDate:\x20Wed,\x2003\x20Ju
+SF:n\x202026\x2003:43:34\x20GMT\r\nContent-Length:\x200\r\n\r\n")%r(Socks5
+SF:,67,"HTTP/1\.1\x20400\x20Bad\x20Request\r\nContent-Type:\x20text/plain;
+SF:\x20charset=utf-8\r\nConnection:\x20close\r\n\r\n400\x20Bad\x20Request"
+SF:)%r(GenericLines,67,"HTTP/1\.1\x20400\x20Bad\x20Request\r\nContent-Type
+SF::\x20text/plain;\x20charset=utf-8\r\nConnection:\x20close\r\n\r\n400\x2
+SF:0Bad\x20Request")%r(SSLSessionReq,67,"HTTP/1\.1\x20400\x20Bad\x20Reques
+SF:t\r\nContent-Type:\x20text/plain;\x20charset=utf-8\r\nConnection:\x20cl
+SF:ose\r\n\r\n400\x20Bad\x20Request")%r(TLSSessionReq,67,"HTTP/1\.1\x20400
+SF:\x20Bad\x20Request\r\nContent-Type:\x20text/plain;\x20charset=utf-8\r\n
+SF:Connection:\x20close\r\n\r\n400\x20Bad\x20Request");
+Device type: general purpose
+Running (JUST GUESSING): IBM z/OS 1.11.X|2.1.X (85%)
+OS CPE: cpe:/o:ibm:zos:1.11 cpe:/o:ibm:zos:2.1
+Aggressive OS guesses: IBM z/OS 1.11 (85%), IBM z/OS 2.1 (85%)
+No exact OS matches for host (test conditions non-ideal).
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Nmap scan report for 192.168.1.55
+Host is up (0.0017s latency).
+Not shown: 3976 closed tcp ports (conn-refused), 33 filtered tcp ports (no-response)
+PORT     STATE SERVICE     VERSION
+22/tcp   open  ssh         OpenSSH 9.6p1 Ubuntu 3ubuntu13.16 (Ubuntu Linux; protocol 2.0)
+5679/tcp open  activesync?
+7072/tcp open  iba-cfg?
+2 services unrecognized despite returning data. If you know the service/version, please submit the following fingerprints at https://nmap.org/cgi-bin/submit.cgi?new-service :
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port5679-TCP:V=7.94SVN%I=2%D=6/2%Time=6A1FA2E9%P=x86_64-pc-linux-gnu%r(
+SF:GetRequest,2C20,"HTTP/1\.1\x20200\x20OK\r\nAccept-Ranges:\x20bytes\r\nC
+SF:ache-Control:\x20public,\x20max-age=86400\r\nLast-Modified:\x20Tue,\x20
+SF:26\x20May\x202026\x2003:44:48\x20GMT\r\nETag:\x20W/\"4311-19e626294f9\"
+SF:\r\nContent-Type:\x20text/html;\x20charset=utf-8\r\nContent-Length:\x20
+SF:17169\r\nVary:\x20Accept-Encoding\r\nDate:\x20Wed,\x2003\x20Jun\x202026
+SF:\x2003:43:37\x20GMT\r\nConnection:\x20close\r\n\r\n<!DOCTYPE\x20html>\n
+SF:<html\x20lang=\"en\">\n\t<head>\n\t\t<meta\x20charset=\"utf-8\"\x20/>\n
+SF:\t\t<meta\x20http-equiv=\"X-UA-Compatible\"\x20content=\"IE=edge\"\x20/
+SF:>\n\t\t<meta\x20name=\"viewport\"\x20content=\"width=device-width,initi
+SF:al-scale=1\.0\"\x20/>\n\t\t<link\x20rel=\"icon\"\x20href=\"/favicon\.ic
+SF:o\"\x20/>\n\t\t<meta\x20name=\"n8n:config:rest-endpoint\"\x20content=\"
+SF:cmVzdA==\"><meta\x20name=\"n8n:config:sentry\"\x20content=\"eyJkc24iOiI
+SF:iLCJlbnZpcm9ubWVudCI6ImRldmVsb3BtZW50IiwicmVsZWFzZSI6Im44bkAyLjE4LjUifQ
+SF:==\">\n\t\t<link\x20rel=\"stylesheet\"\x20href=\"/static/prefers-color-
+SF:scheme\.css\">\n\t\t<script\x20src=\"/static/base-path\.js\"\x20type=\"
+SF:text/javascript\"></script>\n\t\t<script\x20src=\"/static/posthog\.init
+SF:\.js\"\x20t")%r(SSLSessionReq,2F,"HTTP/1\.1\x20400\x20Bad\x20Request\r\
+SF:nConnection:\x20close\r\n\r\n")%r(TLSSessionReq,2F,"HTTP/1\.1\x20400\x2
+SF:0Bad\x20Request\r\nConnection:\x20close\r\n\r\n");
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port7072-TCP:V=7.94SVN%I=2%D=6/2%Time=6A1FA2E8%P=x86_64-pc-linux-gnu%r(
+SF:GetRequest,2CFA,"HTTP/1\.1\x20200\x20OK\r\nServer:\x20Werkzeug/3\.1\.3\
+SF:x20Python/3\.12\.10\r\nDate:\x20Wed,\x2003\x20Jun\x202026\x2003:43:35\x
+SF:20GMT\r\nContent-Type:\x20text/html;\x20charset=utf-8\r\nContent-Length
+SF::\x20129149\r\nConnection:\x20close\r\n\r\n<!DOCTYPE\x20html>\n<html\x2
+SF:0lang=\"en\">\n\n<head>\n\x20\x20\x20\x20<meta\x20charset=\"UTF-8\">\n\
+SF:x20\x20\x20\x20<meta\x20name=\"viewport\"\x20content=\"width=device-wid
+SF:th,\x20initial-scale=1,\x20maximum-scale=1\">\n\x20\x20\x20\x20<title>A
+SF:gent\x20Zero</title>\n\x20\x20\x20\x20<link\x20rel=\"icon\"\x20type=\"i
+SF:mage/svg\+xml\"\x20href=\"public/favicon\.svg\">\n\x20\x20\x20\x20<link
+SF:\x20rel=\"stylesheet\"\x20href=\"index\.css\">\n\x20\x20\x20\x20<link\x
+SF:20rel=\"stylesheet\"\x20href=\"css/messages\.css\">\n\x20\x20\x20\x20<l
+SF:ink\x20rel=\"stylesheet\"\x20href=\"css/toast\.css\">\n\x20\x20\x20\x20
+SF:<link\x20rel=\"stylesheet\"\x20href=\"css/settings\.css\">\n\x20\x20\x2
+SF:0\x20<link\x20rel=\"stylesheet\"\x20href=\"css/file_browser\.css\">\n\x
+SF:20\x20\x20\x20<link\x20rel=\"stylesheet\"\x20href=\"css/modals\.css\">\
+SF:n\x20\x20\x20\x20<link\x20rel=\"stylesheet\"\x20href=\"css/modals2\.css
+SF:\">\n\x20\x20\x20\x20<link\x20rel=\"stylesheet\"\x20href=\"css/speech\.
+SF:css\">\n\x20\x20\x20\x20<link\x20rel=\"stylesheet\"\x20href=\"css/histo
+SF:ry\.css\">\n\x20\x20\x20\x20<link")%r(SSLSessionReq,1E8,"<!DOCTYPE\x20H
+SF:TML>\n<html\x20lang=\"en\">\n\x20\x20\x20\x20<head>\n\x20\x20\x20\x20\x
+SF:20\x20\x20\x20<meta\x20charset=\"utf-8\">\n\x20\x20\x20\x20\x20\x20\x20
+SF:\x20<title>Error\x20response</title>\n\x20\x20\x20\x20</head>\n\x20\x20
+SF:\x20\x20<body>\n\x20\x20\x20\x20\x20\x20\x20\x20<h1>Error\x20response</
+SF:h1>\n\x20\x20\x20\x20\x20\x20\x20\x20<p>Error\x20code:\x20400</p>\n\x20
+SF:\x20\x20\x20\x20\x20\x20\x20<p>Message:\x20Bad\x20request\x20syntax\x20
+SF:\('\\x16\\x03\\x00\\x00S\\x01\\x00\\x00O\\x03\\x00\?G\xc3\x97\xc3\xb7\x
+SF:c2\xba,\xc3\xae\xc3\xaa\xc2\xb2`~\xc3\xb3\\x00\xc3\xbd\\x82{\xc2\xb9\xc
+SF:3\x95\\x96\xc3\x88w\\x9b\xc3\xa6\xc3\x84\xc3\x9b&lt;=\xc3\x9bo\xc3\xaf\
+SF:\x10n\\x00\\x00\(\\x00\\x16\\x00\\x13\\x00'\)\.</p>\n\x20\x20\x20\x20\x
+SF:20\x20\x20\x20<p>Error\x20code\x20explanation:\x20400\x20-\x20Bad\x20re
+SF:quest\x20syntax\x20or\x20unsupported\x20method\.</p>\n\x20\x20\x20\x20<
+SF:/body>\n</html>\n");
+OS fingerprint not ideal because: Didn't receive UDP response. Please try again with -sSU
+No OS matches for host
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Nmap scan report for 192.168.1.58
+Host is up (0.00073s latency).
+All 4012 scanned ports on 192.168.1.58 are in ignored states.
+Not shown: 3981 closed tcp ports (conn-refused), 31 filtered tcp ports (no-response)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+OS fingerprint not ideal because: Missing an open TCP port so results incomplete
+No OS matches for host
+
+Nmap scan report for 192.168.1.71
+Host is up (0.00076s latency).
+All 4012 scanned ports on 192.168.1.71 are in ignored states.
+Not shown: 3972 closed tcp ports (conn-refused), 40 filtered tcp ports (no-response)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+OS fingerprint not ideal because: Missing an open TCP port so results incomplete
+No OS matches for host
+
+Nmap scan report for 192.168.1.73
+Host is up (0.00077s latency).
+Not shown: 3988 closed tcp ports (conn-refused)
+PORT     STATE    SERVICE      VERSION
+5269/tcp filtered xmpp-server
+5334/tcp filtered unknown
+5444/tcp filtered unknown
+5456/tcp filtered apc-5456
+5849/tcp filtered unknown
+5899/tcp filtered unknown
+5986/tcp filtered wsmans
+6186/tcp filtered unknown
+6399/tcp filtered unknown
+6629/tcp filtered nexgen-aux
+6669/tcp filtered irc
+6732/tcp filtered unknown
+6797/tcp filtered unknown
+7115/tcp filtered unknown
+7166/tcp filtered aruba-server
+7407/tcp filtered unknown
+7632/tcp filtered unknown
+8152/tcp filtered unknown
+8234/tcp filtered unknown
+8763/tcp filtered mc-appserver
+8811/tcp filtered unknown
+8814/tcp filtered unknown
+8889/tcp filtered ddi-tcp-2
+8903/tcp filtered unknown
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+OS fingerprint not ideal because: Missing an open TCP port so results incomplete
+No OS matches for host
+
+Nmap scan report for 192.168.1.97
+Host is up (0.00082s latency).
+Not shown: 3989 closed tcp ports (conn-refused)
+PORT     STATE    SERVICE      VERSION
+5111/tcp filtered taep-as-svc
+5418/tcp filtered mcntp
+5492/tcp filtered unknown
+5951/tcp filtered unknown
+6082/tcp filtered p25cai
+6095/tcp filtered unknown
+6198/tcp filtered unknown
+6292/tcp filtered unknown
+6293/tcp filtered unknown
+6344/tcp filtered streletz
+6394/tcp filtered unknown
+6419/tcp filtered svdrp
+6526/tcp filtered unknown
+6629/tcp filtered nexgen-aux
+7021/tcp filtered dpserveadmin
+7389/tcp filtered unknown
+7506/tcp filtered unknown
+7514/tcp filtered unknown
+7875/tcp filtered unknown
+8173/tcp filtered unknown
+8626/tcp filtered unknown
+8814/tcp filtered unknown
+8939/tcp filtered unknown
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+OS fingerprint not ideal because: Missing an open TCP port so results incomplete
+No OS matches for host
+
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Tue Jun  2 21:43:55 2026 -- 29 IP addresses (29 hosts up) scanned in 1456.79 seconds

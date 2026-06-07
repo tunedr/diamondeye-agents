@@ -260,7 +260,14 @@ showmount -e 192.168.1.106
 
 After containers are up, configure via API:
 - Auth: Bearer diamondeye-anythingllm-2026
-- Create workspace: "Infrastructure" — for all ICM markdown ingested by Librarian
+- Ensure these workspaces exist:
+  - DiamondEye-Research
+  - Infrastructure
+  - MediaMind
+  - Publishing
+  - Inspections
+- Create "Infrastructure" first if the initial bootstrap only supports one workspace
+- Use `LOCAL/axiom-staging/instruments/anythingllm_workspaces.py` to create missing workspaces from the AnythingLLM API.
 - LLM: Ollama at 192.168.1.2:11434, model qwen2.5:7b
 - Embedding: nomic-embed-text via Ollama
 - Vector store: lancedb (default)

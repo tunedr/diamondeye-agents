@@ -20,9 +20,14 @@
 ## Physical Machines
 | Host      | LAN IP        | Tailscale       | Role |
 |-----------|---------------|-----------------|------|
-| Unraid    | 192.168.1.2   | 100.120.180.114 | A0 MediaMind :50080, Ollama :11434, Plex, ARR |
+| Unraid    | 192.168.1.2   | 100.120.180.114 | A0 MediaMind :50080, Ollama :11434, de-gateway stack, Plex, ARR |
 | MGMT-XPS  | 192.168.1.221 | 100.76.233.89   | Desk — Claude Code, Codex, A0 :50080, OpenClaw :3000 |
 | Laptop    | Tailscale TBD | TBD             | WSL — Claude Code, Codex, A0 :50080, OpenClaw :3000 |
+
+## Fleet Inventory
+| Stack | Host | Location | Services |
+|-------|------|----------|----------|
+| de-gateway | Unraid | `/mnt/user/appdata/de-gateway/` | openclaw-gateway :7074, agent-zero-master-router :7072, uptime-kuma :3002, openwebui :3000 |
 
 ## Ollama Instances
 | Host       | IP                  | Purpose |

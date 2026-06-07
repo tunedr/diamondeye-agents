@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE nmaprun>
+<?xml-stylesheet href="file:///usr/bin/../share/nmap/nmap.xsl" type="text/xsl"?>
+<!-- Nmap 7.94SVN scan initiated Tue Jun  2 21:23:08 2026 as: nmap -Pn -sU -n -T4 -&#45;max-retries 1 -&#45;host-timeout 45s -&#45;script upnp-info -p 1900,3702,5353 -iL /home/tunedr/AGENTS/reports/camera-audit-20260602-211821/arp-hosts.txt -oA /home/tunedr/AGENTS/reports/camera-audit-20260602-211821/udpsvc -->
+<nmaprun scanner="nmap" args="nmap -Pn -sU -n -T4 -&#45;max-retries 1 -&#45;host-timeout 45s -&#45;script upnp-info -p 1900,3702,5353 -iL /home/tunedr/AGENTS/reports/camera-audit-20260602-211821/arp-hosts.txt -oA /home/tunedr/AGENTS/reports/camera-audit-20260602-211821/udpsvc" start="1780456988" startstr="Tue Jun  2 21:23:08 2026" version="7.94SVN" xmloutputversion="1.05">
+<scaninfo type="udp" protocol="udp" numservices="3" services="1900,3702,5353"/>
+<verbose level="0"/>
+<debugging level="0"/>
+<host starttime="1780456988" endtime="1780456995"><status state="up" reason="user-set" reason_ttl="0"/>
+<address addr="192.168.1.1" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+<ports><port protocol="udp" portid="1900"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="upnp" method="table" conf="3"/></port>
+<port protocol="udp" portid="3702"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="ws-discovery" method="table" conf="3"/></port>
+<port protocol="udp" portid="5353"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="zeroconf" method="table" conf="3"/></port>
+</ports>
+</host>
+<host starttime="1780456988" endtime="1780457000"><status state="up" reason="user-set" reason_ttl="0"/>
+<address addr="192.168.1.100" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+<ports><port protocol="udp" portid="1900"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="upnp" method="table" conf="3"/></port>
+<port protocol="udp" portid="3702"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="ws-discovery" method="table" conf="3"/></port>
+<port protocol="udp" portid="5353"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="zeroconf" method="table" conf="3"/></port>
+</ports>
+</host>
+<host starttime="1780456988" endtime="1780456995"><status state="up" reason="user-set" reason_ttl="0"/>
+<address addr="192.168.1.103" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+<ports><port protocol="udp" portid="1900"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="upnp" method="table" conf="3"/></port>
+<port protocol="udp" portid="3702"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="ws-discovery" method="table" conf="3"/></port>
+<port protocol="udp" portid="5353"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="zeroconf" method="table" conf="3"/></port>
+</ports>
+</host>
+<host starttime="1780456988" endtime="1780456995"><status state="up" reason="user-set" reason_ttl="0"/>
+<address addr="192.168.1.106" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+<ports><port protocol="udp" portid="1900"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="upnp" method="table" conf="3"/></port>
+<port protocol="udp" portid="3702"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="ws-discovery" method="table" conf="3"/></port>
+<port protocol="udp" portid="5353"><state state="open" reason="udp-response" reason_ttl="64"/><service name="zeroconf" method="table" conf="3"/></port>
+</ports>
+<times srtt="1510" rttvar="3840" to="100000"/>
+</host>
+<host starttime="1780456988" endtime="1780457000"><status state="up" reason="user-set" reason_ttl="0"/>
+<address addr="192.168.1.107" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+<ports><port protocol="udp" portid="1900"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="upnp" method="table" conf="3"/></port>
+<port protocol="udp" portid="3702"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="ws-discovery" method="table" conf="3"/></port>
+<port protocol="udp" portid="5353"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="zeroconf" method="table" conf="3"/></port>
+</ports>
+</host>
+<host starttime="1780456988" endtime="1780456995"><status state="up" reason="user-set" reason_ttl="0"/>
+<address addr="192.168.1.108" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+<ports><port protocol="udp" portid="1900"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="upnp" method="table" conf="3"/></port>
+<port protocol="udp" portid="3702"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="ws-discovery" method="table" conf="3"/></port>
+<port protocol="udp" portid="5353"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="zeroconf" method="table" conf="3"/></port>
+</ports>
+</host>
+<host starttime="1780456988" endtime="1780456995"><status state="up" reason="user-set" reason_ttl="0"/>
+<address addr="192.168.1.136" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+<ports><port protocol="udp" portid="1900"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="upnp" method="table" conf="3"/></port>
+<port protocol="udp" portid="3702"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="ws-discovery" method="table" conf="3"/></port>
+<port protocol="udp" portid="5353"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="zeroconf" method="table" conf="3"/></port>
+</ports>
+</host>
+<host starttime="1780456988" endtime="1780456995"><status state="up" reason="user-set" reason_ttl="0"/>
+<address addr="192.168.1.150" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+<ports><port protocol="udp" portid="1900"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="upnp" method="table" conf="3"/></port>
+<port protocol="udp" portid="3702"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="ws-discovery" method="table" conf="3"/></port>
+<port protocol="udp" portid="5353"><state state="open" reason="udp-response" reason_ttl="64"/><service name="zeroconf" method="table" conf="3"/></port>
+</ports>
+<times srtt="14186" rttvar="14186" to="100000"/>
+</host>
+<host starttime="1780456988" endtime="1780457000"><status state="up" reason="user-set" reason_ttl="0"/>
+<address addr="192.168.1.152" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+<ports><port protocol="udp" portid="1900"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="upnp" method="table" conf="3"/></port>
+<port protocol="udp" portid="3702"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="ws-discovery" method="table" conf="3"/></port>
+<port protocol="udp" portid="5353"><state state="open" reason="udp-response" reason_ttl="64"/><service name="zeroconf" method="table" conf="3"/></port>
+</ports>
+<times srtt="1639" rttvar="5000" to="100000"/>
+</host>
+<host starttime="1780456988" endtime="1780456990"><status state="up" reason="user-set" reason_ttl="0"/>
+<address addr="192.168.1.154" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+<ports><port protocol="udp" portid="1900"><state state="open" reason="script-set" reason_ttl="0"/><service name="upnp" method="table" conf="3"/><script id="upnp-info" output="&#xa;192.168.1.154&#xa;    Server: Linux/2.6.33-rc4 UPnP/1.0 MediabolicUPnP/1.8.225&#xa;    Location: http://192.168.1.154:8888/upnp_descriptor_0&#xa;"/></port>
+<port protocol="udp" portid="3702"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="ws-discovery" method="table" conf="3"/></port>
+<port protocol="udp" portid="5353"><state state="open" reason="udp-response" reason_ttl="64"/><service name="zeroconf" method="table" conf="3"/></port>
+</ports>
+<times srtt="2680" rttvar="5000" to="100000"/>
+</host>
+<host starttime="1780456988" endtime="1780456996"><status state="up" reason="user-set" reason_ttl="0"/>
+<address addr="192.168.1.157" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+<ports><port protocol="udp" portid="1900"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="upnp" method="table" conf="3"/></port>
+<port protocol="udp" portid="3702"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="ws-discovery" method="table" conf="3"/></port>
+<port protocol="udp" portid="5353"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="zeroconf" method="table" conf="3"/></port>
+</ports>
+</host>
+<host starttime="1780456988" endtime="1780456995"><status state="up" reason="user-set" reason_ttl="0"/>
+<address addr="192.168.1.158" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+<ports><port protocol="udp" portid="1900"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="upnp" method="table" conf="3"/></port>
+<port protocol="udp" portid="3702"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="ws-discovery" method="table" conf="3"/></port>
+<port protocol="udp" portid="5353"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="zeroconf" method="table" conf="3"/></port>
+</ports>
+</host>
+<host starttime="1780456988" endtime="1780456995"><status state="up" reason="user-set" reason_ttl="0"/>
+<address addr="192.168.1.16" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+<ports><port protocol="udp" portid="1900"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="upnp" method="table" conf="3"/></port>
+<port protocol="udp" portid="3702"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="ws-discovery" method="table" conf="3"/></port>
+<port protocol="udp" portid="5353"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="zeroconf" method="table" conf="3"/></port>
+</ports>
+</host>
+<host starttime="1780456988" endtime="1780457000"><status state="up" reason="user-set" reason_ttl="0"/>
+<address addr="192.168.1.162" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+<ports><port protocol="udp" portid="1900"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="upnp" method="table" conf="3"/></port>
+<port protocol="udp" portid="3702"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="ws-discovery" method="table" conf="3"/></port>
+<port protocol="udp" portid="5353"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="zeroconf" method="table" conf="3"/></port>
+</ports>
+</host>
+<host starttime="1780456988" endtime="1780456995"><status state="up" reason="user-set" reason_ttl="0"/>
+<address addr="192.168.1.178" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+<ports><port protocol="udp" portid="1900"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="upnp" method="table" conf="3"/></port>
+<port protocol="udp" portid="3702"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="ws-discovery" method="table" conf="3"/></port>
+<port protocol="udp" portid="5353"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="zeroconf" method="table" conf="3"/></port>
+</ports>
+</host>
+<host starttime="1780456988" endtime="1780456995"><status state="up" reason="user-set" reason_ttl="0"/>
+<address addr="192.168.1.186" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+<ports><port protocol="udp" portid="1900"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="upnp" method="table" conf="3"/></port>
+<port protocol="udp" portid="3702"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="ws-discovery" method="table" conf="3"/></port>
+<port protocol="udp" portid="5353"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="zeroconf" method="table" conf="3"/></port>
+</ports>
+</host>
+<host starttime="1780456988" endtime="1780457000"><status state="up" reason="user-set" reason_ttl="0"/>
+<address addr="192.168.1.19" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+<ports><port protocol="udp" portid="1900"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="upnp" method="table" conf="3"/></port>
+<port protocol="udp" portid="3702"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="ws-discovery" method="table" conf="3"/></port>
+<port protocol="udp" portid="5353"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="zeroconf" method="table" conf="3"/></port>
+</ports>
+</host>
+<host starttime="1780456988" endtime="1780456995"><status state="up" reason="user-set" reason_ttl="0"/>
+<address addr="192.168.1.196" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+<ports><port protocol="udp" portid="1900"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="upnp" method="table" conf="3"/></port>
+<port protocol="udp" portid="3702"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="ws-discovery" method="table" conf="3"/></port>
+<port protocol="udp" portid="5353"><state state="open" reason="udp-response" reason_ttl="64"/><service name="zeroconf" method="table" conf="3"/></port>
+</ports>
+<times srtt="4692" rttvar="5000" to="100000"/>
+</host>
+<host starttime="1780456988" endtime="1780456995"><status state="up" reason="user-set" reason_ttl="0"/>
+<address addr="192.168.1.2" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+<ports><port protocol="udp" portid="1900"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="upnp" method="table" conf="3"/></port>
+<port protocol="udp" portid="3702"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="ws-discovery" method="table" conf="3"/></port>
+<port protocol="udp" portid="5353"><state state="open" reason="udp-response" reason_ttl="64"/><service name="zeroconf" method="table" conf="3"/></port>
+</ports>
+<times srtt="28665" rttvar="28665" to="143325"/>
+</host>
+<host starttime="1780456988" endtime="1780456990"><status state="up" reason="user-set" reason_ttl="0"/>
+<address addr="192.168.1.230" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+<ports><port protocol="udp" portid="1900"><state state="open" reason="script-set" reason_ttl="0"/><service name="upnp" method="table" conf="3"/><script id="upnp-info" output="&#xa;192.168.1.230&#xa;    Server: Linux/3.0.82-grsec, UPnP/1.0, Portable SDK for UPnP devices/1.6.13&#xa;    Location: http://192.168.1.230:9080&#xa;"/></port>
+<port protocol="udp" portid="3702"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="ws-discovery" method="table" conf="3"/></port>
+<port protocol="udp" portid="5353"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="zeroconf" method="table" conf="3"/></port>
+</ports>
+</host>
+<host starttime="1780456988" endtime="1780456995"><status state="up" reason="user-set" reason_ttl="0"/>
+<address addr="192.168.1.32" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+<ports><port protocol="udp" portid="1900"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="upnp" method="table" conf="3"/></port>
+<port protocol="udp" portid="3702"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="ws-discovery" method="table" conf="3"/></port>
+<port protocol="udp" portid="5353"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="zeroconf" method="table" conf="3"/></port>
+</ports>
+</host>
+<host starttime="1780456988" endtime="1780457000"><status state="up" reason="user-set" reason_ttl="0"/>
+<address addr="192.168.1.36" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+<ports><port protocol="udp" portid="1900"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="upnp" method="table" conf="3"/></port>
+<port protocol="udp" portid="3702"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="ws-discovery" method="table" conf="3"/></port>
+<port protocol="udp" portid="5353"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="zeroconf" method="table" conf="3"/></port>
+</ports>
+</host>
+<host starttime="1780456988" endtime="1780456995"><status state="up" reason="user-set" reason_ttl="0"/>
+<address addr="192.168.1.4" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+<ports><port protocol="udp" portid="1900"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="upnp" method="table" conf="3"/></port>
+<port protocol="udp" portid="3702"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="ws-discovery" method="table" conf="3"/></port>
+<port protocol="udp" portid="5353"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="zeroconf" method="table" conf="3"/></port>
+</ports>
+</host>
+<host starttime="1780456988" endtime="1780456995"><status state="up" reason="user-set" reason_ttl="0"/>
+<address addr="192.168.1.48" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+<ports><port protocol="udp" portid="1900"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="upnp" method="table" conf="3"/></port>
+<port protocol="udp" portid="3702"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="ws-discovery" method="table" conf="3"/></port>
+<port protocol="udp" portid="5353"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="zeroconf" method="table" conf="3"/></port>
+</ports>
+</host>
+<host starttime="1780456988" endtime="1780456995"><status state="up" reason="user-set" reason_ttl="0"/>
+<address addr="192.168.1.55" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+<ports><port protocol="udp" portid="1900"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="upnp" method="table" conf="3"/></port>
+<port protocol="udp" portid="3702"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="ws-discovery" method="table" conf="3"/></port>
+<port protocol="udp" portid="5353"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="zeroconf" method="table" conf="3"/></port>
+</ports>
+</host>
+<host starttime="1780456988" endtime="1780456995"><status state="up" reason="user-set" reason_ttl="0"/>
+<address addr="192.168.1.58" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+<ports><port protocol="udp" portid="1900"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="upnp" method="table" conf="3"/></port>
+<port protocol="udp" portid="3702"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="ws-discovery" method="table" conf="3"/></port>
+<port protocol="udp" portid="5353"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="zeroconf" method="table" conf="3"/></port>
+</ports>
+</host>
+<host starttime="1780456988" endtime="1780456995"><status state="up" reason="user-set" reason_ttl="0"/>
+<address addr="192.168.1.71" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+<ports><port protocol="udp" portid="1900"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="upnp" method="table" conf="3"/></port>
+<port protocol="udp" portid="3702"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="ws-discovery" method="table" conf="3"/></port>
+<port protocol="udp" portid="5353"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="zeroconf" method="table" conf="3"/></port>
+</ports>
+</host>
+<host starttime="1780456988" endtime="1780456995"><status state="up" reason="user-set" reason_ttl="0"/>
+<address addr="192.168.1.73" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+<ports><port protocol="udp" portid="1900"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="upnp" method="table" conf="3"/></port>
+<port protocol="udp" portid="3702"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="ws-discovery" method="table" conf="3"/></port>
+<port protocol="udp" portid="5353"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="zeroconf" method="table" conf="3"/></port>
+</ports>
+</host>
+<host starttime="1780456988" endtime="1780456995"><status state="up" reason="user-set" reason_ttl="0"/>
+<address addr="192.168.1.97" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+<ports><port protocol="udp" portid="1900"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="upnp" method="table" conf="3"/></port>
+<port protocol="udp" portid="3702"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="ws-discovery" method="table" conf="3"/></port>
+<port protocol="udp" portid="5353"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="zeroconf" method="table" conf="3"/></port>
+</ports>
+</host>
+<runstats><finished time="1780457000" timestr="Tue Jun  2 21:23:20 2026" summary="Nmap done at Tue Jun  2 21:23:20 2026; 29 IP addresses (29 hosts up) scanned in 12.08 seconds" elapsed="12.08" exit="success"/><hosts up="29" down="0" total="29"/>
+</runstats>
+</nmaprun>
