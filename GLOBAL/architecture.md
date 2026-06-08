@@ -15,7 +15,7 @@
 | 105 | affiliate-engine-01 | 192.168.1.55  | —               | A0 Affiliate :7072, n8n :5679 |
 | 106 | de-truenas-01       | 192.168.1.106 | —               | TrueNAS SCALE, 12TB |
 | 107 | de-librarian-01     | 192.168.1.107 | pending         | A0 Librarian :7071, AnythingLLM :3001, n8n :5680 |
-| 108 | de-gateway-01       | 192.168.1.108 | pending         | A0 Gateway :7072, OpenWebUI :3000, Uptime Kuma :3002, n8n :5680 |
+| 108 | de-gateway-01       | 192.168.1.2 | pending         | A0 Gateway :7072, OpenWebUI :3000, Uptime Kuma :3002, n8n :5680 |
 
 ## Physical Machines
 | Host      | LAN IP        | Tailscale       | Role |
@@ -61,7 +61,7 @@
 ## Agent Zero A2A Fleet
 | Instance             | IP            | Port  | Role |
 |----------------------|---------------|-------|------|
-| agent-zero-gateway   | 192.168.1.108 | 7072  | A2A Controller |
+| agent-zero-gateway   | 192.168.1.2 | 7072  | A2A Controller |
 | agent-zero (general) | 192.168.1.136 | 7070  | General executor |
 | agent-zero-librarian | 192.168.1.107 | 7071  | ICM, Notion, research |
 | agent-zero-publishing| 192.168.1.48  | 7071  | Books, Postiz, social |

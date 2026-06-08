@@ -89,7 +89,7 @@ PORT      STATE    SERVICE      VERSION
 8554/tcp  filtered rtsp-alt
 37777/tcp filtered unknown
 
-Nmap scan report for 192.168.1.108
+Nmap scan report for 192.168.1.2
 Host is up.
 
 PORT      STATE    SERVICE      VERSION

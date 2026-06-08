@@ -9,8 +9,8 @@ Host: 192.168.1.106 ()	Status: Up
 Host: 192.168.1.106 ()	Ports: 80/open/tcp//http//nginx/, 443/open/tcp//ssl|http//nginx/, 5357/open/tcp//http//BaseHTTPServer 0.6 (Python 3.11.9)/	Ignored State: closed (4009)	Seq Index: 257	IP ID Seq: Incrementing by 2
 Host: 192.168.1.107 ()	Status: Up
 Host: 192.168.1.107 ()	Ports: 22/open/tcp//ssh//OpenSSH 9.6p1 Ubuntu 3ubuntu13.16 (Ubuntu Linux; protocol 2.0)/, 5680/open/tcp//canna?///, 7071/open/tcp//iwg1?///, 7073/open/tcp//martalk?///, 7074/open/tcp//unknown///, 8010/open/tcp//xmpp?///, 8020/open/tcp//intu-ec-svcdisc?///, 8030/open/tcp//http//nginx 1.27.5/, 8080/open/tcp//http//Apache httpd 2.4.67 ((Debian))/	Ignored State: closed (4003)	Seq Index: 264	IP ID Seq: Incrementing by 2
-Host: 192.168.1.108 ()	Status: Up
-Host: 192.168.1.108 ()	Ports: 22/open/tcp//ssh//OpenSSH 9.6p1 Ubuntu 3ubuntu13.16 (Ubuntu Linux; protocol 2.0)/	Ignored State: filtered (4011)	Seq Index: 262	IP ID Seq: Incrementing by 2
+Host: 192.168.1.2 ()	Status: Up
+Host: 192.168.1.2 ()	Ports: 22/open/tcp//ssh//OpenSSH 9.6p1 Ubuntu 3ubuntu13.16 (Ubuntu Linux; protocol 2.0)/	Ignored State: filtered (4011)	Seq Index: 262	IP ID Seq: Incrementing by 2
 Host: 192.168.1.136 ()	Status: Up
 Host: 192.168.1.136 ()	Ports: 7070/open/tcp//realserver?///, 8080/open/tcp//http//Node.js Express framework/	Ignored State: filtered (4010)	Seq Index: 261	IP ID Seq: Incrementing by 2
 Host: 192.168.1.150 ()	Status: Up

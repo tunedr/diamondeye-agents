@@ -9,8 +9,8 @@ Host: 192.168.1.106 ()	Status: Up
 Host: 192.168.1.106 ()	Ports: 1900/open|filtered/udp//upnp///, 3702/open|filtered/udp//ws-discovery///, 5353/open/udp//zeroconf///
 Host: 192.168.1.107 ()	Status: Up
 Host: 192.168.1.107 ()	Ports: 1900/open|filtered/udp//upnp///, 3702/open|filtered/udp//ws-discovery///, 5353/open|filtered/udp//zeroconf///
-Host: 192.168.1.108 ()	Status: Up
-Host: 192.168.1.108 ()	Ports: 1900/open|filtered/udp//upnp///, 3702/open|filtered/udp//ws-discovery///, 5353/open|filtered/udp//zeroconf///
+Host: 192.168.1.2 ()	Status: Up
+Host: 192.168.1.2 ()	Ports: 1900/open|filtered/udp//upnp///, 3702/open|filtered/udp//ws-discovery///, 5353/open|filtered/udp//zeroconf///
 Host: 192.168.1.136 ()	Status: Up
 Host: 192.168.1.136 ()	Ports: 1900/open|filtered/udp//upnp///, 3702/open|filtered/udp//ws-discovery///, 5353/open|filtered/udp//zeroconf///
 Host: 192.168.1.150 ()	Status: Up

@@ -70,7 +70,7 @@ Bottom line:
 | `192.168.1.73` | `10:ce:02:87:fa:c7` | Amazon | Amazon device | No camera service confirmed. |
 | `192.168.1.106` | `bc:24:11:2f:a0:c0` | Unknown | de-truenas-01 | mDNS `truenas.local`; no camera service confirmed. |
 | `192.168.1.107` | `bc:24:11:87:e9:19` | Unknown | de-librarian-01 | No camera service confirmed. |
-| `192.168.1.108` | `bc:24:11:56:99:c4` | Unknown | de-gateway-01 | No camera service confirmed. |
+| `192.168.1.2` | `bc:24:11:56:99:c4` | Unknown | de-gateway-01 | No camera service confirmed. |
 | `192.168.1.136` | `bc:24:11:31:3b:42` | Unknown | pop-ollama | mDNS activity present; no camera service confirmed. |
 | `192.168.1.150` | `00:15:99:b5:7a:3d` | Samsung | Media / appliance class device | No camera service confirmed. |
 | `192.168.1.152` | `bc:24:11:79:43:dd` | Unknown | Home Assistant host | mDNS `homeassistant`; no camera service confirmed. |

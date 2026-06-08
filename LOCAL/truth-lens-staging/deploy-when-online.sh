@@ -1,11 +1,11 @@
 #!/bin/bash
 # Truth Lens deployment helper
-# Generated for VM 108 (de-gateway-01 / 192.168.1.108)
+# Generated for VM 108 (de-gateway-01 / 192.168.1.2)
 
 set -e
 
 STAGING=/home/tunedr/AGENTS/LOCAL/truth-lens-staging
-TARGET_HOST=192.168.1.108
+TARGET_HOST=192.168.1.2
 SSH="ssh -i ~/.ssh/diamondeye_key -o StrictHostKeyChecking=no -o BatchMode=yes tunedr@${TARGET_HOST}"
 SCP="scp -i ~/.ssh/diamondeye_key -o StrictHostKeyChecking=no"
 

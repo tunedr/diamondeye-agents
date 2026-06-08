@@ -53,7 +53,7 @@ class Pipe:
         PRESENTER_MODEL: str = Field(default="gpt-5.2")
         FALLBACK_MODEL: str = Field(default="qwen2.5:7b")
         FALLBACK_API_BASE_URL: str = Field(default="http://192.168.1.2:11434/v1")
-        EXECUTOR_URL: str = Field(default="http://192.168.1.108:7072/api/api_message")
+        EXECUTOR_URL: str = Field(default="http://192.168.1.2:7072/api/api_message")
         SEARXNG_URL: str = Field(default="http://192.168.1.2:8081/search")
         A0_ENV_PATH: str = Field(default="/a0/usr/.env")
         EXECUTOR_TIMEOUT_SECONDS: int = Field(default=300, ge=10, le=900)

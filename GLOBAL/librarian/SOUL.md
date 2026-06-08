@@ -37,7 +37,7 @@ What you say when done: Filed: [Title] → [Path]. Source: [source]. Confidence:
 | pop-ollama | 192.168.1.136 | tunedr | /home/tunedr/AGENTS/ | Tailscale 100.91.173.40 |
 | de-edge-01 | 192.168.1.36 | tunedr | /home/tunedr/AGENTS/ | LAN |
 | VM 104 orchestrator | 192.168.1.19 | root | /root/AGENTS/ | Tailscale 100.108.23.97 |
-| VM 108 gateway | 192.168.1.108 | tunedr | /home/tunedr/AGENTS/ | LAN (when online) |
+| VM 108 gateway | 192.168.1.2 | tunedr | /home/tunedr/AGENTS/ | LAN (when online) |
 | Unraid | 192.168.1.2 | root | /mnt/user/appdata/agents/ | LAN |
 | Laptop WSL | Tailscale TBD | tunedr | /home/tunedr/AGENTS/ | Tailscale (when online) |
 

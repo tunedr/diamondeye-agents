@@ -15,7 +15,7 @@ The Librarian (de-librarian-01) maintains a live inventory of all ICM markdown f
 | pop-ollama (192.168.1.136) | ~/AGENTS/ and /mnt/user/appdata/agent-zero/ |
 | orchestrator VM 104 (192.168.1.19) | ~/coding-agent/ and ~/AGENTS/ |
 | de-librarian-01 (192.168.1.107) | ~/AGENTS/ and ~/de-knowledge/ |
-| de-gateway-01 (192.168.1.108) | ~/AGENTS/ |
+| de-gateway-01 (192.168.1.2) | ~/AGENTS/ |
 | Unraid (192.168.1.2) | /mnt/user/appdata/agent-zero/ |
 
 ## Inventory Workflow (n8n-librarian, every 6 hours)

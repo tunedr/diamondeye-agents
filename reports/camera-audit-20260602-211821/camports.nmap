@@ -218,7 +218,7 @@ OS fingerprint not ideal because: Didn't receive UDP response. Please try again 
 No OS matches for host
 Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 
-Nmap scan report for 192.168.1.108
+Nmap scan report for 192.168.1.2
 Host is up (0.0028s latency).
 Not shown: 4011 filtered tcp ports (no-response)
 PORT   STATE SERVICE VERSION

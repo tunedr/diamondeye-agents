@@ -53,7 +53,7 @@
 </ports>
 </host>
 <host starttime="1780456988" endtime="1780456995"><status state="up" reason="user-set" reason_ttl="0"/>
-<address addr="192.168.1.108" addrtype="ipv4"/>
+<address addr="192.168.1.2" addrtype="ipv4"/>
 <hostnames>
 </hostnames>
 <ports><port protocol="udp" portid="1900"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="upnp" method="table" conf="3"/></port>

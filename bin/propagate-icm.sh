@@ -36,7 +36,7 @@ log() {
 TARGETS=(
     "pop-ollama|tunedr@192.168.1.136|/home/tunedr/AGENTS|-i ${SSH_KEY}"
     "orchestrator|root@100.108.23.97|/root/AGENTS|-i /home/tunedr/.ssh/diamondeye_key"
-    "de-gateway-01|tunedr@192.168.1.108|/home/tunedr/AGENTS|-i ${SSH_KEY}"
+    "de-gateway-01|tunedr@192.168.1.2|/home/tunedr/AGENTS|-i ${SSH_KEY}"
     "de-edge-01|tunedr@192.168.1.36|/home/tunedr/AGENTS|-i ${SSH_KEY}"
     "unraid|root@192.168.1.2|/mnt/user/appdata/agents|-i ${SSH_KEY}"
 )

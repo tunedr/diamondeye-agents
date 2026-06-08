@@ -21,7 +21,7 @@
 | VM105 affiliate-engine-01 | 192.168.1.55 | [UNVERIFIED] | UNKNOWN | 2026-05-25 |
 | VM106 de-truenas-01 | 192.168.1.106 | [UNVERIFIED] | UNKNOWN | 2026-05-25 |
 | VM107 de-librarian-01 | 192.168.1.107 | [UNVERIFIED] | YES (LAN) | 2026-05-23 |
-| VM108 de-gateway-01 | 192.168.1.108 | 100.120.42.102 | YES (Tailscale) | 2026-05-27 |
+| VM108 de-gateway-01 | 192.168.1.2 | 100.120.42.102 | YES (Tailscale) | 2026-05-27 |
 | VM100 ha-control | 192.168.1.100 | [UNVERIFIED] | UNKNOWN | 2026-05-25 |
 | MGMT-XPS | 192.168.1.221 | 100.76.233.89 | YES | 2026-05-27 |
 | Unraid | 192.168.1.2 | 100.120.180.114 | YES (LAN) | 2026-05-23 |
