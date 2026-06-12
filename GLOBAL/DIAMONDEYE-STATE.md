@@ -3,7 +3,7 @@
 # Updated on schedule (target: every 2 hours when Librarian is running).
 # Any AI reading this: treat all fields as verified unless marked [UNVERIFIED].
 # Do not modify this file manually. Do not guess at field values.
-# Last updated: 2026-06-12 (Autonomous Pipeline Completion Repair — Claude Code session)
+# Last updated: 2026-06-12 (Smoke Test Attempt — YELLOW verdict — Claude Code session 3)
 # Architecture: Three-Agent Architecture (Hermes Desk → Agent Zero → Claude Code). Atlas/V2 superseded.
 
 ---
@@ -56,7 +56,7 @@
 | Grist | VM104 | 8484 | LIVE (HTTP probe confirmed) | 2026-06-11 |
 | n8n Atlas | VM104 | 5679 | HEALTHY — NOT YET FROZEN | 2026-06-11 |
 | Ollama (Unraid, CPU) | Unraid | 11434 | [UNVERIFIED] | never |
-| hermes-desk | MGMT-XPS | 8642 | RUNNING (Up 24 hours) | 2026-06-11 |
+| hermes-desk | MGMT-XPS | 8642 | RUNNING — API server ACTIVE on 0.0.0.0:8642 | 2026-06-12 |
 | agent-zero-desk | MGMT-XPS | 50080 | RUNNING (Up 3 days) | 2026-06-11 |
 | openclaw-desk | MGMT-XPS | 18789 | RUNNING/healthy (Up 3 days) | 2026-06-11 |
 | Home Assistant | VM100 | 8123 | UP (web reachable) | 2026-05-26 |
@@ -81,6 +81,8 @@
 13. Grist down on VM104 — port 8484 connection refused as of 2026-06-11 (was LIVE earlier same day). VM104 SSH inaccessible (LAN port 22 blocked by design; Tailscale SSH resets — may indicate Tailscale stopped on VM104). Use Proxmox console to investigate. Blocker task: Notion 37d6d271-f21c-814b-acba-dc81d5a5b543.
 14. Librarian 1:30am cron job not created — hermes-librarian on VM107 has cron_mode:auto and timezone:America/Denver configured but no jobs in jobs.json. Must create the maintenance cron job before first scheduled run.
 15. OpenAI API key missing — OPENAI_API_KEY not in CREDENTIALS.env on VM101 or MGMT-XPS. Blocks GPT-4o upgrade for hermes-desk and GPT-4o mini upgrade for hermes-librarian. Both currently using Unraid local models (functional but not at target).
+16. agent-zero-desk container: no SSH keys — Container cannot SSH to fleet machines. No SSH private key mounted. Fix: add `~/.ssh:/root/.ssh:ro` volume to agent-zero-desk docker-compose.yml. Blocks Agent Zero from executing any SSH-based tasks.
+17. Agent Zero model tool-name compliance — qwen2.5:7b follows JSON format but uses tool name `code_execution` (wrong) instead of `code_execution_tool` (correct Agent Zero name). llama3.2:latest (3.2B) cannot follow JSON format at all. Fleet model standard (llama3.2:latest) is insufficient for Agent Zero chat. Session record: Notion 37d6d271-f21c-810c-8e20-df8e93420989.
 
 ---
 
