@@ -3,7 +3,7 @@
 # Updated on schedule (target: every 2 hours when Librarian is running).
 # Any AI reading this: treat all fields as verified unless marked [UNVERIFIED].
 # Do not modify this file manually. Do not guess at field values.
-# Last updated: 2026-06-12 (Forensic Diagnostic — LAN block resolved — Claude Code session 5)
+# Last updated: 2026-06-12 (Pipeline repair — SSH mount + tool compliance resolved — Claude Code session 6)
 # Architecture: Three-Agent Architecture (Hermes Desk → Agent Zero → Claude Code). Atlas/V2 superseded.
 
 ---
@@ -81,8 +81,8 @@
 13. Grist down on VM104 — port 8484 connection refused as of 2026-06-11 (was LIVE earlier same day). VM104 SSH inaccessible (LAN port 22 blocked by design; Tailscale SSH resets — may indicate Tailscale stopped on VM104). Use Proxmox console to investigate. Blocker task: Notion 37d6d271-f21c-814b-acba-dc81d5a5b543.
 14. Librarian 1:30am cron job not created — hermes-librarian on VM107 has cron_mode:auto and timezone:America/Denver configured but no jobs in jobs.json. Must create the maintenance cron job before first scheduled run.
 15. OpenAI API key missing — OPENAI_API_KEY not in CREDENTIALS.env on VM101 or MGMT-XPS. Blocks GPT-4o upgrade for hermes-desk and GPT-4o mini upgrade for hermes-librarian. Both currently using Unraid local models (functional but not at target).
-16. agent-zero-desk container: no SSH keys — Container cannot SSH to fleet machines. No SSH private key mounted. Fix: add `~/.ssh:/root/.ssh:ro` volume to agent-zero-desk docker-compose.yml. Blocks Agent Zero from executing any SSH-based tasks.
-17. Agent Zero model tool-name compliance — qwen2.5:7b follows JSON format but uses tool name `code_execution` (wrong) instead of `code_execution_tool` (correct Agent Zero name). llama3.2:latest (3.2B) cannot follow JSON format at all. Fleet model standard (llama3.2:latest) is insufficient for Agent Zero chat. Session record: Notion 37d6d271-f21c-810c-8e20-df8e93420989.
+16. [RESOLVED 2026-06-12] agent-zero-desk SSH keys — Fixed in session 6. Container was started manually (not Compose). Bind-mount failed due to UID mismatch (host UID 1000 vs container root). Solution: named Docker volume `agent-zero-desk-ssh` populated with root-owned key copies via busybox helper. SSH verified: VM101 LAN, VM101 Tailscale, VM107 LAN all pass. Runbook: 37d6d271-f21c-81a8-80b5-d10aed50dea6.
+17. [RESOLVED 2026-06-12] Agent Zero tool-name compliance — Root cause: context contamination in long sessions, not a model limitation. qwen2.5:7b correctly emits `code_execution_tool` in clean context (verified via direct Ollama API test). Agent Zero retry/nudge mechanisms handle transient drift. No model change required. Runbook: 37d6d271-f21c-81a8-80b5-d10aed50dea6.
 18. [RESOLVED 2026-06-12] MGMT-XPS ↔ VM101 LAN block — Root cause: pfSense-advertised 192.168.1.0/24 subnet route in Tailscale table 52 on both hosts caused asymmetric routing (forward via LAN enp3s0→enp6s18, return via Tailscale→pfSense). pfSense stateful firewall dropped orphaned replies. Fix: `tailscale set --accept-routes=false` on MGMT-XPS (local sudo) and VM101 (via Proxmox QEMU agent). Fully verified. Session 5 Notion record: 37d6d271-f21c-8120-9f29-dab60b497aa9. Doctrine: see standing rule 13.
 
 ---
