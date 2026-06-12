@@ -3,7 +3,8 @@
 # Updated on schedule (target: every 2 hours when Librarian is running).
 # Any AI reading this: treat all fields as verified unless marked [UNVERIFIED].
 # Do not modify this file manually. Do not guess at field values.
-# Last updated: 2026-05-26 (notion-bridge git fix — Claude Code session)
+# Last updated: 2026-06-11 (Three-Agent Architecture Build — Phase 0 audit — Claude Code session)
+# Architecture: Three-Agent Architecture (Hermes Desk → Agent Zero → Claude Code). Atlas/V2 superseded.
 
 ---
 
@@ -14,13 +15,13 @@
 | Machine | LAN IP | Tailscale IP | Reachable | Last Verified |
 |---|---|---|---|---|
 | pve-studio (Proxmox host) | 192.168.1.4 | 100.99.40.111 (path broken) | YES (LAN only) | 2026-05-27 |
-| VM101 pop-ollama | 192.168.1.136 | 100.91.173.40 | YES | 2026-05-27 |
+| VM101 pop-ollama | 192.168.1.136 (LAN UNREACHABLE) | 100.91.173.40 | YES (Tailscale only) | 2026-06-11 |
 | VM102 de-pubmachine-01 | 192.168.1.48 | [UNVERIFIED] | UNKNOWN | 2026-05-25 |
 | VM103 de-edge-01 | 192.168.1.36 | [UNVERIFIED] | UNKNOWN | never |
-| VM104 orchestrator | 192.168.1.19 | 100.108.23.97 | YES | 2026-05-27 |
+| VM104 orchestrator | 192.168.1.19 | 100.108.23.97 | YES (LAN ping; SSH Tailscale-only) | 2026-06-11 |
 | VM105 affiliate-engine-01 | 192.168.1.55 | [UNVERIFIED] | UNKNOWN | 2026-05-25 |
 | VM106 de-truenas-01 | 192.168.1.106 | [UNVERIFIED] | UNKNOWN | 2026-05-25 |
-| VM107 de-librarian-01 | 192.168.1.107 | [UNVERIFIED] | YES (LAN) | 2026-05-23 |
+| VM107 de-librarian-01 | 192.168.1.107 | [UNVERIFIED] | YES (LAN ping + SSH confirmed) | 2026-06-11 |
 | VM108 de-gateway-01 | 192.168.1.2 | 100.120.42.102 | YES (Tailscale) | 2026-05-27 |
 | VM100 ha-control | 192.168.1.100 | [UNVERIFIED] | UNKNOWN | 2026-05-25 |
 | MGMT-XPS | 192.168.1.221 | 100.76.233.89 | YES | 2026-05-27 |
@@ -45,10 +46,19 @@
 | Atlas Task Scanner | VM104 | n8n workflow Iyts70flbCG4sKub | ACTIVE (re-enabled 2026-05-27) | 2026-05-27 |
 | Atlas Dead Man Monitor | VM104 | n8n workflow | ACTIVE | 2026-05-27 |
 | Atlas Completion Handler | VM104 | n8n workflow | ACTIVE | 2026-05-27 |
-| agent-zero-librarian | VM107 | 7071 | UNKNOWN | 2026-05-23 |
-| AnythingLLM | VM107 | 3001 | UNKNOWN | 2026-05-23 |
-| Grist | VM104 | 8484 | RUNNING (undocumented) | 2026-05-20 |
+| agent-zero-librarian | VM107 | 7071 | RUNNING (Up 2+ days) | 2026-06-11 |
+| AnythingLLM | VM107 | 3001 | RUNNING (Up 4+ days, healthy) | 2026-06-11 |
+| hermes-librarian | VM107 | 8642 | RUNNING (Up 20 hours) | 2026-06-11 |
+| hermes-apollo | VM107 | 8643 | RUNNING (Up 20 hours) | 2026-06-11 |
+| hermes-coder | VM107 | 8645 | RUNNING (Up 20 hours) | 2026-06-11 |
+| hermes-truthlens | VM107 | 8644 | RUNNING (Up 20 hours) | 2026-06-11 |
+| n8n-librarian | VM107 | 5680 | RUNNING (Up 4+ days) | 2026-06-11 |
+| Grist | VM104 | 8484 | LIVE (HTTP probe confirmed) | 2026-06-11 |
+| n8n Atlas | VM104 | 5679 | HEALTHY — NOT YET FROZEN | 2026-06-11 |
 | Ollama (Unraid, CPU) | Unraid | 11434 | [UNVERIFIED] | never |
+| hermes-desk | MGMT-XPS | 8642 | RUNNING (Up 24 hours) | 2026-06-11 |
+| agent-zero-desk | MGMT-XPS | 50080 | RUNNING (Up 3 days) | 2026-06-11 |
+| openclaw-desk | MGMT-XPS | 18789 | RUNNING/healthy (Up 3 days) | 2026-06-11 |
 | Home Assistant | VM100 | 8123 | UP (web reachable) | 2026-05-26 |
 
 ---
@@ -58,14 +68,16 @@
 
 1. VM102 and VM105 — SSH never confirmed. DHCP reservations fixed (2026-05-25) but services on these VMs have not been verified.
 2. VM100 ha-control — pfSense reservation corrected to .100 (2026-05-25) but HA OS is not confirmed at that IP (no SSH addon installed). Verify via Proxmox console or install HA SSH addon.
-3. Codex OAuth on MGMT-XPS — expired as of 2026-05-23. Needs interactive reauth in Codex before Codex can write to Notion.
+3. Codex OAuth on MGMT-XPS — expired as of 2026-05-23. Needs interactive reauth. NOTE: Three-Agent architecture removes Codex from hermes-desk (Phase 4) — this blocker may become moot.
 4. watchdog.py on VM101 — stopped. Do not restart until inode retention guard is implemented and approved.
 5. DIAMONDEYE-STATE.md Librarian automation — this document is manually seeded. Librarian scheduled sync not yet wired.
 6. pve-studio Tailscale path broken — Tailscale peer exists (100.99.40.111) but path non-functional. LAN only for now.
 7. VM101 QEMU guest agent — not responding. qm guest exec does not work. Use Tailscale SSH (tunedr@100.91.173.40) only.
 8. Atlas Dead Man Monitor n8n expressions broken — IF node uses {{ .body || }} (should be {{ $json.body }}), Telegram chatId uses {{ .TELEGRAM_CHAT_ID }} (should be {{ $env.TELEGRAM_CHAT_ID }}). Needs 2-field fix in n8n UI at http://192.168.1.19:5679.
-9. [RESOLVED 2026-05-26] notion-bridge git blocker — FIXED. git 2.47.3 installed via apt in docker-compose.yml command; container rebuilt. Atlas task dispatches should no longer fail with FileNotFoundError.
+9. [RESOLVED 2026-05-26] notion-bridge git blocker — FIXED. git 2.47.3 installed via apt.
 10. VM106 de-truenas-01 — IPv4 status unknown. DHCP reservation set to .106 (2026-05-25) but VM has no ARP presence. Needs console investigation.
+11. pop-ollama LAN unreachable — 192.168.1.136 ping fails as of 2026-06-11. All pop-ollama access must use Tailscale (100.91.173.40). Root cause unknown — investigate when convenient.
+12. Three-Agent Architecture Build — IN PROGRESS (2026-06-11). hermes-librarian model needs update to GPT-4o mini (Phase 2). Agent Zero needs rebuild for execution orchestrator role (Phase 3). hermes-desk Codex removal needed (Phase 4). V2 Blueprint and Atlas need freeze/supersede (Phase 7).
 
 ---
 
