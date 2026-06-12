@@ -3,7 +3,7 @@
 # Updated on schedule (target: every 2 hours when Librarian is running).
 # Any AI reading this: treat all fields as verified unless marked [UNVERIFIED].
 # Do not modify this file manually. Do not guess at field values.
-# Last updated: 2026-06-12 (Pipeline repair — SSH mount + tool compliance resolved — Claude Code session 6)
+# Last updated: 2026-06-12 (A2A delegation proof — YELLOW — Claude Code session 7)
 # Architecture: Three-Agent Architecture (Hermes Desk → Agent Zero → Claude Code). Atlas/V2 superseded.
 
 ---
@@ -57,7 +57,7 @@
 | n8n Atlas | VM104 | 5679 | HEALTHY — NOT YET FROZEN | 2026-06-11 |
 | Ollama (Unraid, CPU) | Unraid | 11434 | [UNVERIFIED] | never |
 | hermes-desk | MGMT-XPS | 8642 | RUNNING — API server ACTIVE on 0.0.0.0:8642 | 2026-06-12 |
-| agent-zero-desk | MGMT-XPS | 50080 | RUNNING (Up 3 days) | 2026-06-11 |
+| agent-zero-desk | MGMT-XPS | 50080 | RUNNING — model: qwen2.5-coder:7b VM101 GPU, memory disabled, SSH to VM101 proven | 2026-06-12 |
 | openclaw-desk | MGMT-XPS | 18789 | RUNNING/healthy (Up 3 days) | 2026-06-11 |
 | Home Assistant | VM100 | 8123 | UP (web reachable) | 2026-05-26 |
 
@@ -81,6 +81,7 @@
 13. Grist down on VM104 — port 8484 connection refused as of 2026-06-11 (was LIVE earlier same day). VM104 SSH inaccessible (LAN port 22 blocked by design; Tailscale SSH resets — may indicate Tailscale stopped on VM104). Use Proxmox console to investigate. Blocker task: Notion 37d6d271-f21c-814b-acba-dc81d5a5b543.
 14. Librarian 1:30am cron job not created — hermes-librarian on VM107 has cron_mode:auto and timezone:America/Denver configured but no jobs in jobs.json. Must create the maintenance cron job before first scheduled run.
 15. OpenAI API key missing — OPENAI_API_KEY not in CREDENTIALS.env on VM101 or MGMT-XPS. Blocks GPT-4o upgrade for hermes-desk and GPT-4o mini upgrade for hermes-librarian. Both currently using Unraid local models (functional but not at target).
+19. [PARTIAL 2026-06-12] Hermes → Agent Zero A2A delegation path — YELLOW. Agent Zero SSH to VM101 proven (context xpkSKuEM). Hermes delegation HTTP call fired (context 9xFXZm21). Remaining gaps: (a) Hermes desk SOUL.md lacks explicit Agent Zero call instructions; (b) Agent Zero qwen2.5-coder adds safety confirmation turn before SSH; (c) structured report does not flow back to Hermes in single turn. Session 7 record: Notion 37d6d271-f21c-8123-b658-dfe430d0e604. Repair runbook needed before OpenClaw retirement.
 16. [RESOLVED 2026-06-12] agent-zero-desk SSH keys — Fixed in session 6. Container was started manually (not Compose). Bind-mount failed due to UID mismatch (host UID 1000 vs container root). Solution: named Docker volume `agent-zero-desk-ssh` populated with root-owned key copies via busybox helper. SSH verified: VM101 LAN, VM101 Tailscale, VM107 LAN all pass. Runbook: 37d6d271-f21c-81a8-80b5-d10aed50dea6.
 17. [RESOLVED 2026-06-12] Agent Zero tool-name compliance — Root cause: context contamination in long sessions, not a model limitation. qwen2.5:7b correctly emits `code_execution_tool` in clean context (verified via direct Ollama API test). Agent Zero retry/nudge mechanisms handle transient drift. No model change required. Runbook: 37d6d271-f21c-81a8-80b5-d10aed50dea6.
 18. [RESOLVED 2026-06-12] MGMT-XPS ↔ VM101 LAN block — Root cause: pfSense-advertised 192.168.1.0/24 subnet route in Tailscale table 52 on both hosts caused asymmetric routing (forward via LAN enp3s0→enp6s18, return via Tailscale→pfSense). pfSense stateful firewall dropped orphaned replies. Fix: `tailscale set --accept-routes=false` on MGMT-XPS (local sudo) and VM101 (via Proxmox QEMU agent). Fully verified. Session 5 Notion record: 37d6d271-f21c-8120-9f29-dab60b497aa9. Doctrine: see standing rule 13.
