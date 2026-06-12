@@ -3,7 +3,7 @@
 # Updated on schedule (target: every 2 hours when Librarian is running).
 # Any AI reading this: treat all fields as verified unless marked [UNVERIFIED].
 # Do not modify this file manually. Do not guess at field values.
-# Last updated: 2026-06-12 (Smoke Test Attempt — YELLOW verdict — Claude Code session 3)
+# Last updated: 2026-06-12 (Forensic Diagnostic — watchdog OOM resolved — Claude Code session 4)
 # Architecture: Three-Agent Architecture (Hermes Desk → Agent Zero → Claude Code). Atlas/V2 superseded.
 
 ---
@@ -15,7 +15,7 @@
 | Machine | LAN IP | Tailscale IP | Reachable | Last Verified |
 |---|---|---|---|---|
 | pve-studio (Proxmox host) | 192.168.1.4 | 100.99.40.111 (path broken) | YES (LAN only) | 2026-05-27 |
-| VM101 pop-ollama | 192.168.1.136 | 100.91.173.40 | YES (LAN + Tailscale) | 2026-06-12 |
+| VM101 pop-ollama | 192.168.1.136 | 100.91.173.40 | YES (Tailscale only — LAN ICMP/SSH blocked, see blocker 18) | 2026-06-12 |
 | VM102 de-pubmachine-01 | 192.168.1.48 | [UNVERIFIED] | UNKNOWN | 2026-05-25 |
 | VM103 de-edge-01 | 192.168.1.36 | [UNVERIFIED] | UNKNOWN | never |
 | VM104 orchestrator | 192.168.1.19 | 100.108.23.97 | YES (LAN ping; SSH Tailscale-only) | 2026-06-11 |
@@ -36,7 +36,7 @@
 
 | Service | Machine | Port | Status | Last Verified |
 |---|---|---|---|---|
-| Ollama (Docker, GPU) | VM101 | 11434 | HEALTHY | 2026-05-27 |
+| Ollama (Docker, GPU) | VM101 | 11434 | HEALTHY (generate tested 2026-06-12) | 2026-06-12 |
 | coding-agent | VM101 | 9100 | HEALTHY | 2026-05-27 |
 | claude-server | VM101 | 9099 | UP (credits_paused=true) | 2026-05-27 |
 | agent-zero | VM101 | 7070 | HEALTHY | 2026-05-27 |
@@ -69,20 +69,21 @@
 1. VM102 and VM105 — SSH never confirmed. DHCP reservations fixed (2026-05-25) but services on these VMs have not been verified.
 2. VM100 ha-control — pfSense reservation corrected to .100 (2026-05-25) but HA OS is not confirmed at that IP (no SSH addon installed). Verify via Proxmox console or install HA SSH addon.
 3. Codex OAuth on MGMT-XPS — expired as of 2026-05-23. Needs interactive reauth. NOTE: Three-Agent architecture removes Codex from hermes-desk (Phase 4) — this blocker may become moot.
-4. watchdog.py on VM101 — stopped. Do not restart until inode retention guard is implemented and approved.
+4. watchdog.py on VM101 — STOPPED AND DISABLED (2026-06-12, session 4). watchdog.service disabled in user systemd (symlink removed). Do not restart until inode retention guard is implemented and Branden approves. Root cause of stop: watchdog.py was consuming 7.2 GiB RAM + exhausting 23 GiB swap, causing VM101 SSH/ICMP failures. Session record: Notion 37d6d271-f21c-810f-9c84-fe15c79701b9.
 5. DIAMONDEYE-STATE.md Librarian automation — this document is manually seeded. Librarian scheduled sync not yet wired.
 6. pve-studio Tailscale path broken — Tailscale peer exists (100.99.40.111) but path non-functional. LAN only for now.
 7. VM101 QEMU guest agent — not responding. qm guest exec does not work. Use Tailscale SSH (tunedr@100.91.173.40) only.
 8. Atlas Dead Man Monitor n8n expressions broken — IF node uses {{ .body || }} (should be {{ $json.body }}), Telegram chatId uses {{ .TELEGRAM_CHAT_ID }} (should be {{ $env.TELEGRAM_CHAT_ID }}). Needs 2-field fix in n8n UI at http://192.168.1.19:5679.
 9. [RESOLVED 2026-05-26] notion-bridge git blocker — FIXED. git 2.47.3 installed via apt.
 10. VM106 de-truenas-01 — IPv4 status unknown. DHCP reservation set to .106 (2026-05-25) but VM has no ARP presence. Needs console investigation.
-11. pop-ollama LAN unreachable — 192.168.1.136 ping fails as of 2026-06-11. All pop-ollama access must use Tailscale (100.91.173.40). Root cause unknown — investigate when convenient.
+11. [UPDATED 2026-06-12] pop-ollama LAN partially reachable — TCP port 11434 (Ollama) reachable from MGMT-XPS. ICMP (ping) and TCP port 22 (SSH) specifically blocked between MGMT-XPS (192.168.1.221) ↔ VM101 (192.168.1.136). Block is bidirectional and host-pair-specific (VM101 can reach VM107, pfSense fine). VM101 iptables/nftables cannot be checked without root (tunedr lacks sudo via non-TTY SSH). See blocker 18. Use Tailscale SSH (100.91.173.40) for all VM101 access.
 12. [RESOLVED 2026-06-11] Three-Agent Architecture Build — COMPLETE. All phases executed. Open items: OPENAI_API_KEY needed for GPT-4o/GPT-4o-mini upgrades; Grist down on VM104 (needs Proxmox console access); Librarian 1:30am cron job not yet created; full Telegram smoke test pending. Final session record: Notion 37d6d271-f21c-812e-ab5b-cf5417d69c5c.
 13. Grist down on VM104 — port 8484 connection refused as of 2026-06-11 (was LIVE earlier same day). VM104 SSH inaccessible (LAN port 22 blocked by design; Tailscale SSH resets — may indicate Tailscale stopped on VM104). Use Proxmox console to investigate. Blocker task: Notion 37d6d271-f21c-814b-acba-dc81d5a5b543.
 14. Librarian 1:30am cron job not created — hermes-librarian on VM107 has cron_mode:auto and timezone:America/Denver configured but no jobs in jobs.json. Must create the maintenance cron job before first scheduled run.
 15. OpenAI API key missing — OPENAI_API_KEY not in CREDENTIALS.env on VM101 or MGMT-XPS. Blocks GPT-4o upgrade for hermes-desk and GPT-4o mini upgrade for hermes-librarian. Both currently using Unraid local models (functional but not at target).
 16. agent-zero-desk container: no SSH keys — Container cannot SSH to fleet machines. No SSH private key mounted. Fix: add `~/.ssh:/root/.ssh:ro` volume to agent-zero-desk docker-compose.yml. Blocks Agent Zero from executing any SSH-based tasks.
 17. Agent Zero model tool-name compliance — qwen2.5:7b follows JSON format but uses tool name `code_execution` (wrong) instead of `code_execution_tool` (correct Agent Zero name). llama3.2:latest (3.2B) cannot follow JSON format at all. Fleet model standard (llama3.2:latest) is insufficient for Agent Zero chat. Session record: Notion 37d6d271-f21c-810c-8e20-df8e93420989.
+18. MGMT-XPS ↔ VM101 LAN block — ICMP and TCP/22 blocked bidirectionally between 192.168.1.221 and 192.168.1.136. TCP/11434 and UDP/41641 (Tailscale) unaffected. Cause unknown: VM101 nftables requires root to inspect (tunedr lacks sudo via SSH); pfSense LAN ACL possible. Discovered during session 4 forensic diagnostic. Does not block pipeline (Tailscale is designated VM101 access path). Session record: Notion 37d6d271-f21c-810f-9c84-fe15c79701b9.
 
 ---
 
