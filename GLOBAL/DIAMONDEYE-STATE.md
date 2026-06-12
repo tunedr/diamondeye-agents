@@ -3,7 +3,7 @@
 # Updated on schedule (target: every 2 hours when Librarian is running).
 # Any AI reading this: treat all fields as verified unless marked [UNVERIFIED].
 # Do not modify this file manually. Do not guess at field values.
-# Last updated: 2026-06-11 (Three-Agent Architecture Build — COMPLETE — Claude Code session)
+# Last updated: 2026-06-12 (Autonomous Pipeline Completion Repair — Claude Code session)
 # Architecture: Three-Agent Architecture (Hermes Desk → Agent Zero → Claude Code). Atlas/V2 superseded.
 
 ---
@@ -15,7 +15,7 @@
 | Machine | LAN IP | Tailscale IP | Reachable | Last Verified |
 |---|---|---|---|---|
 | pve-studio (Proxmox host) | 192.168.1.4 | 100.99.40.111 (path broken) | YES (LAN only) | 2026-05-27 |
-| VM101 pop-ollama | 192.168.1.136 (LAN UNREACHABLE) | 100.91.173.40 | YES (Tailscale only) | 2026-06-11 |
+| VM101 pop-ollama | 192.168.1.136 | 100.91.173.40 | YES (LAN + Tailscale) | 2026-06-12 |
 | VM102 de-pubmachine-01 | 192.168.1.48 | [UNVERIFIED] | UNKNOWN | 2026-05-25 |
 | VM103 de-edge-01 | 192.168.1.36 | [UNVERIFIED] | UNKNOWN | never |
 | VM104 orchestrator | 192.168.1.19 | 100.108.23.97 | YES (LAN ping; SSH Tailscale-only) | 2026-06-11 |
