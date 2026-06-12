@@ -16,7 +16,7 @@ This machine is the Atlas escalation target for tasks beyond local Ollama capabi
 - Never delete data
 - Never run apt upgrade on any remote VM
 - n8n must be paused before any pipeline surgery
-- Tailscale IPs only for inter-service traffic — never LAN IPs in configs
+- Prefer Tailscale IPs for inter-service SSH and traffic where Tailscale is verified; use documented LAN IPs for hosts without confirmed Tailscale (see GLOBAL/architecture.md for per-host status)
 
 ## Load Order
 1. GLOBAL/architecture.md

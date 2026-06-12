@@ -157,10 +157,11 @@ When anyone submits a research question via AnythingLLM:
 
 ---
 
-## Model Routing (fleet-standard)
-- Chat: deepseek-r1:latest @ http://192.168.1.136:11434
-- Utility: qwen2.5:7b @ http://192.168.1.2:11434
+## Model Routing (fleet-standard — updated 2026-06-05)
+- Chat/Reasoning: llama3.2:latest @ http://192.168.1.2:11434
+- Code/Utility: qwen2.5-coder:7b @ http://192.168.1.136:11434
 - Embed: nomic-embed-text @ http://192.168.1.2:11434
+- Reason for change: deepseek-r1 does not support tools API; qwen2.5:7b context window too small for Hermes. Authorized 2026-06-05.
 
 ## Hard Rules
 - Never overwrite LOCAL/ files — read only
