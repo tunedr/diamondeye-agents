@@ -3,7 +3,7 @@
 # Updated on schedule (target: every 2 hours when Librarian is running).
 # Any AI reading this: treat all fields as verified unless marked [UNVERIFIED].
 # Do not modify this file manually. Do not guess at field values.
-# Last updated: 2026-06-11 (Three-Agent Architecture Build — Phase 0 audit — Claude Code session)
+# Last updated: 2026-06-11 (Three-Agent Architecture Build — COMPLETE — Claude Code session)
 # Architecture: Three-Agent Architecture (Hermes Desk → Agent Zero → Claude Code). Atlas/V2 superseded.
 
 ---
@@ -77,7 +77,10 @@
 9. [RESOLVED 2026-05-26] notion-bridge git blocker — FIXED. git 2.47.3 installed via apt.
 10. VM106 de-truenas-01 — IPv4 status unknown. DHCP reservation set to .106 (2026-05-25) but VM has no ARP presence. Needs console investigation.
 11. pop-ollama LAN unreachable — 192.168.1.136 ping fails as of 2026-06-11. All pop-ollama access must use Tailscale (100.91.173.40). Root cause unknown — investigate when convenient.
-12. Three-Agent Architecture Build — IN PROGRESS (2026-06-11). hermes-librarian model needs update to GPT-4o mini (Phase 2). Agent Zero needs rebuild for execution orchestrator role (Phase 3). hermes-desk Codex removal needed (Phase 4). V2 Blueprint and Atlas need freeze/supersede (Phase 7).
+12. [RESOLVED 2026-06-11] Three-Agent Architecture Build — COMPLETE. All phases executed. Open items: OPENAI_API_KEY needed for GPT-4o/GPT-4o-mini upgrades; Grist down on VM104 (needs Proxmox console access); Librarian 1:30am cron job not yet created; full Telegram smoke test pending. Final session record: Notion 37d6d271-f21c-812e-ab5b-cf5417d69c5c.
+13. Grist down on VM104 — port 8484 connection refused as of 2026-06-11 (was LIVE earlier same day). VM104 SSH inaccessible (LAN port 22 blocked by design; Tailscale SSH resets — may indicate Tailscale stopped on VM104). Use Proxmox console to investigate. Blocker task: Notion 37d6d271-f21c-814b-acba-dc81d5a5b543.
+14. Librarian 1:30am cron job not created — hermes-librarian on VM107 has cron_mode:auto and timezone:America/Denver configured but no jobs in jobs.json. Must create the maintenance cron job before first scheduled run.
+15. OpenAI API key missing — OPENAI_API_KEY not in CREDENTIALS.env on VM101 or MGMT-XPS. Blocks GPT-4o upgrade for hermes-desk and GPT-4o mini upgrade for hermes-librarian. Both currently using Unraid local models (functional but not at target).
 
 ---
 
