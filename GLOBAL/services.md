@@ -13,7 +13,7 @@ All services are Docker-based. No systemd service units for these.
 - de-book-sites — Docker
 - GPU constraint: RTX 2060 6GB — qwen2.5-coder:7b for fleet utility. Cannot run multiple large models simultaneously.
 - Model routing: llama3.2:latest @ :11434 (chat), qwen2.5-coder:7b @ :11434 (utility/code). Updated 2026-06-05.
-- ACCESS NOTE: LAN IP 192.168.1.136 UNREACHABLE as of 2026-06-11. Use Tailscale 100.91.173.40 for all SSH and service access.
+- ACCESS NOTE: LAN IP 192.168.1.136 REACHABLE as of 2026-06-13 (sessions 5+8). Both LAN SSH (tunedr@192.168.1.136) and Tailscale SSH (100.91.173.40) confirmed. Ollama port 11434 accessible via LAN directly from MGMT-XPS.
 
 ## orchestrator (VM 104 — 100.108.23.97)
 - n8n Atlas — port 5679 — generation 2 pipeline (ACTIVE — not yet frozen as of 2026-06-11)
@@ -46,10 +46,10 @@ All services are Docker-based. No systemd service units for these.
 - hermes-researcher — RUNNING
 - hermes-godmode — RUNNING
 - hermes-coder — RUNNING
-- openclaw-desk — port 18789 — OpenClaw instance — RUNNING (healthy)
+- openclaw-desk — port 18789 — STOPPED/RETIRED (2026-06-13 session 9). Container preserved. Rollback: docker start openclaw-desk.
 
-## Access Path Verification Notes (verified 2026-06-11)
-- pop-ollama (100.91.173.40): Tailscale CONFIRMED. LAN 192.168.1.136 UNREACHABLE by ping — use Tailscale only.
+## Access Path Verification Notes (verified 2026-06-13 — session 9)
+- pop-ollama (100.91.173.40): Tailscale CONFIRMED. LAN 192.168.1.136 CONFIRMED (sessions 5+8 fixed asymmetric routing). Both paths valid.
 - pve-studio (192.168.1.4): LAN ping and SSH live. Tailscale path broken (not installed).
 - de-truenas-01 (192.168.1.106): status unknown.
 - Unraid / de-gateway-01 (192.168.1.2): LAN ping CONFIRMED. SSH blocked (permission denied). Web routes :3000, :3002, :7072 respond.
