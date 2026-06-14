@@ -3,7 +3,7 @@
 # Updated on schedule (target: every 2 hours when Librarian is running).
 # Any AI reading this: treat all fields as verified unless marked [UNVERIFIED].
 # Do not modify this file manually. Do not guess at field values.
-# Last updated: 2026-06-14 (Session 15 — Cline tool calling UNBLOCKED via JSON→tool_calls proxy; mini-planner lane ACTIVE with GPT-4o-mini; fleet standard: qwen2.5-coder:7b utility + codex_oauth/gpt-4o-mini chat)
+# Last updated: 2026-06-13 (Session 15 — Cline tool calling UNBLOCKED via JSON→tool_calls proxy; mini-planner lane ACTIVE with codex_oauth/gpt-5.4-mini; fleet standard: qwen2.5-coder:7b utility + codex_oauth/gpt-5.4-mini chat; Rule 4 auto-pass misinterpretation bug fixed in SOUL specifics)
 # Architecture: Three-Agent Architecture (Hermes Desk → Agent Zero → Claude Code). Atlas/V2 superseded.
 
 ---
@@ -57,7 +57,7 @@
 | n8n Atlas | VM104 | 5679 | HEALTHY — NOT YET FROZEN | 2026-06-11 |
 | Ollama (Unraid, CPU) | Unraid | 11434 | [UNVERIFIED] | never |
 | hermes-desk | MGMT-XPS | 8642 | RUNNING — API server ACTIVE on 0.0.0.0:8642, Notion MCP: 22 tools ADDED 2026-06-13 S14 (API-post-page, API-patch-block-children, etc.), SOUL.md dedup fixed S14 | 2026-06-13 |
-| agent-zero-desk | MGMT-XPS | 50080 | RUNNING — chat_model: codex_oauth/gpt-4o-mini (ACTIVE S15), utility_model: qwen2.5-coder:7b VM101 GPU. Task Mode Detection GREEN (S11), Runbook Mode GREEN (S11), Rule 2 docker prune=RED (S11), sentinel_verdict in all reports (S11), Notion MCP active: 22 tools (S12), LOOP HARD STOP active: repeat_count>=3 returns BLOCKED (S13), SSH→VM107 GREEN (S13 cont.), Cline routing ACTIVE (S15) | 2026-06-14 |
+| agent-zero-desk | MGMT-XPS | 50080 | RUNNING — chat_model: codex_oauth/gpt-5.4-mini (ACTIVE S15), utility_model: qwen2.5-coder:7b VM101 GPU. Task Mode Detection GREEN (S11), Runbook Mode GREEN (S11), Rule 2 docker prune=RED (S11), sentinel_verdict in all reports (S11), Notion MCP active: 22 tools (S12), LOOP HARD STOP active: repeat_count>=3 returns BLOCKED (S13), SSH→VM107 GREEN (S13 cont.), Cline routing ACTIVE (S15), Rule 4 auto-pass misinterpretation fixed (S15) | 2026-06-13 |
 | cline-ollama-proxy | VM101 (pop-ollama) | 11435 | ACTIVE — systemd user service, converts qwen JSON-text tool calls → tool_calls API format, filters 25→4 core tools. Cline smoke tests PASSED: editor + run_commands both confirmed 2026-06-14 S15. Proxy: /home/tunedr/cline-ollama-proxy.py | 2026-06-14 |
 | openclaw-desk | MGMT-XPS | 18789 | STOPPED — retired 2026-06-13 session 9. Container preserved (not rm'd). Rollback: docker start openclaw-desk. Data at /home/tunedr/openclaw-desk-data intact. | 2026-06-13 |
 | Home Assistant | VM100 | 8123 | UP (web reachable) | 2026-05-26 |
@@ -116,7 +116,7 @@ IMPORTANT: docker --format with Go templates ({{range .Mounts}}) must use single
 | Service | Machine | Status | Last Verified |
 |---|---|---|---|
 | Claude Code OAuth | MGMT-XPS | ACTIVE (running since May 21) | 2026-05-27 |
-| Codex OAuth | MGMT-XPS | EXPIRED — needs reauth | 2026-05-23 |
+| Codex OAuth | MGMT-XPS | ACTIVE — authenticated 2026-06-14 S15. Used as agent-zero-desk chat_model (gpt-5.4-mini). | 2026-06-14 |
 | Claude Code OAuth | Laptop WSL | [UNVERIFIED] | unknown |
 | Codex OAuth | Laptop WSL | [UNVERIFIED] | unknown |
 | Notion API (n8n bot, CREDENTIALS.env NOTION_TOKEN) | VM104 | ACTIVE | 2026-05-27 |
