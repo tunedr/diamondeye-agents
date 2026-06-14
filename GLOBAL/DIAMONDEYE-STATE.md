@@ -3,7 +3,7 @@
 # Updated on schedule (target: every 2 hours when Librarian is running).
 # Any AI reading this: treat all fields as verified unless marked [UNVERIFIED].
 # Do not modify this file manually. Do not guess at field values.
-# Last updated: 2026-06-13 (Session 14 — Hermes Desk Notion MCP added; SOUL.md dedup fixed; Notion connectivity drift repaired)
+# Last updated: 2026-06-14 (Session 15 — Cline tool calling UNBLOCKED via JSON→tool_calls proxy; mini-planner lane ACTIVE with GPT-4o-mini; fleet standard: qwen2.5-coder:7b utility + codex_oauth/gpt-4o-mini chat)
 # Architecture: Three-Agent Architecture (Hermes Desk → Agent Zero → Claude Code). Atlas/V2 superseded.
 
 ---
@@ -57,7 +57,8 @@
 | n8n Atlas | VM104 | 5679 | HEALTHY — NOT YET FROZEN | 2026-06-11 |
 | Ollama (Unraid, CPU) | Unraid | 11434 | [UNVERIFIED] | never |
 | hermes-desk | MGMT-XPS | 8642 | RUNNING — API server ACTIVE on 0.0.0.0:8642, Notion MCP: 22 tools ADDED 2026-06-13 S14 (API-post-page, API-patch-block-children, etc.), SOUL.md dedup fixed S14 | 2026-06-13 |
-| agent-zero-desk | MGMT-XPS | 50080 | RUNNING — model: qwen2.5-coder:7b VM101 GPU, Task Mode Detection GREEN (S11), Runbook Mode GREEN (S11), Rule 2 docker prune=RED (S11), sentinel_verdict in all reports (S11), Notion MCP active: 22 tools (S12), LOOP HARD STOP active: repeat_count>=3 returns BLOCKED (S13, agent.py commit 294100c6), SSH→VM107 GREEN: code_execution_tool+runtime=terminal+code field confirmed working (S13 cont.) | 2026-06-13 |
+| agent-zero-desk | MGMT-XPS | 50080 | RUNNING — chat_model: codex_oauth/gpt-4o-mini (ACTIVE S15), utility_model: qwen2.5-coder:7b VM101 GPU. Task Mode Detection GREEN (S11), Runbook Mode GREEN (S11), Rule 2 docker prune=RED (S11), sentinel_verdict in all reports (S11), Notion MCP active: 22 tools (S12), LOOP HARD STOP active: repeat_count>=3 returns BLOCKED (S13), SSH→VM107 GREEN (S13 cont.), Cline routing ACTIVE (S15) | 2026-06-14 |
+| cline-ollama-proxy | VM101 (pop-ollama) | 11435 | ACTIVE — systemd user service, converts qwen JSON-text tool calls → tool_calls API format, filters 25→4 core tools. Cline smoke tests PASSED: editor + run_commands both confirmed 2026-06-14 S15. Proxy: /home/tunedr/cline-ollama-proxy.py | 2026-06-14 |
 | openclaw-desk | MGMT-XPS | 18789 | STOPPED — retired 2026-06-13 session 9. Container preserved (not rm'd). Rollback: docker start openclaw-desk. Data at /home/tunedr/openclaw-desk-data intact. | 2026-06-13 |
 | Home Assistant | VM100 | 8123 | UP (web reachable) | 2026-05-26 |
 
@@ -68,7 +69,7 @@
 
 1. VM102 and VM105 — SSH never confirmed. DHCP reservations fixed (2026-05-25) but services on these VMs have not been verified.
 2. VM100 ha-control — pfSense reservation corrected to .100 (2026-05-25) but HA OS is not confirmed at that IP (no SSH addon installed). Verify via Proxmox console or install HA SSH addon.
-3. Codex OAuth on MGMT-XPS — expired as of 2026-05-23. Needs interactive reauth. NOTE: Three-Agent architecture removes Codex from hermes-desk (Phase 4) — this blocker may become moot.
+3. [RESOLVED 2026-06-14 S15] Codex OAuth on MGMT-XPS — authenticated by Branden. Now active as Agent Zero chat_model (codex_oauth/gpt-4o-mini). Mini-planner lane LIVE.
 4. watchdog.py on VM101 — STOPPED AND DISABLED (2026-06-12, session 4). watchdog.service disabled in user systemd (symlink removed). Do not restart until inode retention guard is implemented and Branden approves. Root cause of stop: watchdog.py was consuming 7.2 GiB RAM + exhausting 23 GiB swap, causing VM101 SSH/ICMP failures. Session record: Notion 37d6d271-f21c-810f-9c84-fe15c79701b9.
 5. DIAMONDEYE-STATE.md Librarian automation — this document is manually seeded. Librarian scheduled sync not yet wired.
 6. pve-studio Tailscale path broken — Tailscale peer exists (100.99.40.111) but path non-functional. LAN only for now.
@@ -80,8 +81,9 @@
 12. [RESOLVED 2026-06-11] Three-Agent Architecture Build — COMPLETE. All phases executed. Open items: OPENAI_API_KEY needed for GPT-4o/GPT-4o-mini upgrades; Grist down on VM104 (needs Proxmox console access); Librarian 1:30am cron job not yet created; full Telegram smoke test pending. Final session record: Notion 37d6d271-f21c-812e-ab5b-cf5417d69c5c.
 13. Grist down on VM104 — port 8484 connection refused as of 2026-06-11 (was LIVE earlier same day). VM104 SSH inaccessible (LAN port 22 blocked by design; Tailscale SSH resets — may indicate Tailscale stopped on VM104). Use Proxmox console to investigate. Blocker task: Notion 37d6d271-f21c-814b-acba-dc81d5a5b543.
 14. Librarian 1:30am cron job not created — hermes-librarian on VM107 has cron_mode:auto and timezone:America/Denver configured but no jobs in jobs.json. Must create the maintenance cron job before first scheduled run.
-15. OpenAI API key missing — OPENAI_API_KEY not in CREDENTIALS.env on VM101 or MGMT-XPS. Blocks GPT-4o upgrade for hermes-desk and GPT-4o mini upgrade for hermes-librarian. Both currently using Unraid local models (functional but not at target).
+15. [RESOLVED 2026-06-14 S15] OpenAI / Codex OAuth — Branden authenticated codex_oauth (gpt-4o-mini) for agent-zero-desk. This resolves the Agent Zero mini-planner lane. hermes-desk and hermes-librarian OpenAI status still UNKNOWN — may need separate key.
 20. [RESOLVED 2026-06-13 session 9 continuation] Hermes long-context + Agent Zero per-agent specifics file — Two root causes found and fixed. (1) Hermes system prompt is 161K tokens even on fresh session — structural, not accumulation. Mitigated by explicit per-message tool instruction. Long-term fix: SOUL.md size reduction runbook. (2) CRITICAL: Agent Zero has two agent.system.main.specifics.md files: base at /a0/prompts/ (Sentinel-enabled) and per-agent override at /a0/agents/agent0/prompts/ (had stale A2A Fleet Role with Master Router at 192.168.1.108:7072 — classified SSH as high-risk, blocked execution). Per-agent file fixed by replacing with Sentinel-enabled base content. Also patched code_execution_remote.py to redirect to code_execution_tool. Full Hermes→Agent Zero→VM101 chain proven GREEN (21:06 UTC 2026-06-13, code_execution_tool, real uptime/disk output). Runbook: 37e6d271-f21c-8136-90da-fd0a5a9f8237. DOCTRINE: Always update BOTH /a0/prompts/ AND /a0/agents/agent0/prompts/ for Agent Zero Desk prompt changes.
+30. [RESOLVED 2026-06-14 S15] Cline tool execution blocked — ROOT CAUSE FOUND: qwen2.5-coder:7b outputs tool calls as JSON text in content field. FIX: cline-ollama-proxy.py (systemd user service on pop-ollama, port 11435) converts JSON→tool_calls. Both smoke tests PASSED. Session 15 Notion: 37f6d271-f21c-816c-a81d-f92be3709075.
 28. [OPEN 2026-06-13 session 14] Hermes Desk memory full — user_memory at 1,261/1,375 chars (91%). Next entry will fail with "Memory limit exceeded". Requires a memory cleanup session: have Hermes list and prune stale/redundant entries. Not urgent but will cause silent memory write failures.
 29. [OPEN 2026-06-13 session 14] Hermes Desk notion skill collision — two SKILL.md files both named 'notion': skills/productivity/notion/SKILL.md and skills/creative/popular-web-designs/templates/notion.md. Hermes can't resolve skill name 'notion' without full path. Mitigation: Notion MCP (22 tools) now active so model should use API-* MCP tools instead of the skill. Long-term fix: rename the creative template or delete the ambiguous entry.
 27. [DOCTRINE 2026-06-13 session 13 cont.] Hermes → Agent Zero A2A task template — Use this exact structure for all Hermes-originated Agent Zero tasks. Omit any field not needed:
