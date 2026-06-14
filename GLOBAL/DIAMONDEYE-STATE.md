@@ -3,7 +3,7 @@
 # Updated on schedule (target: every 2 hours when Librarian is running).
 # Any AI reading this: treat all fields as verified unless marked [UNVERIFIED].
 # Do not modify this file manually. Do not guess at field values.
-# Last updated: 2026-06-14 (Session 15 COMPLETE — Agent Zero A2A GREEN: codex_oauth/gpt-5.4-mini, code_execution_tool first turn, Rule 4 auto-pass confirmed; Hermes on nous/claude-sonnet-4.6; all blockers 27-31 resolved)
+# Last updated: 2026-06-14 (Session 16 COMPLETE — Notion-First Continuity Layer: TR/NR/RR/RT rules defined, CONTINUITY-STATE.md deployed, Notion runbook 37f6d271. Blockers 32-34 added. Verdict: YELLOW.)
 # Architecture: Three-Agent Architecture (Hermes Desk → Agent Zero → Claude Code). Atlas/V2 superseded.
 
 ---
@@ -106,6 +106,9 @@ IMPORTANT: docker --format with Go templates ({{range .Mounts}}) must use single
 16. [RESOLVED 2026-06-12] agent-zero-desk SSH keys — Fixed in session 6. Container was started manually (not Compose). Bind-mount failed due to UID mismatch (host UID 1000 vs container root). Solution: named Docker volume `agent-zero-desk-ssh` populated with root-owned key copies via busybox helper. SSH verified: VM101 LAN, VM101 Tailscale, VM107 LAN all pass. Runbook: 37d6d271-f21c-81a8-80b5-d10aed50dea6.
 17. [RESOLVED 2026-06-12] Agent Zero tool-name compliance — Root cause: context contamination in long sessions, not a model limitation. qwen2.5:7b correctly emits `code_execution_tool` in clean context (verified via direct Ollama API test). Agent Zero retry/nudge mechanisms handle transient drift. No model change required. Runbook: 37d6d271-f21c-81a8-80b5-d10aed50dea6.
 18. [RESOLVED 2026-06-12] MGMT-XPS ↔ VM101 LAN block — Root cause: pfSense-advertised 192.168.1.0/24 subnet route in Tailscale table 52 on both hosts caused asymmetric routing (forward via LAN enp3s0→enp6s18, return via Tailscale→pfSense). pfSense stateful firewall dropped orphaned replies. Fix: `tailscale set --accept-routes=false` on MGMT-XPS (local sudo) and VM101 (via Proxmox QEMU agent). Fully verified. Session 5 Notion record: 37d6d271-f21c-8120-9f29-dab60b497aa9. Doctrine: see standing rule 13.
+32. [COMPLETE 2026-06-14 S16] Notion-First Continuity Layer — Thread Rules (TR-1/6), Notion Rules, Resume Rules (RR-1/6), Routing Rules (RT-1/6) all defined from observed evidence (not invented). CONTINUITY-STATE.md deployed to /opt/data/profiles/desk/. Notion runbook: 37f6d271-f21c-81ee-ae74-f86800926599. Active Session State updated. Verdict: YELLOW (spec-complete; Hermes wake protocol and Blocker 29 still open).
+33. [OPEN 2026-06-14 S16] Hermes wake protocol — Hermes should read /opt/data/profiles/desk/CONTINUITY-STATE.md at startup to load the prior session resume packet. Requires system prompt update or new Hermes skill. Downstream of Blocker 29 (Notion skill collision) for Hermes-side Notion writeback.
+34. [OPEN 2026-06-14 S16] Phase 1E SOUL routing hook — Hermes should call `--gate` on model_credit_monitor.py before every Agent Zero dispatch and honor the recommended_provider field. Never implemented. RT-1 defines the requirement; implementation deferred to next runbook.
 
 ---
 
