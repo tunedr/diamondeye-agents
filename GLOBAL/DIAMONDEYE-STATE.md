@@ -3,7 +3,7 @@
 # Updated on schedule (target: every 2 hours when Librarian is running).
 # Any AI reading this: treat all fields as verified unless marked [UNVERIFIED].
 # Do not modify this file manually. Do not guess at field values.
-# Last updated: 2026-06-14 (Session 17 COMPLETE — Hermes ops-complete: wake protocol + gate hook implemented. Blockers 33+34 RESOLVED. Notion runbook 37f6d271-f21c-817d-80fb-ec42cddede8c. Verdict: GREEN.)
+# Last updated: 2026-06-14 (Session 18 COMPLETE — Librarian gateway repair: gateway-librarian profile in hermes-desk restored to RUNNING, Telegram CONNECTED. Blockers 35 RESOLVED. Notion runbook 37f6d271-f21c-8154-85b5-cf261249615a. Verdict: GREEN.)
 # Architecture: Three-Agent Architecture (Hermes Desk → Agent Zero → Claude Code). Atlas/V2 superseded.
 
 ---
@@ -48,7 +48,7 @@
 | Atlas Completion Handler | VM104 | n8n workflow | ACTIVE | 2026-05-27 |
 | agent-zero-librarian | VM107 | 7071 | RUNNING (Up 2+ days) | 2026-06-11 |
 | AnythingLLM | VM107 | 3001 | RUNNING (Up 4+ days, healthy) | 2026-06-11 |
-| hermes-librarian | VM107 | 8642 | RUNNING (Up 20 hours) | 2026-06-11 |
+| hermes-librarian | VM107 | 8642 | RUNNING (Up 3+ days, Telegram CONNECTED, last active 2026-06-14T18:05 UTC) | 2026-06-14 |
 | hermes-apollo | VM107 | 8643 | RUNNING (Up 20 hours) | 2026-06-11 |
 | hermes-coder | VM107 | 8645 | RUNNING (Up 20 hours) | 2026-06-11 |
 | hermes-truthlens | VM107 | 8644 | RUNNING (Up 20 hours) | 2026-06-11 |
@@ -109,6 +109,7 @@ IMPORTANT: docker --format with Go templates ({{range .Mounts}}) must use single
 32. [COMPLETE 2026-06-14 S16] Notion-First Continuity Layer — Thread Rules (TR-1/6), Notion Rules, Resume Rules (RR-1/6), Routing Rules (RT-1/6) all defined from observed evidence (not invented). CONTINUITY-STATE.md deployed to /opt/data/profiles/desk/. Notion runbook: 37f6d271-f21c-81ee-ae74-f86800926599. Active Session State updated. Verdict: YELLOW (spec-complete; Hermes wake protocol and Blocker 29 still open).
 33. [RESOLVED 2026-06-14 S17] Hermes wake protocol — IMPLEMENTED. pre_llm_call shell hook at /opt/data/profiles/desk/hooks/continuity-wake.py reads CONTINUITY-STATE.md and injects it as context on first turn of each session. Verified GREEN: Hermes correctly reported runbook/phase/next action from file. hermes hooks list shows ✓ allowed. Profile-level allowlist at /opt/data/profiles/desk/shell-hooks-allowlist.json. Runbook: 37f6d271-f21c-817d-80fb-ec42cddede8c.
 34. [RESOLVED 2026-06-14 S17] Phase 1E gate hook — IMPLEMENTED. pre_tool_call shell hook at /opt/data/profiles/desk/hooks/gate-hook.py intercepts terminal_tool calls targeting Agent Zero A2A endpoint (50080/api/api_message). Runs model_credit_monitor.py --gate, returns {"action": "block", ...} if openai-codex BLOCKED. Fails open on gate errors. Non-A2A calls pass through. Verified GREEN (allow + block + filter). Also fixed: model_credit_monitor.py HERMES_HOME path bug (line 25 — was hardcoded, now resolves via HERMES_PROFILE env var). Runbook: 37f6d271-f21c-817d-80fb-ec42cddede8c.
+35. [RESOLVED 2026-06-14 S18] Librarian gateway repair — gateway-librarian s6 profile inside hermes-desk on MGMT-XPS was DOWN since 2026-06-11T00:50:09Z. Root cause: (1) TELEGRAM_BOT_TOKEN disabled in .env by Hermes Desk 2026-06-11T02:07Z after Telegram polling conflicts; (2) gateway_state.json showed "stopped" → boot reconciler created `down` file at container startup. REPAIR: restored token from backup (.env.backup-before-telegram-disable-20260611T020752Z), removed `down` file via s6-svc -u, clean restart via s6-svc -t. Final state: PID 12783 RUNNING, telegram.state=connected, gateway_state.json="running" (survives restart). Non-critical open: api_server can't bind port 8642 (occupied by desk profile). Separate: de-librarian-01 hermes-librarian was already healthy and untouched. Notion runbook: 37f6d271-f21c-8154-85b5-cf261249615a. Verdict: GREEN.
 
 ---
 
