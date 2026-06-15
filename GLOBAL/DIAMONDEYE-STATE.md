@@ -3,7 +3,7 @@
 # Updated on schedule (target: every 2 hours when Librarian is running).
 # Any AI reading this: treat all fields as verified unless marked [UNVERIFIED].
 # Do not modify this file manually. Do not guess at field values.
-# Last updated: 2026-06-15 (Session 20 COMPLETE — Doctrine consolidation committed (c0dedf0b). All 5 gpt-5.4-mini doctrine items in git. Private repo creation blocked (needs gh auth). Remote 'tunedr' pre-configured. Notion: 3806d271-f21c-81a4-8858-e871106138ab.)
+# Last updated: 2026-06-15 (Session 20b COMPLETE — Auth gap diagnosed: no GitHub PAT anywhere (credential gap, not auth gap). docker restart was incorrect caution — tunedr in docker group. agent-zero-desk restarted, md5 fa7a0103 verified in container. Doctrine updated in limits.md commit 54a616c. Notion: 3806d271-f21c-816c-a7a9-ed75b6cbc3b2. OPEN: Branden must create github.com/tunedr/agent-zero-desk-data and run git push tunedr main.)
 # Architecture: Three-Agent Architecture (Hermes Desk → Agent Zero → Claude Code). Atlas/V2 superseded.
 
 ---
@@ -57,7 +57,7 @@
 | n8n Atlas | VM104 | 5679 | HEALTHY — NOT YET FROZEN | 2026-06-11 |
 | Ollama (Unraid, CPU) | Unraid | 11434 | [UNVERIFIED] | never |
 | hermes-desk | MGMT-XPS | 8642 | RUNNING — API server ACTIVE on 0.0.0.0:8642, Web dashboard ACTIVE on 0.0.0.0:9124 (HERMES_DASHBOARD=true, insecure LAN mode), Notion MCP: 22 tools ADDED 2026-06-13 S14, SOUL.md dedup fixed S14. Credit Gate Phase 1 LIVE: --gate flag + Telegram alerts + skill codex-credit-gate. openai-codex BLOCKED until 05:22 UTC 2026-06-14; anthropic+nous AVAILABLE. Telegram send confirmed. | 2026-06-14 |
-| agent-zero-desk | MGMT-XPS | 50080 | RUNNING (compose-managed, /home/tunedr/agent-zero-desk/docker-compose.yml) — chat_model: codex_oauth/gpt-5.4-mini, utility_model: qwen2.5-coder:7b VM101 GPU. SOUL specifics commit c0dedf0b (S20): all 5 doctrine items committed — MANDATORY EXECUTION RULE, Rule 4 EXECUTE IMMEDIATELY, EXTRAS hallucination warning, Return: ban, repeat_count>=3 hard-stop. md5 both copies: fa7a0103a91f40b74e1d602e6bbf8e4c. RESTART PENDING — docker restart required to load new doctrine. Task Mode Detection (S11), Rule 2=RED (S11), Notion MCP 22 tools (S12), Cline routing ACTIVE (S15). | 2026-06-15 |
+| agent-zero-desk | MGMT-XPS | 50080 | RUNNING — restarted 2026-06-15 S20b. All S20 doctrine LIVE: md5 fa7a0103a91f40b74e1d602e6bbf8e4c verified inside container post-restart. chat_model: codex_oauth/gpt-5.4-mini, utility_model: qwen2.5-coder:7b. Doctrine: MANDATORY EXECUTION RULE, Rule 4 EXECUTE IMMEDIATELY, EXTRAS hallucination, Return: ban, repeat_count>=3 hard-stop (commit c0dedf0b). | 2026-06-15 |
 | cline-ollama-proxy | VM101 (pop-ollama) | 11435 | ACTIVE — systemd user service, converts qwen JSON-text tool calls → tool_calls API format, filters 25→4 core tools. Cline smoke tests PASSED: editor + run_commands both confirmed 2026-06-14 S15. Proxy: /home/tunedr/cline-ollama-proxy.py | 2026-06-14 |
 | openclaw-desk | MGMT-XPS | 18789 | STOPPED — retired 2026-06-13 session 9. Container preserved (not rm'd). Rollback: docker start openclaw-desk. Data at /home/tunedr/openclaw-desk-data intact. | 2026-06-13 |
 | Home Assistant | VM100 | 8123 | UP (web reachable) | 2026-05-26 |
