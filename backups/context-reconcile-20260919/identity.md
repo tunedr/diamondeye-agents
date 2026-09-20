@@ -16,9 +16,7 @@
 
 ## Agents Running Here
 - Claude Code (interactive, Claude Pro/Max auth)
-- Odin — Hermes v0.21.0 bare-metal PA; model: anthropic/claude-sonnet-4-6; hermes-gateway.service (Telegram), hermes-serve :9119, hermes-dashboard :9120; Level 2 CONTINUITY READY (2026-09-19, forensic 3dc6d271)
-- hermes-desk Docker — model: gpt-5.5/openai-codex (autonomous portfolio manager; NOT the PA front-door)
-- Codex CLI — NOTE: ChatGPT Plus subscription lapsed 2026-09-05; repair needs Branden renewal + gpt-4o swap. hermes-desk uses Codex OAuth (gpt-5.5) independently via Docker env. Codex CLI interactive escalation path status: unverified as of 2026-09-05.
+- Codex CLI (interactive, ChatGPT Plus auth)
 - Agent Zero (legacy container on port 50080 — abandoned for active workflows)
 
 ## Context Root

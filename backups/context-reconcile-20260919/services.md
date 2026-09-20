@@ -77,7 +77,7 @@ Docker containers RUNNING:
 
 ## MGMT-XPS (this machine — 100.76.233.89 / LAN 192.168.1.221)
 Docker containers RUNNING (verified 2026-08-06):
-- hermes-desk — :8642 (API), :9125→9124 (dashboard) — Branden's primary PA. Docker uid 10000. HERMES_HOME=/opt/data. Model: gpt-5.5/openai-codex (updated 2026-09-11 power outage recovery; was gpt-5.4 pre-2026-09-05). Fallbacks: gemini, groq, cerebras, openrouter. Cline NOT in Desk's execution path (excluded 2026-07-20).
+- hermes-desk — :8642 (API), :9125→9124 (dashboard) — Branden's primary PA. Docker uid 10000. HERMES_HOME=/opt/data. Model: gpt-5.4/openai-codex. Cline NOT in Desk's execution path (excluded 2026-07-20). Up 18h as of 2026-08-06 (started 2026-08-06T03:09:06Z).
 - anythingllm-desk — 127.0.0.1:3002→3001 — local RAG for guru-routing. Wired to Groq llama-3.3-70b-versatile. Fleet workspace verified end-to-end. Up 12 days (healthy).
 - honcho — host network :8000 — memory/peer coordination for hermes-desk. Up 26h (started 2026-08-05 after Honcho fix — prior dummy key caused 9-min delay).
 - honcho-postgres — :5433→5432 — Honcho database. Up 2 weeks.
@@ -90,7 +90,7 @@ Systemd services:
 - a0-escalation-watcher.service (system) — ACTIVE/RUNNING since 2026-07-21.
 - openclaw-gateway.service (user) — RETIRED 2026-09-07. Service unit deleted, npm package uninstalled (331 packages removed), /home/tunedr/.openclaw/ removed (815MB freed). Port 18789 no longer in use. Rollback archive: /home/tunedr/archives/openclaw-retired-20260907-032255/ (SHA256: 4fbec81dd7b62fdb708847b53801ffc275945598fd6ba5727b63fd54aff885d6). Forensic: 3d46d271-f21c-81ad-b2ff-c93473a7959b.
 - hermes-dashboard.service (system) — STOPPED + DISABLED 2026-09-07. Was crash-looping; ExecStart pointed at non-existent path. Disabled prior to xps_pa archival.
-- Odin (hermes-gateway, bare-metal, user tunedr) — LIVE; Level 2 Commissioned 2026-09-19. Hermes Agent v0.21.0 (2026.8.31) at HERMES_HOME=~/.hermes/. Model: anthropic/claude-sonnet-4-6 (Claude Pro OAuth, no API key). Fallback: openai-codex. Services: hermes-gateway.service (Telegram @diamondeye_gateway_bot, PID 3682949, running since 2026-09-18), hermes-serve.service (:9119), hermes-dashboard.service (:9120, public_url mgmt-xps.turtle-sunfish.ts.net:9120). cua-driver 0.23.2 (AT-SPI/X11 PASS). Notion MCP OAuth proven read+write 2026-09-12. ntn v0.18.1 installed. post_turn_capture hook active since 2026-09-12. Level 2 forensic: 3dc6d271-f21c-8145-8ac9-f90869350891. Initial pilot forensic: 3d46d271-f21c-81ad-b2ff-c93473a7959b.
+- hermes-gateway-pilot (bare-metal, user tunedr) — LIVE 2026-09-07. Hermes Agent v0.21.0 (2026.8.31, 693641aa) at stock HERMES_HOME=~/.hermes/. Model: llama3.2:latest @ pop-ollama (192.168.1.136:11434/v1). Desktop: Electron 40.10.2 PID 1053799 on DISPLAY=:1. cua-driver 0.23.2 installed (AT-SPI/X11 PASS). Notion skill + ntn v0.18.1 configured. Notion MCP installed (OAuth login pending). Forensic: 3d46d271-f21c-81ad-b2ff-c93473a7959b.
 xps_pa (ARCHIVED 2026-09-07):
 - Profile data moved from /home/tunedr/hermes/profiles/xps_pa/ to /home/tunedr/Downloads/hermes-xps-pa-archive-20260907-032040/hermes-xps-pa-home/. SHA256 manifest on file.
 - HERMES_HOME was /home/tunedr/hermes (NOT /home/tunedr/.hermes). Both paths now cleared.

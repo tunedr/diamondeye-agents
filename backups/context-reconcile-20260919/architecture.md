@@ -28,7 +28,7 @@
 | Host      | LAN IP        | Tailscale       | Role |
 |-----------|---------------|-----------------|------|
 | Unraid    | 192.168.1.2   | 100.120.180.114 | Ollama :11434, openwebui :3010, gateway stack (openclaw-gateway :7075, uptime-kuma :3002, n8n-gateway :5680), ARR suite, Plex, HELFINANCE :3210 |
-| MGMT-XPS  | 192.168.1.221 | 100.76.233.89   | hermes-desk :8642 (Docker, gpt-5.5/openai-codex), anythingllm-desk :3002, honcho :8000, Claude Code, Odin (Hermes v0.21.0 bare-metal, gateway:@diamondeye_gateway_bot, anthropic/claude-sonnet-4-6), legacy agent-zero-desk :50080 |
+| MGMT-XPS  | 192.168.1.221 | 100.76.233.89   | hermes-desk :8642 (Docker, gpt-5.4), anythingllm-desk :3002, honcho :8000, Claude Code, Codex, legacy agent-zero-desk :50080 |
 | Laptop    | Tailscale TBD | TBD             | WSL — Claude Code, Codex (inactive/unverified) |
 
 ## Fleet Inventory
@@ -62,11 +62,7 @@
   coder:           qwen2.5-coder:7b  @ http://192.168.1.136:11434/v1  (port 8645, context_length: 65536, ollama_num_ctx: 65536)
 
 ## Model Change Log
-  2026-09-11: Power outage recovery (forensic 3d86d271-f21c-81e5-86d9-de9354d28c3f).
-  MGMT-XPS Odin (bare-metal gateway): anthropic/claude-sonnet-4-6 — no fallback. Current state confirmed.
-  MGMT-XPS hermes-desk (Docker): gpt-5.5 via openai-codex. Current state confirmed.
-
-  2026-09-08: MGMT-XPS Hermes pilot (now Odin) model updated from llama3.2:latest (custom/Ollama) to openrouter/google/gemini-2.5-flash.
+  2026-09-08: MGMT-XPS Hermes pilot model updated from llama3.2:latest (custom/Ollama) to openrouter/google/gemini-2.5-flash.
   Primary: google/gemini-2.5-flash via OpenRouter (OPENROUTER_API_KEY from hermes-desk, reuse noted).
   Fallback: gemini-2.5-flash via direct Gemini API (GEMINI_API_KEY from hermes-desk, free-tier, 5 req/min limit).
   All 3 acceptance tests (chat, tool-use, reasoning) PASS for both primary and fallback.
@@ -137,18 +133,12 @@
   Executor: Codex CLI
   Embed:    nomic-embed-text @ http://192.168.1.2:11434
 
-## MGMT-XPS Odin (Hermes PA) — LIVE; Level 2 Commissioned 2026-09-19
-  Hermes Agent v0.21.0 (2026.8.31). HERMES_HOME=~/.hermes/.
-  Model: anthropic/claude-sonnet-4-6 (Claude Pro OAuth; no API key metered). Fallback: openai-codex.
-  Services: hermes-gateway.service (Telegram @diamondeye_gateway_bot, PID 3682949, started 2026-09-18),
-            hermes-serve.service (port 9119, local desktop backend),
-            hermes-dashboard.service (port 9120, browser UI; public_url mgmt-xps.turtle-sunfish.ts.net:9120).
-  Notion MCP: OAuth proven read+write (2026-09-12, forensic 3d96d271-f21c-817e). ntn v0.18.1 installed.
-  cua-driver 0.23.2: AT-SPI/X11 PASS. post_turn_capture hook active since 2026-09-12.
-  Level 2 (Odin): CONTINUITY READY — all 8 criteria PASS (forensic 3dc6d271-f21c-8145-8ac9-f90869350891).
-  Remote Desktop (hermes-dashboard): MGMT-XPS 8/8 PASS (forensic 3e06d271-f21c-8136-b746-ea9d8ff0ed10).
-  Odin rollback snapshot: /home/tunedr/.hermes/odin-rollback-20260919/ (pre-update 693641aa, tag hermes-odin-baseline-pre-update-20260919).
-  Initial pilot forensic: 3d46d271-f21c-81ad-b2ff-c93473a7959b.
+## MGMT-XPS Hermes Gateway/PA Pilot — LIVE 2026-09-07
+  Hermes Agent v0.21.0 (2026.8.31, 693641aa). HERMES_HOME=~/.hermes/ (stock default).
+  Model: llama3.2:latest @ pop-ollama (192.168.1.136:11434/v1, provider=custom).
+  Desktop: Electron 40.10.2, DISPLAY=:1, COSMIC/Wayland+X11. cua-driver 0.23.2.
+  Notion skill (ntn v0.18.1) + Notion MCP (OAuth pending). 60 bundled skills.
+  Forensic: 3d46d271-f21c-81ad-b2ff-c93473a7959b.
 
 ## Historical Agent Zero Inventory — Abandoned for Active Workflows
 | Instance             | IP            | Port  | Role |

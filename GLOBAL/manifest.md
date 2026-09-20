@@ -3,18 +3,23 @@
 
 This manifest records the local GLOBAL/ documentation files present after the 2026-05-25 rules rewrite. No existing manifest was found under `/mnt/c/Users/brand/AGENTS` before this file was created.
 
-| Path | Bytes | SHA-256 |
-|---|---:|---|
-| `rules.md` | 10250 | `1c0691c4dde9d8234da747e495a641fa9c9aeeadb5e748a31f85e1d5d25ab6a1` |
-| `rules.md.bak-20260525` | 3313 | `e8a120b7b69b2110479aa1900646ce4dfbdd4c7b4d5dc3e149719cc3f6d0ca0d` |
-| `architecture.md` | 4497 | `2f70c01a0f82d44b9f03d54c5d7d624494dd3249619b857cfd67d5bf20b6b770` |
-| `services.md` | 2301 | `ff139e953844f8f7f8e0e11f0887bd2b2ec575ec0b17e34ac6f72afd32c42081` |
-| `librarian/SOUL.md` | 8427 | `0c53614ed7793b4d5dde2504135c40bbe1b3414708ac7dc8b514c6d2c21c9b17` |
-| `icm-inventory-spec.md` | 2524 | `ff59168ca44d7c1b51f633fe153ef4f057501189005b5561d727ff4b4c4b76f9` |
-| `notion-schema.md` | 1212 | `6e0ffc6381e9d337929a8766a8de7db75f32bb1ee5dc7af098cae6b7ac333eb9` |
+| Path | Last Updated | SHA-256 |
+|---|---|---|
+| `rules.md` | 2026-09-19 reconcile | `63a80867980412d0710e2c0a60ce41b2ef696682f91e046b56d2c9ada12d0fa3` |
+| `architecture.md` | 2026-09-19 reconcile | `81eacb06bb4ddddb0910aaab5049c8bdf6e4aaeb1c26742c6c4fc604011c6f5f` |
+| `services.md` | 2026-09-19 reconcile | `54ca464f7c9b071b9a600b3d8b497cc1479e3f48f4b8db741d5578b45fac94fc` |
+| `notion-schema.md` | unchanged | `6e0ffc6381e9d337929a8766a8de7db75f32bb1ee5dc7af098cae6b7ac333eb9` |
+| `LOCAL/identity.md` | 2026-09-19 reconcile | `c5bd7233400679994a6229e39fe305619c4fd5da01b2856c7cf5d8522da0d09d` |
 
-## Change Note
+## Change Notes
 
+### 2026-09-19 — Context reconcile (Claude Code session, goal: eliminate stale operating context)
+- architecture.md: hermes-desk model corrected gpt-5.4 → gpt-5.5; Odin section added (anthropic/claude-sonnet-4-6, Level 2 commissioned); Model Change Log entries added for 2026-09-11 power outage recovery.
+- services.md: hermes-desk model corrected; hermes-gateway-pilot renamed to Odin with current state (claude-sonnet-4-6, proven Notion MCP, Level 2).
+- LOCAL/identity.md: Odin added to agent inventory; Codex CLI status note added (Plus lapsed 2026-09-05).
+- Backups at: /home/tunedr/AGENTS/backups/context-reconcile-20260919/
+
+### 2026-05-25 — Initial rules rewrite
 - Rewrote `rules.md` into separated active, revised, pending review, and deprecated/stale sections.
 - Added active VM/project isolation boundary rules from the DiamondEye VM Isolation Contract.
 - Preserved all prior standing rules by status and reason.
