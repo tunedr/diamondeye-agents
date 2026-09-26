@@ -1,0 +1,48 @@
+# MGMT-XPS hermes-desk — /home/tunedr/hermes-desk/docker-compose.yml
+# Sanitized for Git: all secrets replaced with <REDACTED:SECRET_NAME>
+# Source: /home/tunedr/hermes-desk/docker-compose.yml on MGMT-XPS
+# Captured: 2026-09-26 by Claude Code — Git/resource coverage session
+# NOTE: hermes-desk is Branden's autonomous executor/portfolio manager (not the PA front-door).
+#       Live secrets are stored inline in the docker-compose.yml — this is a documentation gap.
+#       Secrets should be migrated to /home/tunedr/hermes-desk/.env or a vault.
+
+services:
+  hermes-desk:
+    image: nousresearch/hermes-agent:latest
+    container_name: hermes-desk
+    restart: unless-stopped
+    command: gateway run
+    ports:
+      - "0.0.0.0:8642:8642"
+      - "0.0.0.0:9125:9124"
+    volumes:
+      - /home/tunedr/hermes-desk-data:/opt/data
+      - /proc:/host/proc:ro
+      - /sys:/host/sys:ro
+      - /var/log:/host/var/log:ro
+      - /run/docker.sock:/var/run/docker.sock
+      - /home/tunedr/desk-escalations:/opt/data/escalations
+      - /home/tunedr/.npm-global:/home/tunedr/.npm-global:ro
+    environment:
+      - HERMES_PROFILE=desk
+      - PATH=/opt/data/bin:/home/tunedr/.npm-global/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+      - API_SERVER_ENABLED=true
+      - API_SERVER_HOST=0.0.0.0
+      - API_SERVER_PORT=8642
+      - API_SERVER_KEY=<REDACTED:API_SERVER_KEY>
+      - CLINE_API_URL=http://192.168.1.136:8766
+      - CLINE_API_KEY=desk-cline-2026
+      - HERMES_DASHBOARD=true
+      - HERMES_DASHBOARD_HOST=0.0.0.0
+      - HERMES_DASHBOARD_PORT=9124
+      - HERMES_DASHBOARD_INSECURE=true
+      - GEMINI_API_KEY=<REDACTED:GEMINI_API_KEY>
+      - GOOGLE_API_KEY=<REDACTED:GEMINI_API_KEY>
+      - GROQ_API_KEY=<REDACTED:GROQ_API_KEY>
+      - CEREBRAS_API_KEY=<REDACTED:CEREBRAS_API_KEY>
+      - OPENROUTER_API_KEY=<REDACTED:OPENROUTER_API_KEY>
+      - OLLAMA_CLOUD_API_KEY=<REDACTED:OLLAMA_CLOUD_API_KEY>
+      - HONCHO_BASE_URL=http://host.docker.internal:8000
+    user: "10000:10000"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"

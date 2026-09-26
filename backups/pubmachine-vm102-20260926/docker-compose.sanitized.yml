@@ -1,0 +1,86 @@
+# VM102 de-pubmachine-01 — /srv/pubmachine/docker-compose.yml
+# Sanitized for Git: all secrets replaced with <REDACTED:SECRET_NAME>
+# Source: tunedr@192.168.1.48:/srv/pubmachine/docker-compose.yml
+# Captured: 2026-09-26 by Claude Code — Git/resource coverage session
+# NOTE: Actual secrets are stored in the docker-compose.yml on VM102 inline (not in env files).
+#       This is a documentation gap — secrets should be migrated to an env file or vault.
+
+services:
+  postgres:
+    image: postgres:16
+    container_name: pub-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: shlink
+      POSTGRES_PASSWORD: "<REDACTED:SHLINK_DB_PASSWORD>"
+      POSTGRES_DB: shlink
+    volumes:
+      - ./data/postgres:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U shlink"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  shlink:
+    image: shlinkio/shlink:stable
+    container_name: shlink
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      DEFAULT_DOMAIN: go.diamondeye.net
+      IS_HTTPS_ENABLED: "true"
+      DB_DRIVER: postgres
+      DB_NAME: shlink
+      DB_USER: shlink
+      DB_PASSWORD: "<REDACTED:SHLINK_DB_PASSWORD>"
+      DB_HOST: postgres
+      DB_PORT: "5432"
+    ports:
+      - "8080:8080"
+
+  n8n-postgres:
+    image: postgres:16
+    container_name: pub-n8n-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: n8n
+      POSTGRES_PASSWORD: "<REDACTED:N8N_DB_PASSWORD>"
+      POSTGRES_DB: n8n
+    volumes:
+      - ./data/n8n-postgres:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U n8n"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  n8n:
+    image: n8nio/n8n:latest
+    container_name: n8n
+    restart: unless-stopped
+    depends_on:
+      n8n-postgres:
+        condition: service_healthy
+    ports:
+      - "5678:5678"
+    environment:
+      DB_TYPE: postgresdb
+      DB_POSTGRESDB_HOST: n8n-postgres
+      DB_POSTGRESDB_PORT: "5432"
+      DB_POSTGRESDB_DATABASE: n8n
+      DB_POSTGRESDB_USER: n8n
+      DB_POSTGRESDB_PASSWORD: "<REDACTED:N8N_DB_PASSWORD>"
+      N8N_HOST: n8n.diamondeye.net
+      N8N_PORT: "5678"
+      N8N_PROTOCOL: https
+      WEBHOOK_URL: https://n8n.diamondeye.net/
+      N8N_EDITOR_BASE_URL: https://n8n.diamondeye.net/
+      N8N_ENCRYPTION_KEY: "<REDACTED:N8N_ENCRYPTION_KEY>"
+      N8N_DIAGNOSTICS_ENABLED: "false"
+      GENERIC_TIMEZONE: America/Denver
+      TZ: America/Denver
+    volumes:
+      - ./data/n8n:/home/node/.n8n

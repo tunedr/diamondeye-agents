@@ -1,0 +1,9 @@
+services:
+  resume-tool:
+    build: .
+    container_name: resume-tool
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+    restart: unless-stopped

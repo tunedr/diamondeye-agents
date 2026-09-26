@@ -1,0 +1,4 @@
+dashboard:
+  basic_auth:
+    username: Serberus
+    password_hash: scrypt$16384$8$1$436rFLS7bxbubrxCGvAwQg==$A7B2zp6UqU2toNKXqi8ePuCoyQrdSjhWbQ7pW6GEfEs=

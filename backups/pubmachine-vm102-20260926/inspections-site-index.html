@@ -1,0 +1,550 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="DiamondEye Inspections provides professional home inspections across western Colorado.">
+  <title>DiamondEye Inspections</title>
+  <style>
+    :root {
+      --bg: #0d1b2a;
+      --bg-2: #10263a;
+      --panel: rgba(15, 31, 50, 0.86);
+      --panel-strong: rgba(10, 22, 36, 0.95);
+      --text: #f4f1ea;
+      --muted: #c7d2de;
+      --accent: #d4a017;
+      --accent-soft: #f1c75b;
+      --line: rgba(212, 160, 23, 0.25);
+      --shadow: 0 22px 70px rgba(0, 0, 0, 0.35);
+      --radius: 20px;
+      --max: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(212, 160, 23, 0.14), transparent 24%),
+        radial-gradient(circle at top right, rgba(212, 160, 23, 0.08), transparent 20%),
+        linear-gradient(180deg, #08111c 0%, var(--bg) 34%, #091522 100%);
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.55), transparent 86%);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .shell {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    header {
+      padding: 26px 0 18px;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .wordmark {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--accent-soft);
+      font-size: 0.88rem;
+    }
+
+    .wordmark::before {
+      content: "";
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 35%, #fff3c2, var(--accent));
+      box-shadow: 0 0 0 6px rgba(212, 160, 23, 0.12);
+    }
+
+    .hero {
+      padding: 20px 0 28px;
+    }
+
+    .hero-grid {
+      display: grid;
+      gap: 18px;
+      grid-template-columns: 1fr;
+      align-items: stretch;
+    }
+
+    .hero-card,
+    .info-card,
+    .pricing-card,
+    .trust-card,
+    .footer-card {
+      background: linear-gradient(180deg, rgba(17, 35, 54, 0.9), rgba(10, 20, 33, 0.95));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+    }
+
+    .hero-card {
+      padding: 34px 22px;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin: 0;
+    }
+
+    h1 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.5rem, 7vw, 5rem);
+      line-height: 0.96;
+      letter-spacing: -0.04em;
+      max-width: 10ch;
+    }
+
+    .tagline {
+      margin-top: 16px;
+      max-width: 36rem;
+      font-size: clamp(1rem, 2.7vw, 1.15rem);
+      line-height: 1.7;
+      color: var(--muted);
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
+      padding: 0 20px;
+      border-radius: 999px;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+    }
+
+    .button.primary {
+      background: linear-gradient(180deg, #f0c65d, var(--accent));
+      color: #1a1406;
+      box-shadow: 0 10px 30px rgba(212, 160, 23, 0.32);
+    }
+
+    .button.primary:hover,
+    .button.primary:focus-visible {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 34px rgba(212, 160, 23, 0.42);
+    }
+
+    .supporting-copy {
+      margin-top: 18px;
+      color: var(--muted);
+      max-width: 40rem;
+      line-height: 1.7;
+      font-size: 0.98rem;
+    }
+
+    main {
+      padding: 6px 0 30px;
+    }
+
+    .section {
+      margin-top: 18px;
+    }
+
+    .section-head {
+      margin-bottom: 12px;
+    }
+
+    .kicker {
+      color: var(--accent-soft);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 0.76rem;
+      font-weight: 800;
+    }
+
+    .section h2 {
+      margin-top: 10px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.6rem, 3.8vw, 2.2rem);
+      letter-spacing: -0.03em;
+    }
+
+    .info-card,
+    .pricing-card,
+    .trust-card,
+    .footer-card {
+      padding: 22px;
+    }
+
+    .info-grid,
+    .service-grid,
+    .pricing-grid,
+    .trust-grid {
+      display: grid;
+      gap: 14px;
+    }
+
+    .pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 38px;
+      padding: 0 14px;
+      border-radius: 999px;
+      background: rgba(212, 160, 23, 0.12);
+      border: 1px solid rgba(212, 160, 23, 0.22);
+      color: var(--text);
+      font-size: 0.94rem;
+      line-height: 1;
+    }
+
+    .list {
+      display: grid;
+      gap: 10px;
+      margin-top: 10px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .list li {
+      padding-left: 18px;
+      position: relative;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.72em;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .service-card,
+    .price-item,
+    .trust-item {
+      padding: 18px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 16px;
+    }
+
+    .service-card h3,
+    .price-item h3,
+    .trust-item h3 {
+      font-size: 1.08rem;
+      margin-bottom: 8px;
+    }
+
+    .service-card p,
+    .price-item p,
+    .trust-item p,
+    .footer-card p {
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .pricing-highlight {
+      font-size: clamp(1.3rem, 3.4vw, 1.9rem);
+      color: var(--accent-soft);
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .footer-card {
+      margin: 22px 0 34px;
+    }
+
+    .contact-row {
+      display: grid;
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    .contact-box {
+      padding: 16px 18px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .contact-label {
+      display: block;
+      color: var(--accent-soft);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 0.72rem;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .copyright {
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .fineprint {
+      font-size: 0.94rem;
+      line-height: 1.7;
+      color: var(--muted);
+      margin-top: 8px;
+    }
+
+    @media (min-width: 760px) {
+      header {
+        padding-top: 34px;
+      }
+
+      .hero-card {
+        padding: 42px;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1.15fr 0.85fr;
+      }
+
+      .info-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .service-grid,
+      .pricing-grid,
+      .trust-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .contact-row {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="shell">
+    <div class="brand">
+      <div class="wordmark">DiamondEye Inspections</div>
+    </div>
+  </header>
+
+  <section class="hero shell" aria-label="Hero">
+    <div class="hero-grid">
+      <div class="hero-card">
+        <h1>DiamondEye Inspections</h1>
+        <p class="tagline">Professional Home Inspections — Western Colorado</p>
+        <div class="cta-row">
+          <a class="button primary" href="mailto:inspections@diamondeye.net">Request an Inspection</a>
+        </div>
+        <p class="supporting-copy">Residential inspection services delivered with a clear report, a practical eye for detail, and a straightforward process from first contact to completion.</p>
+      </div>
+
+      <div class="info-card">
+        <div class="kicker">At a Glance</div>
+        <ul class="list">
+          <li>Branden Womack, Inspector</li>
+          <li>Trained and examined to InterNACHI&reg; standards</li>
+          <li>Colorado: no state license required — inspectors operate under contract law</li>
+          <li>Service area: Grand Junction CO, Fruita CO, Palisade CO, Montrose CO, Delta CO, and surrounding western Colorado areas</li>
+        </ul>
+        <div class="pill-list" aria-label="Service areas">
+          <span class="pill">Grand Junction</span>
+          <span class="pill">Fruita</span>
+          <span class="pill">Palisade</span>
+          <span class="pill">Montrose</span>
+          <span class="pill">Delta</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main class="shell">
+    <section class="section">
+      <div class="section-head">
+        <div class="kicker">About</div>
+        <h2>Inspection work built around clarity, honesty, and practical reporting.</h2>
+      </div>
+      <div class="info-card">
+        <div class="info-grid">
+          <div>
+            <h3>Inspector</h3>
+            <p class="fineprint">Branden Womack leads each inspection with a careful, measured approach that focuses on what matters to buyers, sellers, and homeowners.</p>
+          </div>
+          <div>
+            <h3>Training</h3>
+            <p class="fineprint">Trained and examined to InterNACHI&reg; standards, with a process designed to be professional, honest, and thorough.</p>
+          </div>
+          <div>
+            <h3>Colorado context</h3>
+            <p class="fineprint">Colorado: no state license required — inspectors operate under contract law.</p>
+          </div>
+          <div>
+            <h3>Service area</h3>
+            <p class="fineprint">Grand Junction CO, Fruita CO, Palisade CO, Montrose CO, Delta CO, and surrounding western Colorado areas.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div class="kicker">Services</div>
+        <h2>Residential inspections for the moments when a thorough, independent review matters most.</h2>
+      </div>
+      <div class="service-grid">
+        <article class="service-card">
+          <h3>Residential Home Inspections</h3>
+          <p>Clear, top-to-bottom review of the home’s visible condition with practical findings you can act on.</p>
+        </article>
+        <article class="service-card">
+          <h3>Buyer’s Inspections</h3>
+          <p>Focused on helping buyers understand the property before they commit to the purchase.</p>
+        </article>
+        <article class="service-card">
+          <h3>Pre-Listing Inspections</h3>
+          <p>Useful for sellers who want to identify issues early and reduce surprises during a transaction.</p>
+        </article>
+      </div>
+      <div class="info-card" style="margin-top: 14px;">
+        <h3>Covered Systems and Areas</h3>
+        <p class="fineprint">Inspections include structure, roof, electrical, plumbing, HVAC, and foundation, along with the other visible components evaluated during a standard residential home inspection.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div class="kicker">Pricing</div>
+        <h2>Simple pricing with mileage and age adjustments based on the property.</h2>
+      </div>
+      <div class="pricing-grid">
+        <article class="price-item">
+          <div class="pricing-highlight">$450</div>
+          <h3>Base Price</h3>
+          <p>Standard starting price for the inspection.</p>
+        </article>
+        <article class="price-item">
+          <div class="pricing-highlight">$0.04</div>
+          <h3>Per Square Foot</h3>
+          <p>Added for each square foot of the property.</p>
+        </article>
+        <article class="price-item">
+          <div class="pricing-highlight">$2.00</div>
+          <h3>Per Mile from Grand Junction</h3>
+          <p>Travel adjustment based on distance from Grand Junction.</p>
+        </article>
+      </div>
+      <div class="info-card" style="margin-top: 14px;">
+        <div class="info-grid">
+          <div>
+            <h3>Age Adjustment</h3>
+            <p class="fineprint">Plus $1.80 per year of age.</p>
+          </div>
+          <div>
+            <h3>Payment</h3>
+            <p class="fineprint">PayPal (DiamondEye LLC) or Venmo (@diamondeyeinspections, verified business).</p>
+          </div>
+          <div>
+            <h3>Due Date</h3>
+            <p class="fineprint">Payment due upon completion.</p>
+          </div>
+          <div>
+            <h3>Estimate Notes</h3>
+            <p class="fineprint">Final cost depends on size, distance, and age-related adjustment for the specific property.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div class="kicker">Credentials / Trust</div>
+        <h2>Professional credentials and a straightforward service promise.</h2>
+      </div>
+      <div class="trust-grid">
+        <article class="trust-item">
+          <h3>InterNACHI Training</h3>
+          <p>InterNACHI trained and examined (Exam Code ENTR-0002-0523-67, issued 5/28/2023).</p>
+        </article>
+        <article class="trust-item">
+          <h3>Coverage</h3>
+          <p>Business coverage available upon request.</p>
+        </article>
+        <article class="trust-item">
+          <h3>Service Standard</h3>
+          <p>Professional, honest, thorough.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="shell">
+    <div class="footer-card">
+      <div class="kicker">Contact / Footer</div>
+      <div class="contact-row">
+        <div class="contact-box">
+          <span class="contact-label">Venmo</span>
+          <p>@diamondeyeinspections</p>
+        </div>
+        <div class="contact-box">
+          <span class="contact-label">PayPal</span>
+          <p>DiamondEye LLC</p>
+        </div>
+      </div>
+      <p class="copyright">© 2026 DiamondEye Inspections</p>
+    </div>
+  </footer>
+</body>
+</html>

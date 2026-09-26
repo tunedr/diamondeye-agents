@@ -1,0 +1,26 @@
+# VM102 de-pubmachine-01 — /srv/pubmachine/agents/publishing/docker-compose.yml
+# Sanitized for Git: all secrets replaced with <REDACTED:SECRET_NAME>
+# Source: tunedr@192.168.1.48:/srv/pubmachine/agents/publishing/docker-compose.yml
+# Captured: 2026-09-26 by Claude Code — Git/resource coverage session
+# NOTE: Agent Zero Publishing is LEGACY — abandoned for active workflows per 2026-07-20 doctrine.
+
+version: '3.8'
+services:
+  agent-zero-publishing:
+    image: frdel/agent-zero-run:latest
+    container_name: agent-zero-publishing
+    ports:
+      - "7071:80"
+    volumes:
+      - ./a0data:/a0/usr
+      - ./soul:/a0/usr/soul
+    environment:
+      - A0_AUTH_LOGIN=admin
+      - A0_AUTH_PASSWORD=<REDACTED:A0_AUTH_PASSWORD>
+      - CHAT_MODEL=deepseek-r1:latest
+      - CHAT_MODEL_BASE_URL=http://192.168.1.136:11434
+      - UTILITY_MODEL=qwen2.5:7b
+      - UTILITY_MODEL_BASE_URL=http://192.168.1.2:11434
+      - EMBED_MODEL=nomic-embed-text:latest
+      - EMBED_MODEL_BASE_URL=http://192.168.1.2:11434
+    restart: unless-stopped
