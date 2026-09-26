@@ -1,0 +1,71 @@
+Hermes Desk Diagnostic — 2026-06-16
+=====================================
+
+CONTAINER: hermes-desk
+IMAGE: nousresearch/hermes-agent:latest
+PORTS: 0.0.0.0:8642->8642/tcp, 0.0.0.0:9124->9124/tcp
+STATUS: Up 30 hours (created 47 hours ago — one restart occurred)
+
+MODEL CONFIG (verified from /opt/data/config.yaml):
+  provider: ollama
+  base_url: http://192.168.1.2:11434/v1
+  default: ollama/llama3.2:latest
+  approval model: llama3.2:latest @ http://192.168.1.2:11434/v1
+  NOTE: services.md documents "GPT-4o / openai-codex" but actual config is ollama/llama3.2.
+        The config.yaml is authoritative — services.md is stale.
+
+=== ERROR PATTERNS ===
+
+[CRITICAL — RECURRING] Port 8642 Already In Use
+  ERROR gateway.platforms.api_server: [Api_Server] Port 8642 already in use.
+  Set a different port in config.yaml: platforms.api_server.port
+  Frequency: Approximately every 12 minutes throughout the 30-hour uptime window.
+  Root cause: The hermes gateway process is crashing and restarting inside the container.
+  Each restart finds port 8642 still bound by the previous (crashed) process instance.
+  This means the api_server platform is NOT serving — every restart attempt fails.
+
+[CRITICAL — PERSISTENT] Telegram Polling Conflict
+  WARNING gateway.platforms.telegram: [Telegram] Telegram polling conflict (1/5)
+  — previous session still held open on Telegram's servers.
+  Errors seen:
+    - "Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"
+    - "telegram.error.TimedOut: Timed out" (during webhook deletion on startup)
+  Root cause: Prior hermes-desk session (before the ~47h-ago container start or restart)
+  is still holding a long-poll getUpdates connection on Telegram's servers.
+  A clean restart alone may not fix this — Telegram's old session must expire (~20-40s).
+  The container was restarted within 47 hours, but the conflict persists, suggesting
+  the Telegram token is shared with another instance or was not cleanly disconnected.
+
+[WARNING — STARTUP] MCP Notion Server Missing
+  WARNING tools.mcp_tool: MCP server 'notion' initial connection failed (attempt 1/3):
+    [Errno 2] No such file or directory: 'notion-mcp-server'
+  WARNING tools.mcp_tool: Failed to connect to MCP server 'notion' (command=notion-mcp-server):
+    missing executable 'notion-mcp-server'
+  Root cause: The notion-mcp-server binary is not installed inside the hermes-desk container.
+  Impact: All Notion MCP toolset calls from hermes-desk will fail silently.
+
+=== WHAT IS NOT THE PROBLEM ===
+- The model itself (llama3.2:latest) is correct per fleet standard (updated 2026-06-05).
+- No tool errors, iteration limit warnings, or model call failures found in logs.
+- The errors are all platform/startup failures, not model inference failures.
+
+=== RECOMMENDED FIX ===
+1. docker restart hermes-desk
+   (pre-authorized per LOCAL/limits.md)
+   Wait 60 seconds after restart for Telegram session to expire before expecting clean operation.
+
+2. If Telegram conflict persists after restart, the Telegram bot token may need to be
+   temporarily deactivated via BotFather to force-drop the hanging session.
+
+3. Install notion-mcp-server inside the container or add it to the image build.
+
+MODEL ROLLBACK TO gpt-5.5: NOT RECOMMENDED
+  - No evidence of model-related failures in logs.
+  - "gpt-5.5" does not appear in any architecture or config document.
+  - Current config (llama3.2) is the correct fleet standard.
+  - All observed errors are platform/networking issues, not model issues.
+
+=== EVIDENCE POINTERS ===
+- Full log output saved by Claude Code session (bwxkxe2ay.txt)
+- Config verified: docker exec hermes-desk cat /opt/data/config.yaml
+- Container status: docker ps (captured 2026-06-16 session)

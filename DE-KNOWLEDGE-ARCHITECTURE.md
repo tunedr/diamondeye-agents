@@ -2,7 +2,11 @@
 # DiamondEye Knowledge Layer — Canonical Build Runbook
 # Source: May 15 2026 Session Record + May 13 2026 V2 Architecture Doc
 # Written: 2026-05-17
-# Status: Ready for Claude Code on MGMT-XPS
+# STATUS: SUPERSEDED 2026-06-22
+# This document describes a historical Agent Zero + AnythingLLM knowledge architecture.
+# Agent Zero is abandoned for all active workflows (see GLOBAL/architecture.md).
+# Current fleet doctrine: GLOBAL/architecture.md, GLOBAL/dream-team.md, GLOBAL/services.md
+# Preserved for historical context only. Do not use for new architecture decisions.
 
 ---
 

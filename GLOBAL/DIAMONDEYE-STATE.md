@@ -3,8 +3,8 @@
 # Updated on schedule (target: every 2 hours when Librarian is running).
 # Any AI reading this: treat all fields as verified unless marked [UNVERIFIED].
 # Do not modify this file manually. Do not guess at field values.
-# Last updated: 2026-06-15 (Session 20b COMPLETE — Auth gap diagnosed: no GitHub PAT anywhere (credential gap, not auth gap). docker restart was incorrect caution — tunedr in docker group. agent-zero-desk restarted, md5 fa7a0103 verified in container. Doctrine updated in limits.md commit 54a616c. Notion: 3806d271-f21c-816c-a7a9-ed75b6cbc3b2. OPEN: Branden must create github.com/tunedr/agent-zero-desk-data and run git push tunedr main.)
-# Architecture: Three-Agent Architecture (Hermes Desk → Agent Zero → Claude Code). Atlas/V2 superseded.
+# Last updated: 2026-06-20 (Librarian Notion MCP commissioned — @notionhq/notion-mcp-server@2.2.1 installed in hermes-librarian container, mcp_servers.notion block added to config.yaml, process confirmed running PID 156 post-restart, Notion API read+write verified from container. Dream Team doc (dream-team.md) proven to upgrade Guru answers from [PLAUSIBLE] to [VERIFIED]. Before/after proof captured this session. Evidence note: 3866d271-f21c-811d-8d94-e6673e4fa561. OPEN: cron sweep (n8n), Tailscale auth on VM107, cross-agent handoff protocol, Guru-tier Notion MCP.)
+# Architecture: Dream Team — XPs_pa (executive) → Desk (builder VP) → Librarian/Guru (truth VP). Claude Code = escalation executor.
 
 ---
 
@@ -48,7 +48,8 @@
 | Atlas Completion Handler | VM104 | n8n workflow | ACTIVE | 2026-05-27 |
 | agent-zero-librarian | VM107 | 7071 | RUNNING (Up 2+ days) | 2026-06-11 |
 | AnythingLLM | VM107 | 3001 | RUNNING (Up 4+ days, healthy) | 2026-06-11 |
-| hermes-librarian | VM107 | 8642 | RUNNING (Up 3+ days, Telegram CONNECTED, last active 2026-06-14T18:05 UTC) | 2026-06-14 |
+| hermes-librarian | VM107 | 8642 | RUNNING — HTTP API SERVER ENABLED 2026-06-20. API_SERVER_ENABLED=true, NOTION_TOKEN propagated, channel_prompts set for chat 8503291663. Telegram CONNECTED. Tunnel: librarian-tunnel.service on MGMT-XPS → local:8647. Provider: local-ollama/llama3.2. NOTION MCP: @notionhq/notion-mcp-server@2.2.1 ACTIVE 2026-06-20 — process PID 156, read+write verified. | 2026-06-20 |
+| hermes-librarian-guru | VM107 | 8646 | RUNNING — HTTP API SERVER ENABLED 2026-06-20. .env created with API_SERVER_ENABLED=true. gpt-5.4 via Codex OAuth. Tunnel: librarian-guru-tunnel.service on MGMT-XPS → local:8648. PROOF: correctly cited 4 SOUL.md escalation triggers verbatim. | 2026-06-20 |
 | hermes-apollo | VM107 | 8643 | RUNNING (Up 20 hours) | 2026-06-11 |
 | hermes-coder | VM107 | 8645 | RUNNING (Up 20 hours) | 2026-06-11 |
 | hermes-truthlens | VM107 | 8644 | RUNNING (Up 20 hours) | 2026-06-11 |
@@ -72,6 +73,7 @@
 3. [RESOLVED 2026-06-14 S15] Codex OAuth on MGMT-XPS — authenticated by Branden. Now active as Agent Zero chat_model (codex_oauth/gpt-4o-mini). Mini-planner lane LIVE.
 4. watchdog.py on VM101 — STOPPED AND DISABLED (2026-06-12, session 4). watchdog.service disabled in user systemd (symlink removed). Do not restart until inode retention guard is implemented and Branden approves. Root cause of stop: watchdog.py was consuming 7.2 GiB RAM + exhausting 23 GiB swap, causing VM101 SSH/ICMP failures. Session record: Notion 37d6d271-f21c-810f-9c84-fe15c79701b9.
 5. DIAMONDEYE-STATE.md Librarian automation — this document is manually seeded. Librarian scheduled sync not yet wired.
+37. [RESOLVED 2026-06-20] Librarian Notion MCP — @notionhq/notion-mcp-server@2.2.1 installed globally in hermes-librarian container (npm install -g), mcp_servers.notion block added to /opt/data/config.yaml, NOTION_TOKEN already in .env. On restart: hermes log shows `+ notion`, process PID 156 running. Notion API read (search 'DiamondEye' → 2 results) and write (evidence page 3866d271-f21c-811d-8d94-e6673e4fa561 under Master Hub) both verified. Caveat: llama3.2 does not reliably invoke MCP tools via hermes -z — direct curl from container or Guru-tier (gpt-5.4) MCP are more reliable invocation paths. Evidence note: 3866d271-f21c-811d-8d94-e6673e4fa561.
 6. pve-studio Tailscale path broken — Tailscale peer exists (100.99.40.111) but path non-functional. LAN only for now.
 7. [RESOLVED 2026-06-12] VM101 QEMU guest agent — was unresponsive during OOM condition in session 4. Confirmed functional after memory recovery: used successfully in sessions 4 and 5 for nftables dump and tcpdump. Both access paths now valid: qm guest exec via Proxmox SSH (root@192.168.1.4) AND Tailscale SSH (tunedr@100.91.173.40) AND LAN SSH (tunedr@192.168.1.136).
 8. Atlas Dead Man Monitor n8n expressions broken — IF node uses {{ .body || }} (should be {{ $json.body }}), Telegram chatId uses {{ .TELEGRAM_CHAT_ID }} (should be {{ $env.TELEGRAM_CHAT_ID }}). Needs 2-field fix in n8n UI at http://192.168.1.19:5679.

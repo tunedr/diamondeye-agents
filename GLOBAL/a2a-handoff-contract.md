@@ -2,6 +2,12 @@
 # DiamondEye Three-Agent Architecture
 # Written: 2026-06-12 — Autonomous Pipeline Completion Repair
 # Maintained by: Hermes Librarian after evidence of working pipeline exists
+#
+# STATUS: SUPERSEDED 2026-06-21 — Desk routing regression fix (Notion: see Desk Routing Regression Fix + Librarian R4 — 2026-06-21)
+# Desk no longer routes through Agent Zero for Desk-initiated tasks.
+# Desk → Cline API (http://192.168.1.136:8766/run, X-API-KEY: desk-cline-2026) is the current path.
+# Agent Zero (port 50080) is still used by AXIOM, publishing, and affiliate — NOT by Desk.
+# This document is preserved for historical context. Do not use for new Desk routing implementations.
 
 ## Purpose
 

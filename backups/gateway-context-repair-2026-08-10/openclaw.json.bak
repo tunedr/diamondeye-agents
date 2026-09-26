@@ -1,0 +1,36 @@
+{
+  "gateway": {
+    "mode": "local",
+    "auth": {
+      "mode": "token",
+      "token": "DiamondEyeGateway2026"
+    },
+    "controlUi": {
+      "allowInsecureAuth": true
+    },
+    "bind": "lan"
+  },
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "openai/gpt-5.5"
+      }
+    }
+  },
+  "meta": {
+    "lastTouchedVersion": "2026.6.1",
+    "lastTouchedAt": "2026-06-04T03:55:56.897Z"
+  },
+  "commands": {
+    "ownerAllowFrom": [
+      "telegram:8503291663"
+    ]
+  },
+  "channels": {
+    "telegram": {
+      "enabled": true,
+      "botToken": "8928005060:AAH-F7vuBus4QU_CTr4RDDy4EY67DwvqdcI",
+      "dmPolicy": "pairing"
+    }
+  }
+}

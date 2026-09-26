@@ -109,6 +109,18 @@ Status meanings:
 6. Active: Documentation changes must preserve rule history by marking rules active, revised, pending review, or deprecated rather than silently deleting them.
    Reason: Added by this revision to make future maintenance auditable.
 
+7. Active: Documented architecture, IP plans, inventory maps, and runbook templates are canonical control surfaces until an owner-approved change updates them; live drift does not by itself rewrite the standard.
+   Reason: Prevents agents from treating noncompliant reality as the new truth just because it is currently reachable.
+
+8. Active: When documented state and observed state differ, record them as three separate fields — canonical state, observed state, and drift — with evidence for each.
+   Reason: Creates a truth-audit model that distinguishes intended design from live variance.
+
+9. Active: Librarian owns the truth-audit / reconciliation lane and should converge verified inventory into the single Grist source of truth rather than letting multiple docs drift independently.
+   Reason: Assigns one system of record and one reconciliation owner.
+
+10. Active: Drift correction should be task-triggered and runbook-backed: when a VM/service is touched for a real business objective, audit current state, capture what is built versus missing, make the bounded correction, and leave a durable runbook with the permanent fix.
+   Reason: Keeps cleanup aligned to revenue work, reduces uncontrolled churn, and ensures each correction leaves reusable operational documentation.
+
 ## Pending/Aspirational Rules
 
 1. Pending review: TrueNAS infrastructure projects were previously gated on "Phase 2b".
